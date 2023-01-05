@@ -40,13 +40,11 @@
             this.satisbutton = new System.Windows.Forms.Button();
             this.stoklarbutton = new System.Windows.Forms.Button();
             this.urunlerbutton = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.anasayfabutton = new System.Windows.Forms.Button();
             this.baslikpanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.icerikpanel = new System.Windows.Forms.Panel();
             this.menupanel.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.baslikpanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,10 +56,10 @@
             this.kapatbutton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.kapatbutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.kapatbutton.Image = ((System.Drawing.Image)(resources.GetObject("kapatbutton.Image")));
-            this.kapatbutton.Location = new System.Drawing.Point(1107, 0);
+            this.kapatbutton.Location = new System.Drawing.Point(1352, 0);
             this.kapatbutton.Margin = new System.Windows.Forms.Padding(0);
             this.kapatbutton.Name = "kapatbutton";
-            this.kapatbutton.Size = new System.Drawing.Size(64, 64);
+            this.kapatbutton.Size = new System.Drawing.Size(48, 48);
             this.kapatbutton.TabIndex = 0;
             this.kapatbutton.UseVisualStyleBackColor = true;
             this.kapatbutton.Click += new System.EventHandler(this.kapatbutton_Click);
@@ -80,11 +78,11 @@
             this.menupanel.Controls.Add(this.satisbutton);
             this.menupanel.Controls.Add(this.stoklarbutton);
             this.menupanel.Controls.Add(this.urunlerbutton);
-            this.menupanel.Controls.Add(this.panel4);
+            this.menupanel.Controls.Add(this.anasayfabutton);
             this.menupanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.menupanel.Location = new System.Drawing.Point(0, 0);
+            this.menupanel.Location = new System.Drawing.Point(0, 48);
             this.menupanel.Name = "menupanel";
-            this.menupanel.Size = new System.Drawing.Size(229, 800);
+            this.menupanel.Size = new System.Drawing.Size(229, 752);
             this.menupanel.TabIndex = 0;
             // 
             // raporbutton
@@ -93,7 +91,7 @@
             this.raporbutton.FlatAppearance.BorderSize = 0;
             this.raporbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.raporbutton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.raporbutton.ForeColor = System.Drawing.Color.Black;
+            this.raporbutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.raporbutton.Image = ((System.Drawing.Image)(resources.GetObject("raporbutton.Image")));
             this.raporbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.raporbutton.Location = new System.Drawing.Point(0, 576);
@@ -113,7 +111,7 @@
             this.marketbbutton.FlatAppearance.BorderSize = 0;
             this.marketbbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.marketbbutton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.marketbbutton.ForeColor = System.Drawing.Color.Black;
+            this.marketbbutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.marketbbutton.Image = ((System.Drawing.Image)(resources.GetObject("marketbbutton.Image")));
             this.marketbbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.marketbbutton.Location = new System.Drawing.Point(0, 512);
@@ -133,7 +131,7 @@
             this.musteributton.FlatAppearance.BorderSize = 0;
             this.musteributton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.musteributton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.musteributton.ForeColor = System.Drawing.Color.Black;
+            this.musteributton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.musteributton.Image = ((System.Drawing.Image)(resources.GetObject("musteributton.Image")));
             this.musteributton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.musteributton.Location = new System.Drawing.Point(0, 448);
@@ -153,7 +151,7 @@
             this.musteribbutton.FlatAppearance.BorderSize = 0;
             this.musteribbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.musteribbutton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.musteribbutton.ForeColor = System.Drawing.Color.Black;
+            this.musteribbutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.musteribbutton.Image = ((System.Drawing.Image)(resources.GetObject("musteribbutton.Image")));
             this.musteribbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.musteribbutton.Location = new System.Drawing.Point(0, 384);
@@ -173,7 +171,7 @@
             this.tedarikcibutton.FlatAppearance.BorderSize = 0;
             this.tedarikcibutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tedarikcibutton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tedarikcibutton.ForeColor = System.Drawing.Color.Black;
+            this.tedarikcibutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.tedarikcibutton.Image = ((System.Drawing.Image)(resources.GetObject("tedarikcibutton.Image")));
             this.tedarikcibutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.tedarikcibutton.Location = new System.Drawing.Point(0, 320);
@@ -193,7 +191,7 @@
             this.personelbutton.FlatAppearance.BorderSize = 0;
             this.personelbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.personelbutton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.personelbutton.ForeColor = System.Drawing.Color.Black;
+            this.personelbutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.personelbutton.Image = ((System.Drawing.Image)(resources.GetObject("personelbutton.Image")));
             this.personelbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.personelbutton.Location = new System.Drawing.Point(0, 256);
@@ -213,7 +211,7 @@
             this.satisbutton.FlatAppearance.BorderSize = 0;
             this.satisbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.satisbutton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.satisbutton.ForeColor = System.Drawing.Color.Black;
+            this.satisbutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.satisbutton.Image = ((System.Drawing.Image)(resources.GetObject("satisbutton.Image")));
             this.satisbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.satisbutton.Location = new System.Drawing.Point(0, 192);
@@ -233,7 +231,7 @@
             this.stoklarbutton.FlatAppearance.BorderSize = 0;
             this.stoklarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.stoklarbutton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.stoklarbutton.ForeColor = System.Drawing.Color.Black;
+            this.stoklarbutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.stoklarbutton.Image = ((System.Drawing.Image)(resources.GetObject("stoklarbutton.Image")));
             this.stoklarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.stoklarbutton.Location = new System.Drawing.Point(0, 128);
@@ -253,7 +251,7 @@
             this.urunlerbutton.FlatAppearance.BorderSize = 0;
             this.urunlerbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.urunlerbutton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.urunlerbutton.ForeColor = System.Drawing.Color.Black;
+            this.urunlerbutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.urunlerbutton.Image = ((System.Drawing.Image)(resources.GetObject("urunlerbutton.Image")));
             this.urunlerbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.urunlerbutton.Location = new System.Drawing.Point(0, 64);
@@ -267,40 +265,35 @@
             this.urunlerbutton.UseVisualStyleBackColor = true;
             this.urunlerbutton.Click += new System.EventHandler(this.menubutton_Click);
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(102)))), ((int)(((byte)(144)))));
-            this.panel4.Controls.Add(this.anasayfabutton);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(229, 64);
-            this.panel4.TabIndex = 0;
-            // 
             // anasayfabutton
             // 
-            this.anasayfabutton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.anasayfabutton.Dock = System.Windows.Forms.DockStyle.Top;
             this.anasayfabutton.FlatAppearance.BorderSize = 0;
             this.anasayfabutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.anasayfabutton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.anasayfabutton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.anasayfabutton.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.anasayfabutton.Image = ((System.Drawing.Image)(resources.GetObject("anasayfabutton.Image")));
+            this.anasayfabutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.anasayfabutton.Location = new System.Drawing.Point(0, 0);
             this.anasayfabutton.Name = "anasayfabutton";
+            this.anasayfabutton.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
             this.anasayfabutton.Size = new System.Drawing.Size(229, 64);
-            this.anasayfabutton.TabIndex = 2;
-            this.anasayfabutton.Text = "Market Otomasyonu";
+            this.anasayfabutton.TabIndex = 10;
+            this.anasayfabutton.Text = "Anasayfa";
+            this.anasayfabutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.anasayfabutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.anasayfabutton.UseVisualStyleBackColor = true;
             this.anasayfabutton.Click += new System.EventHandler(this.menubutton_Click);
             // 
             // baslikpanel
             // 
             this.baslikpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(20)))), ((int)(((byte)(44)))));
-            this.baslikpanel.Controls.Add(this.label1);
             this.baslikpanel.Controls.Add(this.kapatbutton);
+            this.baslikpanel.Controls.Add(this.label1);
             this.baslikpanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.baslikpanel.Location = new System.Drawing.Point(229, 0);
+            this.baslikpanel.Location = new System.Drawing.Point(0, 0);
             this.baslikpanel.Name = "baslikpanel";
-            this.baslikpanel.Size = new System.Drawing.Size(1171, 64);
+            this.baslikpanel.Size = new System.Drawing.Size(1400, 48);
             this.baslikpanel.TabIndex = 0;
             // 
             // label1
@@ -310,7 +303,7 @@
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1107, 64);
+            this.label1.Size = new System.Drawing.Size(1400, 48);
             this.label1.TabIndex = 1;
             this.label1.Text = "Anasayfa";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -321,9 +314,9 @@
             // icerikpanel
             // 
             this.icerikpanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.icerikpanel.Location = new System.Drawing.Point(229, 64);
+            this.icerikpanel.Location = new System.Drawing.Point(229, 48);
             this.icerikpanel.Name = "icerikpanel";
-            this.icerikpanel.Size = new System.Drawing.Size(1171, 736);
+            this.icerikpanel.Size = new System.Drawing.Size(1171, 752);
             this.icerikpanel.TabIndex = 1;
             // 
             // AnasayfaForm
@@ -332,13 +325,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1400, 800);
             this.Controls.Add(this.icerikpanel);
-            this.Controls.Add(this.baslikpanel);
             this.Controls.Add(this.menupanel);
+            this.Controls.Add(this.baslikpanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AnasayfaForm";
             this.Text = "AnasayfaForm";
             this.menupanel.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.baslikpanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -349,9 +341,7 @@
         private Button kapatbutton;
         private Panel menupanel;
         private Panel baslikpanel;
-        private Panel panel4;
         private Button urunlerbutton;
-        private Button anasayfabutton;
         private Button musteribbutton;
         private Button tedarikcibutton;
         private Button personelbutton;
@@ -362,5 +352,6 @@
         private Button musteributton;
         private Panel icerikpanel;
         private Label label1;
+        private Button anasayfabutton;
     }
 }
