@@ -73,7 +73,7 @@
             this.label1.Size = new System.Drawing.Size(120, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Tedarikçi No :";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBox1
             // 
