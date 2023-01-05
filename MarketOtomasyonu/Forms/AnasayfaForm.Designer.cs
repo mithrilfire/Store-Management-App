@@ -124,6 +124,7 @@
             this.marketbbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.marketbbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.marketbbutton.UseVisualStyleBackColor = true;
+            this.marketbbutton.Click += new System.EventHandler(this.marketbbutton_Click);
             // 
             // musteributton
             // 
@@ -257,6 +258,7 @@
             this.urunlerbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.urunlerbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.urunlerbutton.UseVisualStyleBackColor = true;
+            this.urunlerbutton.Click += new System.EventHandler(this.urunlerbutton_Click);
             // 
             // panel4
             // 

@@ -17,6 +17,20 @@ namespace MarketOtomasyonu.Forms
         bool mouseDown;
         Point lastLocation;
 
+        enum Sayfalar
+        {
+            Anasayfa,
+            Urunler,
+            Stoklar,
+            Satis,
+            Musteriler,
+            MusteriBorclar,
+            Personel,
+            Tedarikci,
+            MarketBorclari,
+            Raporlar
+        }
+
         public AnasayfaForm()
         {
             InitializeComponent();
@@ -45,6 +59,7 @@ namespace MarketOtomasyonu.Forms
         {
             icerikpanel.Controls.Clear();
             icerikpanel.Controls.Add(new Anasayfa());
+            label1.Text = "Anasayfa";
         }
 
         private void kapatbutton_MouseEnter(object sender, EventArgs e)
@@ -89,6 +104,26 @@ namespace MarketOtomasyonu.Forms
 
                 this.Update();
             }
+        }
+
+        private void urunlerbutton_Click(object sender, EventArgs e)
+        {
+            var urunler = new Urunler();
+            UpdateView(urunler);
+        }
+
+        private void UpdateView(UserControl page)
+        {
+            icerikpanel.Controls.Clear();
+            icerikpanel.Controls.Add(page);
+
+            label1.Text = "PageName";
+        }
+
+        private void marketbbutton_Click(object sender, EventArgs e)
+        {
+            var borclar = new MarketBorclar();
+            UpdateView(borclar);
         }
     }
 }
