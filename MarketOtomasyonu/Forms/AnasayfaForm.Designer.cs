@@ -70,7 +70,7 @@
             // 
             // menupanel
             // 
-            this.menupanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.menupanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(39)))), ((int)(((byte)(56)))));
             this.menupanel.Controls.Add(this.raporbutton);
             this.menupanel.Controls.Add(this.marketbbutton);
             this.menupanel.Controls.Add(this.musteributton);
@@ -105,6 +105,7 @@
             this.raporbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.raporbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.raporbutton.UseVisualStyleBackColor = true;
+            this.raporbutton.Click += new System.EventHandler(this.menubutton_Click);
             // 
             // marketbbutton
             // 
@@ -124,7 +125,7 @@
             this.marketbbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.marketbbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.marketbbutton.UseVisualStyleBackColor = true;
-            this.marketbbutton.Click += new System.EventHandler(this.marketbbutton_Click);
+            this.marketbbutton.Click += new System.EventHandler(this.menubutton_Click);
             // 
             // musteributton
             // 
@@ -144,6 +145,7 @@
             this.musteributton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.musteributton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.musteributton.UseVisualStyleBackColor = true;
+            this.musteributton.Click += new System.EventHandler(this.menubutton_Click);
             // 
             // musteribbutton
             // 
@@ -163,6 +165,7 @@
             this.musteribbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.musteribbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.musteribbutton.UseVisualStyleBackColor = true;
+            this.musteribbutton.Click += new System.EventHandler(this.menubutton_Click);
             // 
             // tedarikcibutton
             // 
@@ -182,6 +185,7 @@
             this.tedarikcibutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.tedarikcibutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.tedarikcibutton.UseVisualStyleBackColor = true;
+            this.tedarikcibutton.Click += new System.EventHandler(this.menubutton_Click);
             // 
             // personelbutton
             // 
@@ -201,6 +205,7 @@
             this.personelbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.personelbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.personelbutton.UseVisualStyleBackColor = true;
+            this.personelbutton.Click += new System.EventHandler(this.menubutton_Click);
             // 
             // satisbutton
             // 
@@ -220,6 +225,7 @@
             this.satisbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.satisbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.satisbutton.UseVisualStyleBackColor = true;
+            this.satisbutton.Click += new System.EventHandler(this.menubutton_Click);
             // 
             // stoklarbutton
             // 
@@ -239,6 +245,7 @@
             this.stoklarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.stoklarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.stoklarbutton.UseVisualStyleBackColor = true;
+            this.stoklarbutton.Click += new System.EventHandler(this.menubutton_Click);
             // 
             // urunlerbutton
             // 
@@ -258,7 +265,7 @@
             this.urunlerbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.urunlerbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.urunlerbutton.UseVisualStyleBackColor = true;
-            this.urunlerbutton.Click += new System.EventHandler(this.urunlerbutton_Click);
+            this.urunlerbutton.Click += new System.EventHandler(this.menubutton_Click);
             // 
             // panel4
             // 
@@ -283,11 +290,11 @@
             this.anasayfabutton.TabIndex = 2;
             this.anasayfabutton.Text = "Market Otomasyonu";
             this.anasayfabutton.UseVisualStyleBackColor = true;
-            this.anasayfabutton.Click += new System.EventHandler(this.anasayfabutton_Click);
+            this.anasayfabutton.Click += new System.EventHandler(this.menubutton_Click);
             // 
             // baslikpanel
             // 
-            this.baslikpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(102)))), ((int)(((byte)(144)))));
+            this.baslikpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(20)))), ((int)(((byte)(44)))));
             this.baslikpanel.Controls.Add(this.label1);
             this.baslikpanel.Controls.Add(this.kapatbutton);
             this.baslikpanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -295,8 +302,6 @@
             this.baslikpanel.Name = "baslikpanel";
             this.baslikpanel.Size = new System.Drawing.Size(1171, 64);
             this.baslikpanel.TabIndex = 0;
-            this.baslikpanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.baslikpanel_MouseDown);
-            this.baslikpanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.baslikpanel_MouseUp);
             // 
             // label1
             // 
