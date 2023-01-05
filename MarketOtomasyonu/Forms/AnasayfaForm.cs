@@ -1,4 +1,5 @@
 ﻿using MarketOtomasyonu.UserControls;
+using MarketOtomasyonu.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,20 +17,6 @@ namespace MarketOtomasyonu.Forms
     {
         bool mouseDown;
         Point lastLocation;
-
-        enum Sayfalar
-        {
-            Anasayfa,
-            Urunler,
-            Stoklar,
-            Satis,
-            Musteriler,
-            MusteriBorclar,
-            Personel,
-            Tedarikci,
-            MarketBorclari,
-            Raporlar
-        }
 
         public AnasayfaForm()
         {
@@ -55,13 +42,6 @@ namespace MarketOtomasyonu.Forms
             Application.Exit();
         }
 
-        private void anasayfabutton_Click(object sender, EventArgs e)
-        {
-            icerikpanel.Controls.Clear();
-            icerikpanel.Controls.Add(new Anasayfa());
-            label1.Text = "Anasayfa";
-        }
-
         private void kapatbutton_MouseEnter(object sender, EventArgs e)
         {
             kapatbutton.BackColor = Color.Red;
@@ -72,22 +52,11 @@ namespace MarketOtomasyonu.Forms
             kapatbutton.BackColor = Color.FromArgb(53, 102, 144);
         }
 
-        private void baslikpanel_MouseDown(object sender, MouseEventArgs e)
-        {
-            
-        }
-
-        private void baslikpanel_MouseUp(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void label1_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
             lastLocation = e.Location;
         }
-
 
 
         private void label1_MouseUp(object sender, MouseEventArgs e)
@@ -106,24 +75,42 @@ namespace MarketOtomasyonu.Forms
             }
         }
 
-        private void urunlerbutton_Click(object sender, EventArgs e)
-        {
-            var urunler = new Urunler();
-            UpdateView(urunler);
-        }
 
-        private void UpdateView(UserControl page)
+        private void UpdatePageView(object sender)
         {
+            var page = MenuUtil.GetPage(sender);
             icerikpanel.Controls.Clear();
             icerikpanel.Controls.Add(page);
 
-            label1.Text = "PageName";
+            label1.Text = page.Name;
         }
 
-        private void marketbbutton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Menu panelindeki buttonlarin gorunumu gunceller. Aktif panelin buttonu renk degistirir, diger buttonlar ayni kalir.
+        /// </summary>
+        /// <param name="sender">Eventi cagiran buttonun nesnesi.</param>
+        private void UpdateMenuView(object sender)
         {
-            var borclar = new MarketBorclar();
-            UpdateView(borclar);
+            var button = (Button)sender;
+
+            foreach (var mbutton in menupanel.Controls.OfType<Button>())
+            {
+                mbutton.BackColor = Color.SteelBlue;
+            }
+
+            button.BackColor = Color.LightSkyBlue;
+        }
+
+        /// <summary>
+        /// Menu panelindeki buttonlarin event handleri bu eventi kullanir. 
+        /// Menu panelindeki gorunumu gunceller ve icerik paneline acilmasi istenen sayfayi getirir.
+        /// </summary>
+        /// <param name="sender">Eventi cagiran buttonun nesnesi.</param>
+        /// <param name="e">Event argumanlari.</param>
+        private void menubutton_Click(object sender, EventArgs e)
+        {
+            UpdatePageView(sender);
+            UpdateMenuView(sender);
         }
     }
 }
