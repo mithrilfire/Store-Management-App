@@ -41,10 +41,17 @@
             this.stoklarbutton = new System.Windows.Forms.Button();
             this.urunlerbutton = new System.Windows.Forms.Button();
             this.anasayfabutton = new System.Windows.Forms.Button();
+            this.userpanel = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.baslikpanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.icerikpanel = new System.Windows.Forms.Panel();
             this.menupanel.SuspendLayout();
+            this.userpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.baslikpanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +66,7 @@
             this.kapatbutton.Location = new System.Drawing.Point(1352, 0);
             this.kapatbutton.Margin = new System.Windows.Forms.Padding(0);
             this.kapatbutton.Name = "kapatbutton";
-            this.kapatbutton.Size = new System.Drawing.Size(48, 48);
+            this.kapatbutton.Size = new System.Drawing.Size(48, 32);
             this.kapatbutton.TabIndex = 0;
             this.kapatbutton.UseVisualStyleBackColor = true;
             this.kapatbutton.Click += new System.EventHandler(this.kapatbutton_Click);
@@ -79,10 +86,11 @@
             this.menupanel.Controls.Add(this.stoklarbutton);
             this.menupanel.Controls.Add(this.urunlerbutton);
             this.menupanel.Controls.Add(this.anasayfabutton);
+            this.menupanel.Controls.Add(this.userpanel);
             this.menupanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.menupanel.Location = new System.Drawing.Point(0, 48);
+            this.menupanel.Location = new System.Drawing.Point(0, 32);
             this.menupanel.Name = "menupanel";
-            this.menupanel.Size = new System.Drawing.Size(229, 752);
+            this.menupanel.Size = new System.Drawing.Size(240, 768);
             this.menupanel.TabIndex = 0;
             // 
             // raporbutton
@@ -94,10 +102,10 @@
             this.raporbutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.raporbutton.Image = ((System.Drawing.Image)(resources.GetObject("raporbutton.Image")));
             this.raporbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.raporbutton.Location = new System.Drawing.Point(0, 576);
+            this.raporbutton.Location = new System.Drawing.Point(0, 632);
             this.raporbutton.Name = "raporbutton";
             this.raporbutton.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.raporbutton.Size = new System.Drawing.Size(229, 64);
+            this.raporbutton.Size = new System.Drawing.Size(240, 56);
             this.raporbutton.TabIndex = 9;
             this.raporbutton.Text = "Raporlar";
             this.raporbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -114,10 +122,10 @@
             this.marketbbutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.marketbbutton.Image = ((System.Drawing.Image)(resources.GetObject("marketbbutton.Image")));
             this.marketbbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.marketbbutton.Location = new System.Drawing.Point(0, 512);
+            this.marketbbutton.Location = new System.Drawing.Point(0, 576);
             this.marketbbutton.Name = "marketbbutton";
             this.marketbbutton.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.marketbbutton.Size = new System.Drawing.Size(229, 64);
+            this.marketbbutton.Size = new System.Drawing.Size(240, 56);
             this.marketbbutton.TabIndex = 8;
             this.marketbbutton.Text = "Market Borçları";
             this.marketbbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -134,10 +142,10 @@
             this.musteributton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.musteributton.Image = ((System.Drawing.Image)(resources.GetObject("musteributton.Image")));
             this.musteributton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.musteributton.Location = new System.Drawing.Point(0, 448);
+            this.musteributton.Location = new System.Drawing.Point(0, 520);
             this.musteributton.Name = "musteributton";
             this.musteributton.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.musteributton.Size = new System.Drawing.Size(229, 64);
+            this.musteributton.Size = new System.Drawing.Size(240, 56);
             this.musteributton.TabIndex = 7;
             this.musteributton.Text = "Müşteriler";
             this.musteributton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -154,10 +162,10 @@
             this.musteribbutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.musteribbutton.Image = ((System.Drawing.Image)(resources.GetObject("musteribbutton.Image")));
             this.musteribbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.musteribbutton.Location = new System.Drawing.Point(0, 384);
+            this.musteribbutton.Location = new System.Drawing.Point(0, 464);
             this.musteribbutton.Name = "musteribbutton";
             this.musteribbutton.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.musteribbutton.Size = new System.Drawing.Size(229, 64);
+            this.musteribbutton.Size = new System.Drawing.Size(240, 56);
             this.musteribbutton.TabIndex = 6;
             this.musteribbutton.Text = "Müşteri Borçlar";
             this.musteribbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -174,10 +182,10 @@
             this.tedarikcibutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.tedarikcibutton.Image = ((System.Drawing.Image)(resources.GetObject("tedarikcibutton.Image")));
             this.tedarikcibutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tedarikcibutton.Location = new System.Drawing.Point(0, 320);
+            this.tedarikcibutton.Location = new System.Drawing.Point(0, 408);
             this.tedarikcibutton.Name = "tedarikcibutton";
             this.tedarikcibutton.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.tedarikcibutton.Size = new System.Drawing.Size(229, 64);
+            this.tedarikcibutton.Size = new System.Drawing.Size(240, 56);
             this.tedarikcibutton.TabIndex = 5;
             this.tedarikcibutton.Text = "Tedarikçi";
             this.tedarikcibutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -194,10 +202,10 @@
             this.personelbutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.personelbutton.Image = ((System.Drawing.Image)(resources.GetObject("personelbutton.Image")));
             this.personelbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.personelbutton.Location = new System.Drawing.Point(0, 256);
+            this.personelbutton.Location = new System.Drawing.Point(0, 352);
             this.personelbutton.Name = "personelbutton";
             this.personelbutton.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.personelbutton.Size = new System.Drawing.Size(229, 64);
+            this.personelbutton.Size = new System.Drawing.Size(240, 56);
             this.personelbutton.TabIndex = 4;
             this.personelbutton.Text = "Personel";
             this.personelbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -214,10 +222,10 @@
             this.satisbutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.satisbutton.Image = ((System.Drawing.Image)(resources.GetObject("satisbutton.Image")));
             this.satisbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.satisbutton.Location = new System.Drawing.Point(0, 192);
+            this.satisbutton.Location = new System.Drawing.Point(0, 296);
             this.satisbutton.Name = "satisbutton";
             this.satisbutton.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.satisbutton.Size = new System.Drawing.Size(229, 64);
+            this.satisbutton.Size = new System.Drawing.Size(240, 56);
             this.satisbutton.TabIndex = 3;
             this.satisbutton.Text = "Satış";
             this.satisbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -234,10 +242,10 @@
             this.stoklarbutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.stoklarbutton.Image = ((System.Drawing.Image)(resources.GetObject("stoklarbutton.Image")));
             this.stoklarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.stoklarbutton.Location = new System.Drawing.Point(0, 128);
+            this.stoklarbutton.Location = new System.Drawing.Point(0, 240);
             this.stoklarbutton.Name = "stoklarbutton";
             this.stoklarbutton.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.stoklarbutton.Size = new System.Drawing.Size(229, 64);
+            this.stoklarbutton.Size = new System.Drawing.Size(240, 56);
             this.stoklarbutton.TabIndex = 2;
             this.stoklarbutton.Text = "Stoklar";
             this.stoklarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -254,10 +262,10 @@
             this.urunlerbutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.urunlerbutton.Image = ((System.Drawing.Image)(resources.GetObject("urunlerbutton.Image")));
             this.urunlerbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.urunlerbutton.Location = new System.Drawing.Point(0, 64);
+            this.urunlerbutton.Location = new System.Drawing.Point(0, 184);
             this.urunlerbutton.Name = "urunlerbutton";
             this.urunlerbutton.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.urunlerbutton.Size = new System.Drawing.Size(229, 64);
+            this.urunlerbutton.Size = new System.Drawing.Size(240, 56);
             this.urunlerbutton.TabIndex = 1;
             this.urunlerbutton.Text = "Ürünler";
             this.urunlerbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -274,16 +282,67 @@
             this.anasayfabutton.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.anasayfabutton.Image = ((System.Drawing.Image)(resources.GetObject("anasayfabutton.Image")));
             this.anasayfabutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.anasayfabutton.Location = new System.Drawing.Point(0, 0);
+            this.anasayfabutton.Location = new System.Drawing.Point(0, 128);
             this.anasayfabutton.Name = "anasayfabutton";
             this.anasayfabutton.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.anasayfabutton.Size = new System.Drawing.Size(229, 64);
+            this.anasayfabutton.Size = new System.Drawing.Size(240, 56);
             this.anasayfabutton.TabIndex = 10;
             this.anasayfabutton.Text = "Anasayfa";
             this.anasayfabutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.anasayfabutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.anasayfabutton.UseVisualStyleBackColor = true;
             this.anasayfabutton.Click += new System.EventHandler(this.menubutton_Click);
+            // 
+            // userpanel
+            // 
+            this.userpanel.Controls.Add(this.label4);
+            this.userpanel.Controls.Add(this.label2);
+            this.userpanel.Controls.Add(this.pictureBox1);
+            this.userpanel.Controls.Add(this.label3);
+            this.userpanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.userpanel.Location = new System.Drawing.Point(0, 0);
+            this.userpanel.Name = "userpanel";
+            this.userpanel.Size = new System.Drawing.Size(240, 128);
+            this.userpanel.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Location = new System.Drawing.Point(0, 112);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(240, 16);
+            this.label4.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(0, 80);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(240, 32);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Alperen Tellioğlu";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(240, 64);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(240, 16);
+            this.label3.TabIndex = 0;
             // 
             // baslikpanel
             // 
@@ -293,19 +352,19 @@
             this.baslikpanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.baslikpanel.Location = new System.Drawing.Point(0, 0);
             this.baslikpanel.Name = "baslikpanel";
-            this.baslikpanel.Size = new System.Drawing.Size(1400, 48);
+            this.baslikpanel.Size = new System.Drawing.Size(1400, 32);
             this.baslikpanel.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1400, 48);
+            this.label1.Size = new System.Drawing.Size(1400, 32);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Anasayfa";
+            this.label1.Text = "Market Otomasyonu";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
             this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label1_MouseMove);
@@ -314,9 +373,9 @@
             // icerikpanel
             // 
             this.icerikpanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.icerikpanel.Location = new System.Drawing.Point(229, 48);
+            this.icerikpanel.Location = new System.Drawing.Point(240, 32);
             this.icerikpanel.Name = "icerikpanel";
-            this.icerikpanel.Size = new System.Drawing.Size(1171, 752);
+            this.icerikpanel.Size = new System.Drawing.Size(1160, 768);
             this.icerikpanel.TabIndex = 1;
             // 
             // AnasayfaForm
@@ -331,6 +390,8 @@
             this.Name = "AnasayfaForm";
             this.Text = "AnasayfaForm";
             this.menupanel.ResumeLayout(false);
+            this.userpanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.baslikpanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -353,5 +414,10 @@
         private Panel icerikpanel;
         private Label label1;
         private Button anasayfabutton;
+        private Panel userpanel;
+        private Label label2;
+        private Label label4;
+        private PictureBox pictureBox1;
+        private Label label3;
     }
 }

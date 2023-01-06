@@ -80,8 +80,6 @@ namespace MarketOtomasyonu.Forms
             var page = MenuUtil.GetPage(sender);
             icerikpanel.Controls.Clear();
             icerikpanel.Controls.Add(page);
-
-            label1.Text = page.Name;
         }
 
         /// <summary>
