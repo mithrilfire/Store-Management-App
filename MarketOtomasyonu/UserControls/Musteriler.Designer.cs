@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.listeleBtn = new System.Windows.Forms.Button();
+            this.musSoyadiTxtbox = new System.Windows.Forms.TextBox();
+            this.musSoyadiLbl = new System.Windows.Forms.Label();
+            this.musAdiTxtbox = new System.Windows.Forms.TextBox();
+            this.musAdiLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,63 +46,63 @@
             this.dataGridView1.Size = new System.Drawing.Size(702, 626);
             this.dataGridView1.TabIndex = 0;
             // 
-            // button1
+            // listeleBtn
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(919, 175);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 30);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Listele";
-            this.button1.UseVisualStyleBackColor = true;
+            this.listeleBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listeleBtn.Location = new System.Drawing.Point(919, 175);
+            this.listeleBtn.Name = "listeleBtn";
+            this.listeleBtn.Size = new System.Drawing.Size(90, 30);
+            this.listeleBtn.TabIndex = 9;
+            this.listeleBtn.Text = "Listele";
+            this.listeleBtn.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // musSoyadiTxtbox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(969, 125);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 29);
-            this.textBox1.TabIndex = 8;
+            this.musSoyadiTxtbox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.musSoyadiTxtbox.Location = new System.Drawing.Point(969, 125);
+            this.musSoyadiTxtbox.Name = "musSoyadiTxtbox";
+            this.musSoyadiTxtbox.Size = new System.Drawing.Size(120, 29);
+            this.musSoyadiTxtbox.TabIndex = 8;
             // 
-            // label1
+            // musSoyadiLbl
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label1.Location = new System.Drawing.Point(829, 128);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 20);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Müşteri Soyadı :";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.musSoyadiLbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.musSoyadiLbl.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.musSoyadiLbl.Location = new System.Drawing.Point(829, 128);
+            this.musSoyadiLbl.Name = "musSoyadiLbl";
+            this.musSoyadiLbl.Size = new System.Drawing.Size(125, 20);
+            this.musSoyadiLbl.TabIndex = 7;
+            this.musSoyadiLbl.Text = "Müşteri Soyadı :";
+            this.musSoyadiLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox2
+            // musAdiTxtbox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(969, 75);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 29);
-            this.textBox2.TabIndex = 11;
+            this.musAdiTxtbox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.musAdiTxtbox.Location = new System.Drawing.Point(969, 75);
+            this.musAdiTxtbox.Name = "musAdiTxtbox";
+            this.musAdiTxtbox.Size = new System.Drawing.Size(120, 29);
+            this.musAdiTxtbox.TabIndex = 11;
             // 
-            // label2
+            // musAdiLbl
             // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label2.Location = new System.Drawing.Point(829, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 20);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Müşteri Adı :";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.musAdiLbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.musAdiLbl.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.musAdiLbl.Location = new System.Drawing.Point(829, 78);
+            this.musAdiLbl.Name = "musAdiLbl";
+            this.musAdiLbl.Size = new System.Drawing.Size(125, 20);
+            this.musAdiLbl.TabIndex = 10;
+            this.musAdiLbl.Text = "Müşteri Adı :";
+            this.musAdiLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Musteriler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.musAdiTxtbox);
+            this.Controls.Add(this.musAdiLbl);
+            this.Controls.Add(this.listeleBtn);
+            this.Controls.Add(this.musSoyadiTxtbox);
+            this.Controls.Add(this.musSoyadiLbl);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Musteriler";
             this.Size = new System.Drawing.Size(1171, 736);
@@ -115,10 +115,10 @@
         #endregion
 
         private DataGridView dataGridView1;
-        private Button button1;
-        private TextBox textBox1;
-        private Label label1;
-        private TextBox textBox2;
-        private Label label2;
+        private Button listeleBtn;
+        private TextBox musSoyadiTxtbox;
+        private Label musSoyadiLbl;
+        private TextBox musAdiTxtbox;
+        private Label musAdiLbl;
     }
 }
