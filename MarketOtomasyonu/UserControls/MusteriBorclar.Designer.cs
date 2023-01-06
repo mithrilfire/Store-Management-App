@@ -208,7 +208,7 @@
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Name = "MusteriBorclar";
-            this.Size = new System.Drawing.Size(1171, 736);
+            this.Size = new System.Drawing.Size(1160, 768);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
