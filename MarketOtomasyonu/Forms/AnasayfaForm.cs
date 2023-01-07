@@ -49,7 +49,7 @@ namespace MarketOtomasyonu.Forms
 
         private void kapatbutton_MouseLeave(object sender, EventArgs e)
         {
-            kapatbutton.BackColor = Color.FromArgb(53, 102, 144);
+            kapatbutton.BackColor = Color.FromArgb(0x16, 0x14, 0x2c);
         }
 
         private void label1_MouseDown(object sender, MouseEventArgs e)
@@ -75,14 +75,11 @@ namespace MarketOtomasyonu.Forms
             }
         }
 
-
         private void UpdatePageView(object sender)
         {
             var page = MenuUtil.GetPage(sender);
             icerikpanel.Controls.Clear();
             icerikpanel.Controls.Add(page);
-
-            label1.Text = page.Name;
         }
 
         /// <summary>
@@ -95,10 +92,10 @@ namespace MarketOtomasyonu.Forms
 
             foreach (var mbutton in menupanel.Controls.OfType<Button>())
             {
-                mbutton.BackColor = Color.SteelBlue;
+                mbutton.BackColor = Color.FromArgb(0x25, 0x27, 0x38);
             }
 
-            button.BackColor = Color.LightSkyBlue;
+            button.BackColor = Color.FromArgb(0x3c, 0x42, 0x78); //#9ca2db
         }
 
         /// <summary>
