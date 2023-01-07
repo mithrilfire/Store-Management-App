@@ -34,6 +34,7 @@
             this.tedarikciNoTxtbox = new System.Windows.Forms.TextBox();
             this.tedarikciNoLbl = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ekleBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@
             // listeleBtn
             // 
             this.listeleBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listeleBtn.Location = new System.Drawing.Point(919, 175);
+            this.listeleBtn.Location = new System.Drawing.Point(864, 175);
             this.listeleBtn.Name = "listeleBtn";
             this.listeleBtn.Size = new System.Drawing.Size(90, 30);
             this.listeleBtn.TabIndex = 15;
@@ -94,10 +95,21 @@
             this.dataGridView1.Size = new System.Drawing.Size(702, 626);
             this.dataGridView1.TabIndex = 12;
             // 
+            // ekleBtn
+            // 
+            this.ekleBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ekleBtn.Location = new System.Drawing.Point(986, 175);
+            this.ekleBtn.Name = "ekleBtn";
+            this.ekleBtn.Size = new System.Drawing.Size(90, 30);
+            this.ekleBtn.TabIndex = 18;
+            this.ekleBtn.Text = "Ekle";
+            this.ekleBtn.UseVisualStyleBackColor = true;
+            // 
             // Tedarikci
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ekleBtn);
             this.Controls.Add(this.tedarikciTxtbox);
             this.Controls.Add(this.tedarikciLbl);
             this.Controls.Add(this.listeleBtn);
@@ -120,5 +132,6 @@
         private TextBox tedarikciNoTxtbox;
         private Label tedarikciNoLbl;
         private DataGridView dataGridView1;
+        private Button ekleBtn;
     }
 }

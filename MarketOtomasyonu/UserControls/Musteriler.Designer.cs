@@ -34,6 +34,7 @@
             this.musSoyadiLbl = new System.Windows.Forms.Label();
             this.musAdiTxtbox = new System.Windows.Forms.TextBox();
             this.musAdiLbl = new System.Windows.Forms.Label();
+            this.ekleBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             // listeleBtn
             // 
             this.listeleBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listeleBtn.Location = new System.Drawing.Point(919, 175);
+            this.listeleBtn.Location = new System.Drawing.Point(864, 175);
             this.listeleBtn.Name = "listeleBtn";
             this.listeleBtn.Size = new System.Drawing.Size(90, 30);
             this.listeleBtn.TabIndex = 9;
@@ -94,10 +95,21 @@
             this.musAdiLbl.Text = "Müşteri Adı :";
             this.musAdiLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // ekleBtn
+            // 
+            this.ekleBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ekleBtn.Location = new System.Drawing.Point(983, 175);
+            this.ekleBtn.Name = "ekleBtn";
+            this.ekleBtn.Size = new System.Drawing.Size(90, 30);
+            this.ekleBtn.TabIndex = 12;
+            this.ekleBtn.Text = "Ekle";
+            this.ekleBtn.UseVisualStyleBackColor = true;
+            // 
             // Musteriler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ekleBtn);
             this.Controls.Add(this.musAdiTxtbox);
             this.Controls.Add(this.musAdiLbl);
             this.Controls.Add(this.listeleBtn);
@@ -120,5 +132,6 @@
         private Label musSoyadiLbl;
         private TextBox musAdiTxtbox;
         private Label musAdiLbl;
+        private Button ekleBtn;
     }
 }
