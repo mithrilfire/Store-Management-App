@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarketOtomasyonu.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,12 +37,21 @@ namespace MarketOtomasyonu.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Equals("admin") && textBox2.Text.Equals("admin"))
+            using (var db = new MarketDBContext())
             {
-                var form = new AnasayfaForm();
-                form.Show();
-                form.Activate();
-                this.Hide();
+                bool sonuc = db.personeller.
+                    Any(p => p.KullaniciAdi.Equals(textBox1.Text) && p.Sifre.Equals(textBox2.Text));
+
+                if (sonuc)
+                {
+                    int personelId = db.personeller.
+                        Where(p => p.KullaniciAdi.Equals(textBox1.Text) && p.Sifre.Equals(textBox2.Text)).
+                        First().PersonelId;
+                    var form = new AnasayfaForm(personelId);
+                    form.Show();
+                    form.Activate();
+                    this.Hide();
+                }
             }
         }
 

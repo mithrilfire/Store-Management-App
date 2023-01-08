@@ -18,16 +18,30 @@ namespace MarketOtomasyonu.Forms
     {
         bool mouseDown;
         Point lastLocation;
+        int personelId;
 
-        public AnasayfaForm()
+        public int PersonelId { get => personelId; }
+
+        public AnasayfaForm(int personelId)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            
+            this.personelId = personelId;
+            Models.Personel activePersonel;
+
             using (var db = new MarketDBContext())
             {
-                label1.Text = db.stoklar.ToList().Count.ToString();
+                activePersonel = db.personeller.Where(p => p.PersonelId == personelId).First();
             }
+            
+            personelAdiLbl.Text = $"{activePersonel.Adi} {activePersonel.Soyadi}";
+
+            personelBtn.Visible = activePersonel.Yonetici;
+            tedarikciBtn.Visible = activePersonel.Yonetici;
+            marketBorcBtn.Visible = activePersonel.Yonetici;
+            raporBtn.Visible = activePersonel.Yonetici;
         }
 
 
@@ -49,12 +63,12 @@ namespace MarketOtomasyonu.Forms
 
         private void kapatbutton_MouseEnter(object sender, EventArgs e)
         {
-            kapatbutton.BackColor = Color.Red;
+            kapatBtn.BackColor = Color.Red;
         }
 
         private void kapatbutton_MouseLeave(object sender, EventArgs e)
         {
-            kapatbutton.BackColor = Color.FromArgb(0x16, 0x14, 0x2c);
+            kapatBtn.BackColor = Color.FromArgb(0x16, 0x14, 0x2c);
         }
 
         private void label1_MouseDown(object sender, MouseEventArgs e)
@@ -83,8 +97,8 @@ namespace MarketOtomasyonu.Forms
         private void UpdatePageView(object sender)
         {
             var page = MenuUtil.GetPage(sender);
-            icerikpanel.Controls.Clear();
-            icerikpanel.Controls.Add(page);
+            icerikPnl.Controls.Clear();
+            icerikPnl.Controls.Add(page);
         }
 
         /// <summary>
@@ -95,7 +109,7 @@ namespace MarketOtomasyonu.Forms
         {
             var button = (Button)sender;
 
-            foreach (var mbutton in menupanel.Controls.OfType<Button>())
+            foreach (var mbutton in menuPnl.Controls.OfType<Button>())
             {
                 mbutton.BackColor = Color.FromArgb(0x25, 0x27, 0x38);
             }

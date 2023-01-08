@@ -11,6 +11,7 @@ namespace MarketOtomasyonu.Models
     {
         // Birincil Anahtar
         public int PersonelId { get; set; }
+        public bool Yonetici { get; set; }
         public string Adi { get; set; }
         public string Soyadi { get; set; }
         public string KullaniciAdi { get; set; }
