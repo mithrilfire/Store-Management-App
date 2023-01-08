@@ -22,7 +22,15 @@ namespace MarketOtomasyonu.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // todo connection ekle
+            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=MarketDatabase;Trusted_Connection=True;");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Urun>().Property(u => u.UrunId).ValueGeneratedNever();
+            modelBuilder.Entity<Stok>().HasKey( s => new { s.UrunId, s.IrsaliyeId } );
+            modelBuilder.Entity<Stok>().HasOne(s => s.Tedarikci).WithMany(t => t.Stoks).HasForeignKey(s => s.TedarikciId );
         }
     }
 }

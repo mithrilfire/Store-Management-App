@@ -9,14 +9,11 @@ namespace MarketOtomasyonu.Models
 {
     internal class Personel
     {
+        // Birincil Anahtar
         public int PersonelId { get; set; }
-        [Required]
         public string Adi { get; set; }
-        [Required]
         public string Soyadi { get; set; }
-        [Required]
         public string KullaniciAdi { get; set; }
-        [Required]
         public string Sifre { get; set; }
     }
 }

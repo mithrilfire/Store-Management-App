@@ -9,12 +9,12 @@ namespace MarketOtomasyonu.Models
 {
     internal class Musteri
     {
+        // Birincil Anahtar
         public int MusteriId { get; set; }
-        [Required]
         public string Adi { get; set; }
-        [Required]
         public string Soyadi { get; set; }
 
-        public List<Veresiye> Veresiyeler { get;set; }
+        // Navigasyon Nesnesi
+        public virtual List<Veresiye> Veresiyes { get; private set; }
     }
 }

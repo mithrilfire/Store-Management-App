@@ -10,20 +10,17 @@ namespace MarketOtomasyonu.Models
 {
     internal class Satis
     {
-        [Key]
+        // Birincil Anahtar
         public int SatisId { get; set; }
-        [Required]
         public int Barkod { get; set; }
-        [Required]
         public int Adet { get; set; }
-        // todo tarihi sistemden cek
         public string Tarih { get; set; }
-        [Required]
         public float Tutar { get; set; }
-
-        [ForeignKey(nameof(Veresiye))]
+        
+        // Yabanci Anahtar
         public int? VeresiyeId { get; set; }
 
+        // Navigasyon Nesnesi
         public virtual Veresiye Veresiye { get; set; }
     }
 }
