@@ -22,7 +22,7 @@ namespace MarketOtomasyonu.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=MarketDatabase;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Data Source=.\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -31,6 +31,7 @@ namespace MarketOtomasyonu.Models
             modelBuilder.Entity<Urun>().Property(u => u.UrunId).ValueGeneratedNever();
             modelBuilder.Entity<Stok>().HasKey( s => new { s.UrunId, s.IrsaliyeId } );
             modelBuilder.Entity<Stok>().HasOne(s => s.Tedarikci).WithMany(t => t.Stoks).HasForeignKey(s => s.TedarikciId );
+            modelBuilder.Entity<Satis>().HasOne<Veresiye>(s => s.Veresiye).WithOne(v => v.Satis).HasForeignKey<Veresiye>(s => s.VeresiyeId);
         }
     }
 }

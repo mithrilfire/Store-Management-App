@@ -1,4 +1,5 @@
-﻿using MarketOtomasyonu.UserControls;
+﻿using MarketOtomasyonu.Models;
+using MarketOtomasyonu.UserControls;
 using MarketOtomasyonu.Utils;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,10 @@ namespace MarketOtomasyonu.Forms
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            using (var db = new MarketDBContext())
+            {
+                label1.Text = db.stoklar.ToList().Count.ToString();
+            }
         }
 
 
