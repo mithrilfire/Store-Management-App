@@ -31,7 +31,7 @@ namespace MarketOtomasyonu.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Urun>().Property (u => u.UrunId ).ValueGeneratedNever();
+            modelBuilder.Entity<Urun>().Property( u => u.UrunId ).ValueGeneratedNever();
             modelBuilder.Entity<Stok>().HasKey( s => new { s.UrunId, s.IrsaliyeId } );
             modelBuilder.Entity<Stok>().HasOne( s => s.Tedarikci ).WithMany( t => t.Stoks ).HasForeignKey( s => s.TedarikciId );
             modelBuilder.Entity<Satis>().HasOne<Veresiye>( s => s.Veresiye ).WithOne( v => v.Satis ).HasForeignKey<Veresiye>( s => s.VeresiyeId );
