@@ -22,16 +22,19 @@ namespace MarketOtomasyonu.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=.\SQLEXPRESS;Database=MarketDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Database=MarketDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            //optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rubri\source\repos\MarketOtomasyonu\MarketOtomasyonu\Data\MarketDatabase.mdf;Integrated Security=True");
+            //optionsBuilder.UseSqlServer(@"Data Source=.\SQLEXPRESS;Database=MarketDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            //optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\rubri\\source\\repos\\MarketOtomasyonu\\MarketOtomasyonu\\Data\\MarketDatabase.mdf;Integrated Security=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Urun>().Property(u => u.UrunId).ValueGeneratedNever();
+            modelBuilder.Entity<Urun>().Property (u => u.UrunId ).ValueGeneratedNever();
             modelBuilder.Entity<Stok>().HasKey( s => new { s.UrunId, s.IrsaliyeId } );
-            modelBuilder.Entity<Stok>().HasOne(s => s.Tedarikci).WithMany(t => t.Stoks).HasForeignKey(s => s.TedarikciId );
-            modelBuilder.Entity<Satis>().HasOne<Veresiye>(s => s.Veresiye).WithOne(v => v.Satis).HasForeignKey<Veresiye>(s => s.VeresiyeId);
+            modelBuilder.Entity<Stok>().HasOne( s => s.Tedarikci ).WithMany( t => t.Stoks ).HasForeignKey( s => s.TedarikciId );
+            modelBuilder.Entity<Satis>().HasOne<Veresiye>( s => s.Veresiye ).WithOne( v => v.Satis ).HasForeignKey<Veresiye>( s => s.VeresiyeId );
         }
     }
 }
