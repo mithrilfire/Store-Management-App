@@ -35,14 +35,14 @@
             this.tNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uBGFiyati = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uAdeti = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.stokPanel = new System.Windows.Forms.Panel();
+            this.stokEkleBtn = new System.Windows.Forms.Button();
+            this.stokAraLbl = new System.Windows.Forms.Label();
+            this.stokListeleBtn = new System.Windows.Forms.Button();
+            this.urunKoduLbl = new System.Windows.Forms.Label();
+            this.stoklarTxtBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.stokPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -92,75 +92,75 @@
             this.uAdeti.HeaderText = "Ürün Adeti";
             this.uAdeti.Name = "uAdeti";
             // 
-            // panel1
+            // stokPanel
             // 
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(818, 14);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(330, 712);
-            this.panel1.TabIndex = 6;
+            this.stokPanel.Controls.Add(this.stokEkleBtn);
+            this.stokPanel.Controls.Add(this.stokAraLbl);
+            this.stokPanel.Controls.Add(this.stokListeleBtn);
+            this.stokPanel.Controls.Add(this.urunKoduLbl);
+            this.stokPanel.Controls.Add(this.stoklarTxtBox);
+            this.stokPanel.Location = new System.Drawing.Point(818, 14);
+            this.stokPanel.Name = "stokPanel";
+            this.stokPanel.Size = new System.Drawing.Size(330, 712);
+            this.stokPanel.TabIndex = 6;
             // 
-            // button2
+            // stokEkleBtn
             // 
-            this.button2.Location = new System.Drawing.Point(122, 519);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 42);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Stok Ekle";
-            this.button2.UseVisualStyleBackColor = true;
+            this.stokEkleBtn.Location = new System.Drawing.Point(122, 519);
+            this.stokEkleBtn.Name = "stokEkleBtn";
+            this.stokEkleBtn.Size = new System.Drawing.Size(110, 42);
+            this.stokEkleBtn.TabIndex = 15;
+            this.stokEkleBtn.Text = "Stok Ekle";
+            this.stokEkleBtn.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // stokAraLbl
             // 
-            this.button1.Location = new System.Drawing.Point(148, 256);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 24);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Listele";
-            this.button1.UseVisualStyleBackColor = true;
+            this.stokAraLbl.AutoSize = true;
+            this.stokAraLbl.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.stokAraLbl.Location = new System.Drawing.Point(164, 148);
+            this.stokAraLbl.Name = "stokAraLbl";
+            this.stokAraLbl.Size = new System.Drawing.Size(51, 15);
+            this.stokAraLbl.TabIndex = 11;
+            this.stokAraLbl.Text = "Stok Ara";
             // 
-            // textBox1
+            // stokListeleBtn
             // 
-            this.textBox1.Location = new System.Drawing.Point(131, 197);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(117, 23);
-            this.textBox1.TabIndex = 13;
+            this.stokListeleBtn.Location = new System.Drawing.Point(148, 256);
+            this.stokListeleBtn.Name = "stokListeleBtn";
+            this.stokListeleBtn.Size = new System.Drawing.Size(82, 24);
+            this.stokListeleBtn.TabIndex = 14;
+            this.stokListeleBtn.Text = "Listele";
+            this.stokListeleBtn.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // urunKoduLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label2.Location = new System.Drawing.Point(48, 201);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 15);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Ürün Kodu";
+            this.urunKoduLbl.AutoSize = true;
+            this.urunKoduLbl.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.urunKoduLbl.Location = new System.Drawing.Point(48, 201);
+            this.urunKoduLbl.Name = "urunKoduLbl";
+            this.urunKoduLbl.Size = new System.Drawing.Size(64, 15);
+            this.urunKoduLbl.TabIndex = 12;
+            this.urunKoduLbl.Text = "Ürün Kodu";
             // 
-            // label1
+            // stoklarTxtBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label1.Location = new System.Drawing.Point(164, 148);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 15);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Stok Ara";
+            this.stoklarTxtBox.Location = new System.Drawing.Point(131, 197);
+            this.stoklarTxtBox.Name = "stoklarTxtBox";
+            this.stoklarTxtBox.Size = new System.Drawing.Size(117, 23);
+            this.stoklarTxtBox.TabIndex = 13;
             // 
             // Stoklar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.stokPanel);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Stoklar";
             this.Padding = new System.Windows.Forms.Padding(8);
             this.Size = new System.Drawing.Size(1160, 768);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.stokPanel.ResumeLayout(false);
+            this.stokPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -173,11 +173,11 @@
         private DataGridViewTextBoxColumn tNo;
         private DataGridViewTextBoxColumn uBGFiyati;
         private DataGridViewTextBoxColumn uAdeti;
-        private Panel panel1;
-        private Button button2;
-        private Label label1;
-        private Button button1;
-        private Label label2;
-        private TextBox textBox1;
+        private Panel stokPanel;
+        private Button stokEkleBtn;
+        private Label stokAraLbl;
+        private Button stokListeleBtn;
+        private Label urunKoduLbl;
+        private TextBox stoklarTxtBox;
     }
 }
