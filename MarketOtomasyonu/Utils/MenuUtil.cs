@@ -17,34 +17,34 @@ namespace MarketOtomasyonu.Utils
 
             switch (senderButton.Name)
             {
-                case "anasayfabutton":
+                case "anasayfaBtn":
                     userControl = new Anasayfa();
                     break;
-                case "urunlerbutton":
+                case "urunlerBtn":
                     userControl = new Urunler();
                     break;
-                case "stoklarbutton":
+                case "stoklarBtn":
                     userControl = new Stoklar();
                     break;
-                case "satisbutton":
+                case "satisBtn":
                     userControl = new Satis();
                     break;
-                case "personelbutton":
+                case "personelBtn":
                     userControl = new Personel();
                     break;
-                case "tedarikcibutton":
+                case "tedarikciBtn":
                     userControl = new Tedarikci();
                     break;
-                case "musteribbutton":
+                case "musteriBorcBtn":
                     userControl = new MusteriBorclar();
                     break;
-                case "musteributton":
+                case "musteriBtn":
                     userControl = new Musteriler();
                     break;
-                case "marketbbutton":
+                case "marketBorcBtn":
                     userControl = new MarketBorclar();
                     break;
-                case "raporbutton":
+                case "raporBtn":
                     userControl = new Raporlar();
                     break;
                 default:
