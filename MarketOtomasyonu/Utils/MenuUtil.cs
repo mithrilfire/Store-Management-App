@@ -9,7 +9,7 @@ namespace MarketOtomasyonu.Utils
 {
     internal static class MenuUtil
     {
-        public static UserControl GetPage(object sender)
+        public static UserControl GetPage(object sender, int personelId)
         {
             UserControl userControl;
 
@@ -30,7 +30,7 @@ namespace MarketOtomasyonu.Utils
                     userControl = new Satis();
                     break;
                 case "personelBtn":
-                    userControl = new Personel();
+                    userControl = new Personel(personelId);
                     break;
                 case "tedarikciBtn":
                     userControl = new Tedarikci();

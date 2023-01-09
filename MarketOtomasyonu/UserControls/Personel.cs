@@ -1,4 +1,5 @@
-﻿using MarketOtomasyonu.Models;
+﻿using MarketOtomasyonu.Forms;
+using MarketOtomasyonu.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,12 @@ namespace MarketOtomasyonu.UserControls
 {
     public partial class Personel : UserControl
     {
-        public Personel()
+        int personelId;
+
+        public Personel(int personelId)
         {
             InitializeComponent();
-
+            this.personelId = personelId;
             GetFromDB();
         }
 
@@ -46,7 +49,117 @@ namespace MarketOtomasyonu.UserControls
                 soyadTxt.Text = per.Soyadi;
                 kullaniciAdiTxt.Text = per.KullaniciAdi;
                 sifreTxt.Text = per.Sifre;
+                yoneticiChk.Checked = per.Yonetici;
             }
+        }
+
+        private void duzenleBtn_Click(object sender, EventArgs e)
+        {
+            int id;
+
+            if (!int.TryParse(idTxt.Text, out id))
+            {
+                uyariLbl.Text = "Personeli düzenlemek için geçerli bir Id girilmelidir.";
+                uyariLbl.Visible = true;
+                return;
+            }
+
+            using (var db = new MarketDBContext())
+            {
+                var personeller = db.personeller.Where(p => p.PersonelId == id);
+
+                if (personeller.Any())
+                {
+                    Models.Personel personel = personeller.First();
+
+                    personel.Adi = kullaniciAdiTxt.Text;
+                    personel.Soyadi = soyadTxt.Text;
+                    personel.KullaniciAdi = kullaniciAdiTxt.Text;
+                    personel.Sifre = sifreTxt.Text;
+                    personel.Yonetici = yoneticiChk.Checked;
+
+                }
+                else
+                {
+                    uyariLbl.Text = "Bu Id ile eşleşen herhangi bir kullanıcı bulunamadı.";
+                    uyariLbl.Visible = true;
+                    return;
+                }
+
+                db.SaveChanges();
+            }
+
+            GetFromDB();
+        }
+
+        private void ekleBtn_Click(object sender, EventArgs e)
+        {
+            using (var db = new MarketDBContext())
+            {
+                Models.Personel personel = new Models.Personel();
+
+                personel.Adi = adTxt.Text;
+                personel.Soyadi = soyadTxt.Text;
+                personel.KullaniciAdi = kullaniciAdiTxt.Text;
+                personel.Sifre = sifreTxt.Text.Trim();
+                personel.Yonetici = yoneticiChk.Checked;
+
+                db.personeller.Add(personel);
+                db.SaveChanges();
+            }
+
+            GetFromDB();
+            ClearInputs();
+        }
+
+        private void ClearInputs()
+        {
+            idTxt.Text = string.Empty;
+            adTxt.Text = string.Empty;
+            soyadTxt.Text = string.Empty;
+            kullaniciAdiTxt.Text = string.Empty;
+            sifreTxt.Text = string.Empty;
+            yoneticiChk.Checked = false;
+        }
+
+        private void kaldirBtn_Click(object sender, EventArgs e)
+        {
+            int id;
+
+            if (!int.TryParse(idTxt.Text, out id))
+            {
+                uyariLbl.Text = "Personeli kaldırmak için geçerli bir Id girilmelidir.";
+                uyariLbl.Visible = true;
+                return;
+            }
+
+            if (personelId == id)
+            {
+                uyariLbl.Text = "Aktif kullanılan personel kaldırılamaz.";
+                uyariLbl.Visible = true;
+                return;
+            }
+
+            using (var db = new MarketDBContext())
+            {
+                var personeller = db.personeller.Where(p => p.PersonelId == id);
+
+                if (personeller.Any())
+                {
+                    db.personeller.Remove(personeller.First());
+                }
+                else
+                {
+                    uyariLbl.Text = "Bu Id ile eşleşen herhangi bir kullanıcı bulunamadı.";
+                    uyariLbl.Visible = true;
+                    return;
+                }
+
+                db.SaveChanges();
+            }
+
+            GetFromDB();
+            ClearInputs();
         }
     }
 }

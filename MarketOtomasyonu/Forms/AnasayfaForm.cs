@@ -96,7 +96,7 @@ namespace MarketOtomasyonu.Forms
 
         private void UpdatePageView(object sender)
         {
-            var page = MenuUtil.GetPage(sender);
+            var page = MenuUtil.GetPage(sender, personelId);
             icerikPnl.Controls.Clear();
             icerikPnl.Controls.Add(page);
         }

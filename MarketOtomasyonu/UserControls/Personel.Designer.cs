@@ -73,6 +73,7 @@
             this.ekleBtn.TabIndex = 9;
             this.ekleBtn.Text = "Ekle";
             this.ekleBtn.UseVisualStyleBackColor = true;
+            this.ekleBtn.Click += new System.EventHandler(this.ekleBtn_Click);
             // 
             // uyariLbl
             // 
@@ -171,6 +172,7 @@
             this.kaldirBtn.TabIndex = 10;
             this.kaldirBtn.Text = "Kaldır";
             this.kaldirBtn.UseVisualStyleBackColor = true;
+            this.kaldirBtn.Click += new System.EventHandler(this.kaldirBtn_Click);
             // 
             // duzenleBtn
             // 
@@ -180,6 +182,7 @@
             this.duzenleBtn.TabIndex = 11;
             this.duzenleBtn.Text = "Düzenle";
             this.duzenleBtn.UseVisualStyleBackColor = true;
+            this.duzenleBtn.Click += new System.EventHandler(this.duzenleBtn_Click);
             // 
             // kayitPnl
             // 
