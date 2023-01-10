@@ -22,6 +22,15 @@ namespace MarketOtomasyonu.Forms
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+
+            using (var db = new MarketDBContext())
+            {
+                if (db.personeller.Count() == 0)
+                {
+                    db.personeller.Add(new Personel() { Adi="Admin", Soyadi="1", KullaniciAdi="admin", Sifre="admin", Yonetici=true});
+                    db.SaveChanges();
+                }
+            }
         }
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
