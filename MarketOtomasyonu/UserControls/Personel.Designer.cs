@@ -43,9 +43,10 @@
             this.kaldirBtn = new System.Windows.Forms.Button();
             this.duzenleBtn = new System.Windows.Forms.Button();
             this.kayitPnl = new System.Windows.Forms.Panel();
-            this.idTxt = new System.Windows.Forms.TextBox();
+            this.idLbl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.baslikLbl = new System.Windows.Forms.Label();
+            this.temizleBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.personelDat)).BeginInit();
             this.kayitPnl.SuspendLayout();
             this.SuspendLayout();
@@ -73,16 +74,16 @@
             this.ekleBtn.TabIndex = 9;
             this.ekleBtn.Text = "Ekle";
             this.ekleBtn.UseVisualStyleBackColor = true;
+            this.ekleBtn.Click += new System.EventHandler(this.ekleBtn_Click);
             // 
             // uyariLbl
             // 
-            this.uyariLbl.AutoSize = true;
             this.uyariLbl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.uyariLbl.ForeColor = System.Drawing.Color.Firebrick;
-            this.uyariLbl.Location = new System.Drawing.Point(155, 49);
+            this.uyariLbl.Location = new System.Drawing.Point(11, 49);
             this.uyariLbl.Margin = new System.Windows.Forms.Padding(3, 16, 3, 0);
             this.uyariLbl.Name = "uyariLbl";
-            this.uyariLbl.Size = new System.Drawing.Size(38, 17);
+            this.uyariLbl.Size = new System.Drawing.Size(326, 17);
             this.uyariLbl.TabIndex = 4;
             this.uyariLbl.Text = "Uyarı";
             this.uyariLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -171,6 +172,7 @@
             this.kaldirBtn.TabIndex = 10;
             this.kaldirBtn.Text = "Kaldır";
             this.kaldirBtn.UseVisualStyleBackColor = true;
+            this.kaldirBtn.Click += new System.EventHandler(this.kaldirBtn_Click);
             // 
             // duzenleBtn
             // 
@@ -180,10 +182,12 @@
             this.duzenleBtn.TabIndex = 11;
             this.duzenleBtn.Text = "Düzenle";
             this.duzenleBtn.UseVisualStyleBackColor = true;
+            this.duzenleBtn.Click += new System.EventHandler(this.duzenleBtn_Click);
             // 
             // kayitPnl
             // 
-            this.kayitPnl.Controls.Add(this.idTxt);
+            this.kayitPnl.Controls.Add(this.temizleBtn);
+            this.kayitPnl.Controls.Add(this.idLbl);
             this.kayitPnl.Controls.Add(this.label3);
             this.kayitPnl.Controls.Add(this.baslikLbl);
             this.kayitPnl.Controls.Add(this.ekleBtn);
@@ -206,12 +210,14 @@
             this.kayitPnl.Size = new System.Drawing.Size(348, 736);
             this.kayitPnl.TabIndex = 12;
             // 
-            // idTxt
+            // idLbl
             // 
-            this.idTxt.Location = new System.Drawing.Point(165, 116);
-            this.idTxt.Name = "idTxt";
-            this.idTxt.Size = new System.Drawing.Size(100, 23);
-            this.idTxt.TabIndex = 14;
+            this.idLbl.AutoSize = true;
+            this.idLbl.Location = new System.Drawing.Point(165, 119);
+            this.idLbl.Name = "idLbl";
+            this.idLbl.Size = new System.Drawing.Size(13, 15);
+            this.idLbl.TabIndex = 15;
+            this.idLbl.Text = "0";
             // 
             // label3
             // 
@@ -231,6 +237,16 @@
             this.baslikLbl.Size = new System.Drawing.Size(206, 25);
             this.baslikLbl.TabIndex = 12;
             this.baslikLbl.Text = "Personel Kayıt İşlemleri";
+            // 
+            // temizleBtn
+            // 
+            this.temizleBtn.Location = new System.Drawing.Point(34, 115);
+            this.temizleBtn.Name = "temizleBtn";
+            this.temizleBtn.Size = new System.Drawing.Size(75, 23);
+            this.temizleBtn.TabIndex = 16;
+            this.temizleBtn.Text = "Temizle";
+            this.temizleBtn.UseVisualStyleBackColor = true;
+            this.temizleBtn.Click += new System.EventHandler(this.temizleBtn_Click);
             // 
             // Personel
             // 
@@ -266,7 +282,8 @@
         private Button duzenleBtn;
         private Panel kayitPnl;
         private Label baslikLbl;
-        private TextBox idTxt;
         private Label label3;
+        private Label idLbl;
+        private Button temizleBtn;
     }
 }
