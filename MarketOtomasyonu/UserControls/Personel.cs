@@ -38,7 +38,7 @@ namespace MarketOtomasyonu.UserControls
         {
             int id = (int)personelDat[0, e.RowIndex].Value;
 
-            idTxt.Text = id.ToString();
+            idLbl.Text = id.ToString();
             using (var db = new MarketDBContext())
             {
                 Models.Personel per = db.personeller.
@@ -57,10 +57,20 @@ namespace MarketOtomasyonu.UserControls
         {
             int id;
 
-            if (!int.TryParse(idTxt.Text, out id))
+            if (!int.TryParse(idLbl.Text, out id))
             {
                 uyariLbl.Text = "Personeli düzenlemek için geçerli bir Id girilmelidir.";
                 uyariLbl.Visible = true;
+                return;
+            }
+
+            if (id == personelId)
+            {
+                uyariLbl.Text = "Aktif kullanılan personel düzenlenemez.";
+                uyariLbl.Visible = true;
+                /*MessageBox.Show("Aktif kullanılan personel düzenlenemez.", "Hata!", 
+                 * MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 */
                 return;
             }
 
@@ -114,7 +124,7 @@ namespace MarketOtomasyonu.UserControls
 
         private void ClearInputs()
         {
-            idTxt.Text = string.Empty;
+            idLbl.Text = string.Empty;
             adTxt.Text = string.Empty;
             soyadTxt.Text = string.Empty;
             kullaniciAdiTxt.Text = string.Empty;
@@ -126,7 +136,7 @@ namespace MarketOtomasyonu.UserControls
         {
             int id;
 
-            if (!int.TryParse(idTxt.Text, out id))
+            if (!int.TryParse(idLbl.Text, out id))
             {
                 uyariLbl.Text = "Personeli kaldırmak için geçerli bir Id girilmelidir.";
                 uyariLbl.Visible = true;
@@ -159,6 +169,11 @@ namespace MarketOtomasyonu.UserControls
             }
 
             GetFromDB();
+            ClearInputs();
+        }
+
+        private void temizleBtn_Click(object sender, EventArgs e)
+        {
             ClearInputs();
         }
     }
