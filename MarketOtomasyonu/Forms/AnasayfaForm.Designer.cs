@@ -55,12 +55,13 @@
             // 
             // kapatBtn
             // 
+            this.kapatBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("kapatBtn.BackgroundImage")));
+            this.kapatBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.kapatBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.kapatBtn.FlatAppearance.BorderSize = 0;
             this.kapatBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.kapatBtn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.kapatBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.kapatBtn.Image = ((System.Drawing.Image)(resources.GetObject("kapatBtn.Image")));
             this.kapatBtn.Location = new System.Drawing.Point(1352, 0);
             this.kapatBtn.Margin = new System.Windows.Forms.Padding(0);
             this.kapatBtn.Name = "kapatBtn";
@@ -369,6 +370,7 @@
             this.Controls.Add(this.baslikPnl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AnasayfaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AnasayfaForm";
             this.menuPnl.ResumeLayout(false);
             this.userPnl.ResumeLayout(false);
