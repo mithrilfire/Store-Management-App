@@ -58,16 +58,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="cikisBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="button2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
-        MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnAQQSFB6+lKJVAAAAoUlEQVQ4T52TXQ5EMBSFy/5fxE8k
-        WNK8zOyjXULdI+eKodrLSUTL+T5F6rz3HzmaGGPljEEXDFgIMIghhNEiQQddMGDV1lEyy7xm9xJ2e3an
-        vWuR3MKanKQIa1ISM6w5S+Q8mGHNUaIiM4xQsC2bguXp0/d3PozLqzjDAHgt+4u3pGDe+vsmSUkO1txK
-        LLAmKZFJywtvNlPrZPKTwcvt7L8r88nFuBMgzqYAAAAASUVORK5CYII=
+        MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnAQsMCzN4ym6SAAABNUlEQVQ4T61SP0sDMRxNHURw19n1
+        hoLL/ZLDJuWgn0BcnVwcdO/m7Cb9Bl3ExT+Lo+BScNHRD+CiCOIoV0Ff0nfptVSawQePJC+/9/JL7tQy
+        ZFm26kROnNYvVuQL8/uOMZbby2G1Pof5Z46VzfOSJUr5RGfM3gxFdjpa596Ak79DFyIjrC8Y8kC7auGU
+        T4pNDsHDuEaor8X8jlqF9UpIsMbsx8Ipb0Ink/kYLW91RXah9am9B3MNCP7EGOC76hXFBuZv1CqO4zCK
+        nNI6Qa/dXof4zKKaQ7xPgbDXpo71tXNujdYpcJXt8KkaxeBZWZabvM6RD2T5YiDgeC7A84DbSWjhKk/R
+        LPJIPR0w3tYB6OiKcjpmAvBglNPxrwF4g0vK6YgBIh9gl3I68HADGEf+96X0B5T6BY0Trn6Yr3CwAAAA
+        AElFTkSuQmCC
 </value>
   </data>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="urunKarAy.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="urunKarGelir.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="urunKarBorc.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="urunKarNet.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
 </root>

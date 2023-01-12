@@ -31,10 +31,22 @@ namespace MarketOtomasyonu.UserControls
                 BindingSource src = new BindingSource();
                 src.DataSource = personeller;
                 personelDat.DataSource = src;
+
+                for (int i = 0; i < personelDat.Columns.Count; i++)
+                {
+                    if (i < 2)
+                    {
+                        personelDat.Columns[i].FillWeight = 100;
+                    }
+                    else
+                    {
+                        personelDat.Columns[i].FillWeight = 150;
+                    }
+                }
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void personelDat_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int id = (int)personelDat[0, e.RowIndex].Value;
 
@@ -82,7 +94,7 @@ namespace MarketOtomasyonu.UserControls
                 {
                     Models.Personel personel = personeller.First();
 
-                    personel.Adi = kullaniciAdiTxt.Text;
+                    personel.Adi = adTxt.Text;
                     personel.Soyadi = soyadTxt.Text;
                     personel.KullaniciAdi = kullaniciAdiTxt.Text;
                     personel.Sifre = sifreTxt.Text;
@@ -125,10 +137,10 @@ namespace MarketOtomasyonu.UserControls
         private void ClearInputs()
         {
             idLbl.Text = string.Empty;
-            adTxt.Text = string.Empty;
-            soyadTxt.Text = string.Empty;
-            kullaniciAdiTxt.Text = string.Empty;
-            sifreTxt.Text = string.Empty;
+            adTxt.Clear();
+            soyadTxt.Clear();
+            kullaniciAdiTxt.Clear();
+            sifreTxt.Clear();
             yoneticiChk.Checked = false;
         }
 

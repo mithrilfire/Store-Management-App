@@ -64,7 +64,7 @@
             this.personelDat.RowTemplate.Height = 25;
             this.personelDat.Size = new System.Drawing.Size(750, 736);
             this.personelDat.TabIndex = 0;
-            this.personelDat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.personelDat.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.personelDat_CellClick);
             // 
             // ekleBtn
             // 

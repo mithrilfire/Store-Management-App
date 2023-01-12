@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LiveChartsCore.SkiaSharpView.Painting;
+using SkiaSharp;
 
 namespace MarketOtomasyonu.UserControls
 {
@@ -15,6 +19,8 @@ namespace MarketOtomasyonu.UserControls
         public Raporlar()
         {
             InitializeComponent();
+            yazdirCmb.SelectedIndex = 0;
+
         }
     }
 }

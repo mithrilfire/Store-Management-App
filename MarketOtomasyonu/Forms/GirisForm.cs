@@ -31,6 +31,8 @@ namespace MarketOtomasyonu.Forms
                     db.SaveChanges();
                 }
             }
+
+            girisBtn.Focus();
         }
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -93,12 +95,12 @@ namespace MarketOtomasyonu.Forms
 
         private void button2_MouseEnter(object sender, EventArgs e)
         {
-            button2.BackColor = Color.Red;
+            cikisBtn.BackColor = Color.Red;
         }
 
         private void button2_MouseLeave(object sender, EventArgs e)
         {
-            button2.BackColor = Color.Transparent;
+            cikisBtn.BackColor = Color.Transparent;
         }
     }
 }
