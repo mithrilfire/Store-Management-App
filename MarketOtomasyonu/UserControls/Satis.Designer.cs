@@ -36,7 +36,6 @@
             this.sTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sTutar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.ekleBtn = new System.Windows.Forms.Button();
             this.veresiyePanel = new System.Windows.Forms.Panel();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.musAraLbl = new System.Windows.Forms.Button();
@@ -55,6 +54,8 @@
             this.urunEkleLbl = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.urunleriEkle = new System.Windows.Forms.Button();
+            this.urunleriCikar = new System.Windows.Forms.Button();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -126,7 +127,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.ekleBtn);
+            this.tabPage1.Controls.Add(this.urunleriCikar);
+            this.tabPage1.Controls.Add(this.urunleriEkle);
             this.tabPage1.Controls.Add(this.veresiyePanel);
             this.tabPage1.Controls.Add(this.veresiyeChckBox);
             this.tabPage1.Controls.Add(this.tBorcViewLbl);
@@ -144,16 +146,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Perakende Satış";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // ekleBtn
-            // 
-            this.ekleBtn.Location = new System.Drawing.Point(840, 185);
-            this.ekleBtn.Name = "ekleBtn";
-            this.ekleBtn.Size = new System.Drawing.Size(68, 24);
-            this.ekleBtn.TabIndex = 13;
-            this.ekleBtn.Text = "Ürün Ekle";
-            this.ekleBtn.UseVisualStyleBackColor = true;
-            this.ekleBtn.Click += new System.EventHandler(this.ekleBtn_Click);
             // 
             // veresiyePanel
             // 
@@ -316,6 +308,7 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(11, 11);
@@ -334,6 +327,34 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1122, 704);
             this.tabControl1.TabIndex = 1;
+            // 
+            // urunleriEkle
+            // 
+            this.urunleriEkle.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.urunleriEkle.BackgroundImage = global::MarketOtomasyonu.Properties.Resources.left_arrow;
+            this.urunleriEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.urunleriEkle.FlatAppearance.BorderSize = 0;
+            this.urunleriEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.urunleriEkle.Location = new System.Drawing.Point(618, 87);
+            this.urunleriEkle.Name = "urunleriEkle";
+            this.urunleriEkle.Size = new System.Drawing.Size(30, 30);
+            this.urunleriEkle.TabIndex = 14;
+            this.urunleriEkle.UseVisualStyleBackColor = false;
+            this.urunleriEkle.Click += new System.EventHandler(this.urunleriEkle_Click);
+            // 
+            // urunleriCikar
+            // 
+            this.urunleriCikar.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.urunleriCikar.BackgroundImage = global::MarketOtomasyonu.Properties.Resources.right_arrow;
+            this.urunleriCikar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.urunleriCikar.FlatAppearance.BorderSize = 0;
+            this.urunleriCikar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.urunleriCikar.Location = new System.Drawing.Point(618, 139);
+            this.urunleriCikar.Name = "urunleriCikar";
+            this.urunleriCikar.Size = new System.Drawing.Size(30, 30);
+            this.urunleriCikar.TabIndex = 15;
+            this.urunleriCikar.UseVisualStyleBackColor = false;
+            this.urunleriCikar.Click += new System.EventHandler(this.urunleriCikar_Click);
             // 
             // Satis
             // 
@@ -382,8 +403,9 @@
         private DataGridViewTextBoxColumn satisAdeti;
         private DataGridViewTextBoxColumn sTarihi;
         private DataGridViewTextBoxColumn sTutar;
-        private Button ekleBtn;
         private Button musAraLbl;
         private DataGridView dataGridView3;
+        private Button urunleriCikar;
+        private Button urunleriEkle;
     }
 }

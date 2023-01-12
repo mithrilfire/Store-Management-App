@@ -16,12 +16,18 @@ namespace MarketOtomasyonu.UserControls
     public partial class Satis : UserControl
     {
 
-        List<Fis> fis = new List<Fis>();
+        List<Fis> fis;
         public Satis()
         {
             InitializeComponent();
-            GetFromDB();
-            toplamTutar();
+            //GetFromDB();
+            //toplamTutar();
+            fis = new List<Fis>
+            {
+                new Fis() { urunAdi = "kek", urunAdeti = 5, barkod = 1234 }
+            };
+            dataGridView1.DataSource = fis.Select(Fis => new { Fis.barkod, Fis.urunAdi, Fis.urunAdeti }).ToList();
+
         }
         void GetFromDB()
         {
@@ -33,37 +39,29 @@ namespace MarketOtomasyonu.UserControls
         {
             barkodTxtBox.Text = string.Empty;
             urunAdetiTxtBox.Text = string.Empty;
+            musAdiTxtBox.Text = string.Empty;
+            musSoyAdiTxtBox.Text = string.Empty;
+            dataGridView3.Rows.Clear();
+            dataGridView3.Refresh();
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (veresiyeChckBox.Checked)
-            {
-                veresiyePanel.Enabled = true;
-            }
-            else
-            {
-                veresiyePanel.Enabled = false;
-            }
-        }
-
-        private void ekleBtn_Click(object sender, EventArgs e)
+        private void urunleriEkle_Click(object sender, EventArgs e)
         {
             using (var db = new MarketDBContext())
             {
                 Fis fis = new Fis();
 
                 int ad;
-                
+
                 // Db den barkodları çekip kaşılaştırcaz. Ürün adını çekicez.
-                if(int.TryParse(barkodTxtBox.Text, out ad))
+                if (int.TryParse(barkodTxtBox.Text, out ad))
                 {
                     fis.barkod = ad;
 
                     Models.Urun urun = db.urunler.
                     Where(u => u.Barkod == ad).
                     First();
-                    
+
                     fis.urunAdi = urun.Adi;
                 }
                 else
@@ -84,6 +82,24 @@ namespace MarketOtomasyonu.UserControls
 
             GetFromDB();
             ClearInputs();
+        }
+
+        private void urunleriCikar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (veresiyeChckBox.Checked)
+            {
+                veresiyePanel.Enabled = true;
+            }
+            else
+            {
+                veresiyePanel.Enabled = false;
+                ClearInputs();
+            }
         }
         private void toplamTutar()
         {
@@ -147,7 +163,6 @@ namespace MarketOtomasyonu.UserControls
 
         public int barkod { get; set; }
         public int urunAdeti { get; set; }
-
         public string urunAdi { get; set; }
 
         

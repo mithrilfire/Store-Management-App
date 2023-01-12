@@ -59,50 +59,115 @@ namespace MarketOtomasyonu.UserControls
 
         private void stokEkleBtn_Click(object sender, EventArgs e)
         {
-            var fileContent = string.Empty;
-            var filePath = string.Empty;
-
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "c:\\";
-                openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-                openFileDialog.FilterIndex = 2;
+                openFileDialog.Filter = "txt files (*.txt)|*.txt";
+                openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Get the path of specified file
-                    filePath = openFileDialog.FileName;
-
-                    //Read the contents of the file into a stream
+                    string? filePath = openFileDialog.FileName;
                     var fileStream = openFileDialog.OpenFile();
 
                     using (StreamReader reader = new StreamReader(fileStream))
                     {
-                        string line;
+                        string? line;
                         while ((line = reader.ReadLine()) != null)
                         {
-                            string[] items = line.Split('\t');
-                            int myInteger = int.Parse(items[1]);   // Here's your integer.
+                            string[] items = line.Split(',');
 
-                            // Now let's find the path.
-                            string path = null;
-                            foreach (string item in items)
-                            {
-                                if (item.StartsWith("item\\") && item.EndsWith(".ddj"))
-                                    path = item;
-                            }
+                            urunEkle(UrunOlustur(items));
 
-                            // At this point, `myInteger` and `path` contain the values we want
-                            // for the current line. We can then store those values or print them,
-                            // or anything else we like.
+                            StokEkle(StokOlustur(items));
                         }
-                        fileContent = reader.ReadToEnd();
                     }
                 }
             }
+        }
 
-            MessageBox.Show(fileContent, "File Content at path: " + filePath, MessageBoxButtons.OK);
+        private static Models.Urun? UrunOlustur(string[] items)
+        {
+            Models.Urun yeniurun = new Models.Urun();
+
+            int urunKodu;
+            if (!int.TryParse(items[1], out urunKodu))
+                return null;
+            yeniurun.UrunId = urunKodu;
+
+            int barkod;
+            if (!int.TryParse(items[2], out barkod))
+                return null;
+            yeniurun.Barkod = barkod;
+
+            yeniurun.Adi = items[3];
+
+
+            float bFiyat;
+            if (!float.TryParse(items[5], out bFiyat))
+                return null;
+            yeniurun.BirimFiyati = bFiyat;
+
+            return yeniurun;
+        }
+
+        private static Models.Stok? StokOlustur(string[] items)
+        {
+            Models.Stok yenistok = new Models.Stok();
+
+
+            int irsaliye;
+            if (!int.TryParse(items[0], out irsaliye))
+                return null;
+            yenistok.IrsaliyeId = irsaliye;
+
+            int urunKodu;
+            if (!int.TryParse(items[1], out urunKodu))
+                return null;
+            yenistok.UrunId = urunKodu;
+
+            int adet;
+            if (!int.TryParse(items[6], out adet))
+                return null;
+            yenistok.Adet = adet;
+
+            float bGFiyat;
+            if (!float.TryParse(items[4], out bGFiyat))
+                return null;
+            yenistok.GirdiBirimFiyati = bGFiyat;
+
+            return yenistok;
+        }
+        
+        private static void StokEkle(Stok yenistok)
+        {
+            using (var db = new MarketDBContext())
+            {
+
+                db.stoklar.Add(yenistok);
+
+                db.SaveChanges();
+            }
+        }
+
+        private static void urunEkle(Urun yeniurun)
+        {
+            using (var db = new MarketDBContext())
+            {
+                if (db.urunler.Any(u => u.UrunId == yeniurun.UrunId))
+                {
+                    Models.Urun varolanurun = db.urunler.
+                        Where(u => u.Barkod == yeniurun.UrunId).
+                        First();
+                    varolanurun.BirimFiyati = yeniurun.BirimFiyati;
+                }
+                else
+                {
+                    db.urunler.Add(yeniurun);
+                }
+                db.SaveChanges();
+            }
         }
 
         private void temizleBtn_Click(object sender, EventArgs e)
