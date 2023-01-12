@@ -37,11 +37,12 @@
             this.sTutar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.veresiyePanel = new System.Windows.Forms.Panel();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.musAraLbl = new System.Windows.Forms.Button();
             this.musEkleLbl = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.musSoyAdiTxtBox = new System.Windows.Forms.TextBox();
             this.musSoyadLbl = new System.Windows.Forms.Label();
-            this.musListView = new System.Windows.Forms.ListView();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.musAdiTxtBox = new System.Windows.Forms.TextBox();
             this.musAdiLbl = new System.Windows.Forms.Label();
             this.veresiyeChckBox = new System.Windows.Forms.CheckBox();
             this.tBorcViewLbl = new System.Windows.Forms.Label();
@@ -52,13 +53,14 @@
             this.barkodLbl = new System.Windows.Forms.Label();
             this.urunEkleLbl = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.barkod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urunadeti = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.urunleriEkle = new System.Windows.Forms.Button();
+            this.urunleriCikar = new System.Windows.Forms.Button();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.veresiyePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
@@ -125,6 +127,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.urunleriCikar);
+            this.tabPage1.Controls.Add(this.urunleriEkle);
             this.tabPage1.Controls.Add(this.veresiyePanel);
             this.tabPage1.Controls.Add(this.veresiyeChckBox);
             this.tabPage1.Controls.Add(this.tBorcViewLbl);
@@ -145,65 +149,82 @@
             // 
             // veresiyePanel
             // 
+            this.veresiyePanel.Controls.Add(this.dataGridView3);
+            this.veresiyePanel.Controls.Add(this.musAraLbl);
             this.veresiyePanel.Controls.Add(this.musEkleLbl);
-            this.veresiyePanel.Controls.Add(this.textBox4);
+            this.veresiyePanel.Controls.Add(this.musSoyAdiTxtBox);
             this.veresiyePanel.Controls.Add(this.musSoyadLbl);
-            this.veresiyePanel.Controls.Add(this.musListView);
-            this.veresiyePanel.Controls.Add(this.textBox2);
+            this.veresiyePanel.Controls.Add(this.musAdiTxtBox);
             this.veresiyePanel.Controls.Add(this.musAdiLbl);
             this.veresiyePanel.Enabled = false;
             this.veresiyePanel.Location = new System.Drawing.Point(691, 215);
             this.veresiyePanel.Name = "veresiyePanel";
-            this.veresiyePanel.Padding = new System.Windows.Forms.Padding(4);
-            this.veresiyePanel.Size = new System.Drawing.Size(343, 450);
+            this.veresiyePanel.Padding = new System.Windows.Forms.Padding(20, 4, 20, 4);
+            this.veresiyePanel.Size = new System.Drawing.Size(343, 394);
             this.veresiyePanel.TabIndex = 12;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(23, 114);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.RowTemplate.Height = 25;
+            this.dataGridView3.Size = new System.Drawing.Size(297, 207);
+            this.dataGridView3.TabIndex = 14;
+            // 
+            // musAraLbl
+            // 
+            this.musAraLbl.Location = new System.Drawing.Point(190, 353);
+            this.musAraLbl.Name = "musAraLbl";
+            this.musAraLbl.Size = new System.Drawing.Size(130, 33);
+            this.musAraLbl.TabIndex = 13;
+            this.musAraLbl.Text = "Müşteri Ara";
+            this.musAraLbl.UseVisualStyleBackColor = true;
+            this.musAraLbl.Click += new System.EventHandler(this.musAraLbl_Click);
             // 
             // musEkleLbl
             // 
-            this.musEkleLbl.Location = new System.Drawing.Point(106, 351);
+            this.musEkleLbl.Location = new System.Drawing.Point(23, 353);
             this.musEkleLbl.Name = "musEkleLbl";
             this.musEkleLbl.Size = new System.Drawing.Size(130, 33);
             this.musEkleLbl.TabIndex = 12;
             this.musEkleLbl.Text = "Müşteri Ekle";
             this.musEkleLbl.UseVisualStyleBackColor = true;
+            this.musEkleLbl.Click += new System.EventHandler(this.musEkleLbl_Click);
             // 
-            // textBox4
+            // musSoyAdiTxtBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(140, 57);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 23);
-            this.textBox4.TabIndex = 11;
+            this.musSoyAdiTxtBox.Location = new System.Drawing.Point(172, 58);
+            this.musSoyAdiTxtBox.Name = "musSoyAdiTxtBox";
+            this.musSoyAdiTxtBox.Size = new System.Drawing.Size(100, 23);
+            this.musSoyAdiTxtBox.TabIndex = 11;
             // 
             // musSoyadLbl
             // 
             this.musSoyadLbl.AutoSize = true;
             this.musSoyadLbl.BackColor = System.Drawing.Color.DarkGray;
-            this.musSoyadLbl.Location = new System.Drawing.Point(48, 61);
+            this.musSoyadLbl.Location = new System.Drawing.Point(64, 61);
             this.musSoyadLbl.Name = "musSoyadLbl";
             this.musSoyadLbl.Size = new System.Drawing.Size(85, 15);
             this.musSoyadLbl.TabIndex = 10;
             this.musSoyadLbl.Text = "Müşteri Soyadı";
             // 
-            // musListView
+            // musAdiTxtBox
             // 
-            this.musListView.Location = new System.Drawing.Point(54, 119);
-            this.musListView.Name = "musListView";
-            this.musListView.Size = new System.Drawing.Size(234, 207);
-            this.musListView.TabIndex = 9;
-            this.musListView.UseCompatibleStateImageBehavior = false;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(140, 16);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 8;
+            this.musAdiTxtBox.Location = new System.Drawing.Point(172, 20);
+            this.musAdiTxtBox.Name = "musAdiTxtBox";
+            this.musAdiTxtBox.Size = new System.Drawing.Size(100, 23);
+            this.musAdiTxtBox.TabIndex = 8;
             // 
             // musAdiLbl
             // 
             this.musAdiLbl.AutoSize = true;
             this.musAdiLbl.BackColor = System.Drawing.Color.DarkGray;
-            this.musAdiLbl.Location = new System.Drawing.Point(48, 20);
+            this.musAdiLbl.Location = new System.Drawing.Point(64, 20);
             this.musAdiLbl.Name = "musAdiLbl";
             this.musAdiLbl.Size = new System.Drawing.Size(68, 15);
             this.musAdiLbl.TabIndex = 6;
@@ -224,7 +245,7 @@
             // 
             this.tBorcViewLbl.AutoSize = true;
             this.tBorcViewLbl.BackColor = System.Drawing.Color.DarkGray;
-            this.tBorcViewLbl.Location = new System.Drawing.Point(831, 154);
+            this.tBorcViewLbl.Location = new System.Drawing.Point(826, 154);
             this.tBorcViewLbl.Name = "tBorcViewLbl";
             this.tBorcViewLbl.Size = new System.Drawing.Size(97, 15);
             this.tBorcViewLbl.TabIndex = 11;
@@ -242,14 +263,14 @@
             // 
             // urunAdetiTxtBox
             // 
-            this.urunAdetiTxtBox.Location = new System.Drawing.Point(831, 111);
+            this.urunAdetiTxtBox.Location = new System.Drawing.Point(824, 111);
             this.urunAdetiTxtBox.Name = "urunAdetiTxtBox";
             this.urunAdetiTxtBox.Size = new System.Drawing.Size(100, 23);
             this.urunAdetiTxtBox.TabIndex = 9;
             // 
             // barkodTxtBox
             // 
-            this.barkodTxtBox.Location = new System.Drawing.Point(831, 73);
+            this.barkodTxtBox.Location = new System.Drawing.Point(824, 73);
             this.barkodTxtBox.Name = "barkodTxtBox";
             this.barkodTxtBox.Size = new System.Drawing.Size(100, 23);
             this.barkodTxtBox.TabIndex = 7;
@@ -287,29 +308,15 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.barkod,
-            this.urunadeti});
             this.dataGridView1.Location = new System.Drawing.Point(11, 11);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(591, 654);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // barkod
-            // 
-            this.barkod.HeaderText = "Barkod";
-            this.barkod.Name = "barkod";
-            this.barkod.ReadOnly = true;
-            // 
-            // urunadeti
-            // 
-            this.urunadeti.HeaderText = "Ürün Adeti";
-            this.urunadeti.Name = "urunadeti";
-            this.urunadeti.ReadOnly = true;
             // 
             // tabControl1
             // 
@@ -320,6 +327,34 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1122, 704);
             this.tabControl1.TabIndex = 1;
+            // 
+            // urunleriEkle
+            // 
+            this.urunleriEkle.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.urunleriEkle.BackgroundImage = global::MarketOtomasyonu.Properties.Resources.left_arrow;
+            this.urunleriEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.urunleriEkle.FlatAppearance.BorderSize = 0;
+            this.urunleriEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.urunleriEkle.Location = new System.Drawing.Point(618, 87);
+            this.urunleriEkle.Name = "urunleriEkle";
+            this.urunleriEkle.Size = new System.Drawing.Size(30, 30);
+            this.urunleriEkle.TabIndex = 14;
+            this.urunleriEkle.UseVisualStyleBackColor = false;
+            this.urunleriEkle.Click += new System.EventHandler(this.urunleriEkle_Click);
+            // 
+            // urunleriCikar
+            // 
+            this.urunleriCikar.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.urunleriCikar.BackgroundImage = global::MarketOtomasyonu.Properties.Resources.right_arrow;
+            this.urunleriCikar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.urunleriCikar.FlatAppearance.BorderSize = 0;
+            this.urunleriCikar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.urunleriCikar.Location = new System.Drawing.Point(618, 139);
+            this.urunleriCikar.Name = "urunleriCikar";
+            this.urunleriCikar.Size = new System.Drawing.Size(30, 30);
+            this.urunleriCikar.TabIndex = 15;
+            this.urunleriCikar.UseVisualStyleBackColor = false;
+            this.urunleriCikar.Click += new System.EventHandler(this.urunleriCikar_Click);
             // 
             // Satis
             // 
@@ -335,6 +370,7 @@
             this.tabPage1.PerformLayout();
             this.veresiyePanel.ResumeLayout(false);
             this.veresiyePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -351,7 +387,7 @@
         private DataGridView dataGridView1;
         private TabControl tabControl1;
         private TextBox urunAdetiTxtBox;
-        private TextBox textBox2;
+        private TextBox musAdiTxtBox;
         private TextBox barkodTxtBox;
         private Label musAdiLbl;
         private Label urunAdetiLbl;
@@ -359,16 +395,17 @@
         private Label tBorcViewLbl;
         private Label toplamBorcLbl;
         private Panel veresiyePanel;
-        private ListView musListView;
-        private TextBox textBox4;
+        private TextBox musSoyAdiTxtBox;
         private Label musSoyadLbl;
         private Button musEkleLbl;
-        private DataGridViewTextBoxColumn barkod;
-        private DataGridViewTextBoxColumn urunadeti;
         private DataGridViewTextBoxColumn sNo;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn satisAdeti;
         private DataGridViewTextBoxColumn sTarihi;
         private DataGridViewTextBoxColumn sTutar;
+        private Button musAraLbl;
+        private DataGridView dataGridView3;
+        private Button urunleriCikar;
+        private Button urunleriEkle;
     }
 }
