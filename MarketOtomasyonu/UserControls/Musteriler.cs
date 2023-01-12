@@ -36,9 +36,7 @@ namespace MarketOtomasyonu.UserControls
 
             using (var db = new MarketDBContext())
             {
-                Models.Musteri musteri = db.musteriler.
-                    Where(m => m.MusteriId == id).
-                    First();
+                Models.Musteri musteri = db.musteriler.Where(m => m.MusteriId == id).First();
                 musAdiTxtbox.Text = musteri.Adi;
                 musSoyadiTxtbox.Text = musteri.Soyadi;
                 musid = musteri.MusteriId;
@@ -100,7 +98,6 @@ namespace MarketOtomasyonu.UserControls
                 }
                 else
                 {
-
                     GetFromDB();
                 }
             }

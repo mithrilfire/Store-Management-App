@@ -38,9 +38,7 @@ namespace MarketOtomasyonu.UserControls
 
             using (var db = new MarketDBContext())
             {
-                Models.Tedarikci tedarikci = db.tedarikciler.
-                    Where(t => t.TedarikciId == id).
-                    First();
+                Models.Tedarikci tedarikci = db.tedarikciler.Where(t => t.TedarikciId == id).First();
                 tedarikciTxtbox.Text = tedarikci.Adi;
                 tedarikçiAdresTxtbox.Text = tedarikci.Adres;
                 tedid = tedarikci.TedarikciId;
