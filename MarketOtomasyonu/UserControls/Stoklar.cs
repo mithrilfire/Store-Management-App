@@ -5,21 +5,24 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using System.Globalization;
 
 namespace MarketOtomasyonu.UserControls
 {
     public partial class Stoklar : UserControl
-
     {
+        private int tedId;
         public Stoklar()
         {
             InitializeComponent();
             GetFromDB();
+            TedarikciGetFromDB();
 
         }
 
@@ -31,6 +34,19 @@ namespace MarketOtomasyonu.UserControls
                 BindingSource src = new BindingSource();
                 src.DataSource = stoklar;
                 dataGridView1.DataSource = src;
+            }
+        }
+
+        void TedarikciGetFromDB()
+        {
+            using (var db = new MarketDBContext())
+            {
+                var tedarikci = db.tedarikciler.ToList();
+                BindingSource src = new BindingSource();
+                src.DataSource = tedarikci;
+                tedarikciDataGrid.DataSource = src;
+                tedarikciDataGrid.Columns[0].Visible = false;
+                tedarikciDataGrid.Columns[2].Visible = false;
             }
         }
 
@@ -59,6 +75,14 @@ namespace MarketOtomasyonu.UserControls
 
         private void stokEkleBtn_Click(object sender, EventArgs e)
         {
+            using (var db = new MarketDBContext())
+            {
+                if (!db.tedarikciler.Any(t => t.TedarikciId == tedId))
+                {
+                    return;
+                }
+            }
+
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "c:\\";
@@ -73,21 +97,46 @@ namespace MarketOtomasyonu.UserControls
 
                     using (StreamReader reader = new StreamReader(fileStream))
                     {
+                        float toplamBorc = 0;
+                        int irsaliyeNo = 0;
                         string? line;
                         while ((line = reader.ReadLine()) != null)
                         {
                             string[] items = line.Split(',');
 
-                            urunEkle(UrunOlustur(items));
+                            Models.Urun? yeniurun = UrunOlustur(items);
 
-                            StokEkle(StokOlustur(items));
+                            if (yeniurun != null) 
+                            {
+                                urunEkle(yeniurun);
+                            }
+
+                            Models.Stok? yenistok = StokOlustur(items);
+
+                            if (yenistok != null)
+                            {
+                                StokEkle(yenistok);
+                                toplamBorc += yenistok.Adet * yenistok.GirdiBirimFiyati;
+                                irsaliyeNo = yenistok.IrsaliyeId;
+
+                            }
+                        }
+                        Models.TedarikciBorc yeniborc = new Models.TedarikciBorc();
+                        yeniborc.BorcTutari = toplamBorc;
+                        yeniborc.TedarikciId = tedId;
+                        yeniborc.IrsaliyeNo = irsaliyeNo;
+
+                        using (var db = new MarketDBContext())
+                        {
+                            db.tedarikciBorclar.Add(yeniborc);
+                            db.SaveChanges();
                         }
                     }
                 }
             }
         }
 
-        private static Models.Urun? UrunOlustur(string[] items)
+        private  Models.Urun? UrunOlustur(string[] items)
         {
             Models.Urun yeniurun = new Models.Urun();
 
@@ -105,14 +154,14 @@ namespace MarketOtomasyonu.UserControls
 
 
             float bFiyat;
-            if (!float.TryParse(items[5], out bFiyat))
+            if (!float.TryParse(items[5], CultureInfo.InvariantCulture.NumberFormat, out bFiyat))
                 return null;
             yeniurun.BirimFiyati = bFiyat;
 
             return yeniurun;
         }
 
-        private static Models.Stok? StokOlustur(string[] items)
+        private Models.Stok? StokOlustur(string[] items)
         {
             Models.Stok yenistok = new Models.Stok();
 
@@ -133,14 +182,16 @@ namespace MarketOtomasyonu.UserControls
             yenistok.Adet = adet;
 
             float bGFiyat;
-            if (!float.TryParse(items[4], out bGFiyat))
+            if (!float.TryParse(items[4], CultureInfo.InvariantCulture.NumberFormat, out bGFiyat))
                 return null;
             yenistok.GirdiBirimFiyati = bGFiyat;
+
+            yenistok.TedarikciId = tedId;
 
             return yenistok;
         }
         
-        private static void StokEkle(Stok yenistok)
+        private void StokEkle(Stok yenistok)
         {
             using (var db = new MarketDBContext())
             {
@@ -151,14 +202,14 @@ namespace MarketOtomasyonu.UserControls
             }
         }
 
-        private static void urunEkle(Urun yeniurun)
+        private void urunEkle(Urun yeniurun)
         {
             using (var db = new MarketDBContext())
             {
                 if (db.urunler.Any(u => u.UrunId == yeniurun.UrunId))
                 {
                     Models.Urun varolanurun = db.urunler.
-                        Where(u => u.Barkod == yeniurun.UrunId).
+                        Where(u => u.UrunId == yeniurun.UrunId).
                         First();
                     varolanurun.BirimFiyati = yeniurun.BirimFiyati;
                 }
@@ -175,5 +226,12 @@ namespace MarketOtomasyonu.UserControls
             stoklarTxtBox.Clear();
             GetFromDB();
         }
+
+        private void tedarikciDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tedId = (int)tedarikciDataGrid[0, e.RowIndex].Value;
+                 
+        }
+
     }
 }

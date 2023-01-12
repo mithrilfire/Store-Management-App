@@ -30,6 +30,8 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.stokPanel = new System.Windows.Forms.Panel();
+            this.tedarikciDataGrid = new System.Windows.Forms.DataGridView();
+            this.tedarikciLbl = new System.Windows.Forms.Label();
             this.temizleBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.uyariLbl = new System.Windows.Forms.Label();
@@ -40,6 +42,7 @@
             this.stoklarTxtBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.stokPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tedarikciDataGrid)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +58,8 @@
             // 
             // stokPanel
             // 
+            this.stokPanel.Controls.Add(this.tedarikciDataGrid);
+            this.stokPanel.Controls.Add(this.tedarikciLbl);
             this.stokPanel.Controls.Add(this.temizleBtn);
             this.stokPanel.Controls.Add(this.panel1);
             this.stokPanel.Controls.Add(this.stokEkleBtn);
@@ -66,6 +71,30 @@
             this.stokPanel.Name = "stokPanel";
             this.stokPanel.Size = new System.Drawing.Size(330, 712);
             this.stokPanel.TabIndex = 6;
+            // 
+            // tedarikciDataGrid
+            // 
+            this.tedarikciDataGrid.AllowUserToAddRows = false;
+            this.tedarikciDataGrid.AllowUserToDeleteRows = false;
+            this.tedarikciDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tedarikciDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tedarikciDataGrid.Location = new System.Drawing.Point(19, 402);
+            this.tedarikciDataGrid.Name = "tedarikciDataGrid";
+            this.tedarikciDataGrid.ReadOnly = true;
+            this.tedarikciDataGrid.RowTemplate.Height = 25;
+            this.tedarikciDataGrid.Size = new System.Drawing.Size(292, 197);
+            this.tedarikciDataGrid.TabIndex = 20;
+            this.tedarikciDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tedarikciDataGrid_CellClick);
+            // 
+            // tedarikciLbl
+            // 
+            this.tedarikciLbl.AutoSize = true;
+            this.tedarikciLbl.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tedarikciLbl.Location = new System.Drawing.Point(132, 371);
+            this.tedarikciLbl.Name = "tedarikciLbl";
+            this.tedarikciLbl.Size = new System.Drawing.Size(66, 15);
+            this.tedarikciLbl.TabIndex = 19;
+            this.tedarikciLbl.Text = "Tedarikçiler";
             // 
             // temizleBtn
             // 
@@ -87,21 +116,19 @@
             // 
             // uyariLbl
             // 
-            this.uyariLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uyariLbl.AutoSize = true;
+            this.uyariLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uyariLbl.ForeColor = System.Drawing.Color.Red;
-            this.uyariLbl.Location = new System.Drawing.Point(130, 21);
+            this.uyariLbl.Location = new System.Drawing.Point(0, 0);
             this.uyariLbl.Name = "uyariLbl";
-            this.uyariLbl.Size = new System.Drawing.Size(34, 15);
+            this.uyariLbl.Size = new System.Drawing.Size(311, 54);
             this.uyariLbl.TabIndex = 16;
             this.uyariLbl.Text = "Uyarı";
+            this.uyariLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.uyariLbl.Visible = false;
             // 
             // stokEkleBtn
             // 
-            this.stokEkleBtn.Location = new System.Drawing.Point(122, 519);
+            this.stokEkleBtn.Location = new System.Drawing.Point(110, 605);
             this.stokEkleBtn.Name = "stokEkleBtn";
             this.stokEkleBtn.Size = new System.Drawing.Size(110, 42);
             this.stokEkleBtn.TabIndex = 15;
@@ -113,7 +140,7 @@
             // 
             this.stokAraLbl.AutoSize = true;
             this.stokAraLbl.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.stokAraLbl.Location = new System.Drawing.Point(156, 148);
+            this.stokAraLbl.Location = new System.Drawing.Point(140, 148);
             this.stokAraLbl.Name = "stokAraLbl";
             this.stokAraLbl.Size = new System.Drawing.Size(51, 15);
             this.stokAraLbl.TabIndex = 11;
@@ -158,8 +185,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.stokPanel.ResumeLayout(false);
             this.stokPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tedarikciDataGrid)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -175,5 +202,7 @@
         private Label uyariLbl;
         private Button temizleBtn;
         private Panel panel1;
+        private DataGridView tedarikciDataGrid;
+        private Label tedarikciLbl;
     }
 }

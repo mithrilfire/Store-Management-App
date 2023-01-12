@@ -20,20 +20,28 @@ namespace MarketOtomasyonu.UserControls
         public Satis()
         {
             InitializeComponent();
-            //GetFromDB();
+            fis = new List<Fis>();
+            GetFromDB();
+            MusteriGetFromDB();
             //toplamTutar();
-            fis = new List<Fis>
-            {
-                new Fis() { urunAdi = "kek", urunAdeti = 5, barkod = 1234 }
-            };
-            dataGridView1.DataSource = fis.Select(Fis => new { Fis.barkod, Fis.urunAdi, Fis.urunAdeti }).ToList();
 
         }
         void GetFromDB()
         {
                 var list = new BindingList<Fis>(fis);
                 var source = new BindingSource(list, null);
-                dataGridView1.DataSource = source;
+                dataGridView1.DataSource = fis.Select(Fis => new { Fis.barkod, Fis.urunAdi, Fis.urunAdeti }).ToList();
+        }
+
+        void MusteriGetFromDB()
+        {
+            using (var db = new MarketDBContext())
+            {
+                var musteriler = db.musteriler.ToList();
+                BindingSource src = new BindingSource();
+                src.DataSource = musteriler;
+                dataGridView3.DataSource = src;
+            }
         }
         private void ClearInputs()
         {
@@ -53,7 +61,6 @@ namespace MarketOtomasyonu.UserControls
 
                 int ad;
 
-                // Db den barkodları çekip kaşılaştırcaz. Ürün adını çekicez.
                 if (int.TryParse(barkodTxtBox.Text, out ad))
                 {
                     fis.barkod = ad;
@@ -127,7 +134,7 @@ namespace MarketOtomasyonu.UserControls
                 db.musteriler.Add(musteri);
                 db.SaveChanges();
             }
-            GetFromDB();
+            MusteriGetFromDB();
         }
 
         private void musAraLbl_Click(object sender, EventArgs e)

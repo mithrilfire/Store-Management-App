@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.uKodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.barkod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uBFiyati = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uAdeti = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.urunPanel = new System.Windows.Forms.Panel();
             this.urunListeleBtn = new System.Windows.Forms.Button();
             this.urunlerTxtBox = new System.Windows.Forms.TextBox();
@@ -49,46 +44,11 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.uKodu,
-            this.uAdi,
-            this.barkod,
-            this.uBFiyati,
-            this.uAdeti});
             this.dataGridView1.Location = new System.Drawing.Point(11, 11);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(786, 714);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // uKodu
-            // 
-            this.uKodu.HeaderText = "Ürün Kodu";
-            this.uKodu.Name = "uKodu";
-            this.uKodu.ReadOnly = true;
-            // 
-            // uAdi
-            // 
-            this.uAdi.HeaderText = "Ürün Adı";
-            this.uAdi.Name = "uAdi";
-            this.uAdi.ReadOnly = true;
-            // 
-            // barkod
-            // 
-            this.barkod.HeaderText = "Barkod";
-            this.barkod.Name = "barkod";
-            this.barkod.ReadOnly = true;
-            // 
-            // uBFiyati
-            // 
-            this.uBFiyati.HeaderText = "Ürün Birim Fiyatı";
-            this.uBFiyati.Name = "uBFiyati";
-            // 
-            // uAdeti
-            // 
-            this.uAdeti.HeaderText = "Ürün Adeti";
-            this.uAdeti.Name = "uAdeti";
-            this.uAdeti.ReadOnly = true;
             // 
             // urunPanel
             // 
@@ -163,10 +123,5 @@
         private TextBox urunlerTxtBox;
         private Label urunAdiLbl;
         private Label urunAraLbl;
-        private DataGridViewTextBoxColumn uKodu;
-        private DataGridViewTextBoxColumn uAdi;
-        private DataGridViewTextBoxColumn barkod;
-        private DataGridViewTextBoxColumn uBFiyati;
-        private DataGridViewTextBoxColumn uAdeti;
     }
 }
