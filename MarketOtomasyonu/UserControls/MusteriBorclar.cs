@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MarketOtomasyonu.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,99 @@ namespace MarketOtomasyonu.UserControls
         public MusteriBorclar()
         {
             InitializeComponent();
+            GetFromDBOdeme();
+            GetFromDBBorc();
+        }
+        int musid;
+        int verid;
+        void GetFromDBOdeme()
+        {
+            using (var db = new MarketDBContext())
+            {
+                var veresiyeodeme = db.veresiyeOdemeler.ToList();
+                BindingSource src = new BindingSource();
+                src.DataSource = veresiyeodeme;
+                musOdemeleriDatagrid.DataSource = src;
+                musOdemeleriDatagrid.Columns["Veresiye"].Visible = false;
+
+            }
+        }
+        void GetFromDBBorc()
+        {
+            using (var db = new MarketDBContext())
+            {
+                var veresiye = db.veresiyeler.ToList();
+                BindingSource src = new BindingSource();
+                src.DataSource = veresiye;
+                musBorclariDatagrid.DataSource = src;
+                musBorclariDatagrid.Columns["Satis"].Visible = false;
+                musBorclariDatagrid.Columns["Musteri"].Visible = false;
+            }
+        }
+
+        private void listeleBtn_Click(object sender, EventArgs e)
+        {
+            using (var db = new MarketDBContext())
+            {
+                if (musAdiTxtbox.Text != "" && musSoyadTxtbox.Text != "")
+                {
+                    var musteriad = db.veresiyeOdemeler.Where(v => v.Veresiye.Musteri.Adi == musAdiTxtbox.Text && v.Veresiye.Musteri.Soyadi == musSoyadTxtbox.Text);
+                    musOdemeleriDatagrid.DataSource = musteriad.ToList();
+                    var musteriadi = db.veresiyeler.Where(v => v.Musteri.Adi == musAdiTxtbox.Text && v.Musteri.Soyadi == musSoyadTxtbox.Text);
+                    musBorclariDatagrid.DataSource = musteriadi.ToList();
+                }
+                else if (musAdiTxtbox.Text != "" && musSoyadTxtbox.Text == "")
+                {
+                    var musteriad = db.veresiyeOdemeler.Where(v => v.Veresiye.Musteri.Adi == musAdiTxtbox.Text);
+                    musOdemeleriDatagrid.DataSource = musteriad.ToList();
+                    var musteriadi = db.veresiyeler.Where(v => v.Musteri.Adi == musAdiTxtbox.Text);
+                    musBorclariDatagrid.DataSource = musteriadi.ToList();
+                }
+                else if (musAdiTxtbox.Text == "" && musSoyadTxtbox.Text != "")
+                {
+                    var musteriad = db.veresiyeOdemeler.Where(v => v.Veresiye.Musteri.Soyadi == musSoyadTxtbox.Text);
+                    musOdemeleriDatagrid.DataSource = musteriad.ToList();
+                    var musteriadi = db.veresiyeler.Where(v => v.Musteri.Soyadi == musSoyadTxtbox.Text);
+                    musBorclariDatagrid.DataSource = musteriadi.ToList();
+                }
+                else
+                {
+                    GetFromDBBorc();
+                    GetFromDBOdeme();
+                }
+            }
+        }
+
+        private void musBorclariDatagrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = (int)musBorclariDatagrid[0, e.RowIndex].Value;
+
+            using (var db = new MarketDBContext())
+            {
+                Models.Veresiye musteri = db.veresiyeler.Where(m => m.Musteri.MusteriId == id).First();
+                musAdıBilgiLbl.Text = musteri.Musteri.Adi;
+                musSoyadBilgiLbl.Text = musteri.Musteri.Soyadi;
+                kalanBorcBilgiLbl.Text = musteri.KalanBorc.ToString();
+                musid = musteri.Musteri.MusteriId;
+                verid = musteri.VeresiyeId;
+            }
+        }
+
+        private void odemeBtn_Click(object sender, EventArgs e)
+        {
+            using (var db = new MarketDBContext())
+            {
+                var veresiyeler = db.veresiyeler.Where(v => v.VeresiyeId == verid);
+
+                if (veresiyeler.Any())
+                {
+                    Models.Veresiye veresiye = veresiyeler.First();
+                    float miktar = (float)Convert.ToDouble(miktarTxtbox.Text);
+                    veresiye.KalanBorc -= miktar;
+                }
+
+                db.SaveChanges();
+            }
         }
     }
 }
