@@ -34,6 +34,7 @@
             this.urunlerTxtBox = new System.Windows.Forms.TextBox();
             this.urunAdiLbl = new System.Windows.Forms.Label();
             this.urunAraLbl = new System.Windows.Forms.Label();
+            this.temizleBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.urunPanel.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +53,7 @@
             // 
             // urunPanel
             // 
+            this.urunPanel.Controls.Add(this.temizleBtn);
             this.urunPanel.Controls.Add(this.urunListeleBtn);
             this.urunPanel.Controls.Add(this.urunlerTxtBox);
             this.urunPanel.Controls.Add(this.urunAdiLbl);
@@ -63,17 +65,18 @@
             // 
             // urunListeleBtn
             // 
-            this.urunListeleBtn.Location = new System.Drawing.Point(156, 383);
+            this.urunListeleBtn.Location = new System.Drawing.Point(66, 383);
             this.urunListeleBtn.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
             this.urunListeleBtn.Name = "urunListeleBtn";
             this.urunListeleBtn.Size = new System.Drawing.Size(82, 24);
             this.urunListeleBtn.TabIndex = 22;
-            this.urunListeleBtn.Text = "Listele";
+            this.urunListeleBtn.Text = "Ara";
             this.urunListeleBtn.UseVisualStyleBackColor = true;
+            this.urunListeleBtn.Click += new System.EventHandler(this.urunListeleBtn_Click);
             // 
             // urunlerTxtBox
             // 
-            this.urunlerTxtBox.Location = new System.Drawing.Point(157, 341);
+            this.urunlerTxtBox.Location = new System.Drawing.Point(121, 341);
             this.urunlerTxtBox.Name = "urunlerTxtBox";
             this.urunlerTxtBox.Size = new System.Drawing.Size(117, 23);
             this.urunlerTxtBox.TabIndex = 21;
@@ -82,7 +85,7 @@
             // 
             this.urunAdiLbl.AutoSize = true;
             this.urunAdiLbl.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.urunAdiLbl.Location = new System.Drawing.Point(73, 345);
+            this.urunAdiLbl.Location = new System.Drawing.Point(52, 344);
             this.urunAdiLbl.Name = "urunAdiLbl";
             this.urunAdiLbl.Size = new System.Drawing.Size(54, 15);
             this.urunAdiLbl.TabIndex = 20;
@@ -92,12 +95,23 @@
             // 
             this.urunAraLbl.AutoSize = true;
             this.urunAraLbl.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.urunAraLbl.Location = new System.Drawing.Point(170, 307);
+            this.urunAraLbl.Location = new System.Drawing.Point(150, 307);
             this.urunAraLbl.Margin = new System.Windows.Forms.Padding(3, 0, 3, 16);
             this.urunAraLbl.Name = "urunAraLbl";
             this.urunAraLbl.Size = new System.Drawing.Size(54, 15);
             this.urunAraLbl.TabIndex = 19;
             this.urunAraLbl.Text = "Ürün Ara";
+            // 
+            // temizleBtn
+            // 
+            this.temizleBtn.Location = new System.Drawing.Point(189, 383);
+            this.temizleBtn.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.temizleBtn.Name = "temizleBtn";
+            this.temizleBtn.Size = new System.Drawing.Size(82, 24);
+            this.temizleBtn.TabIndex = 23;
+            this.temizleBtn.Text = "Temizle";
+            this.temizleBtn.UseVisualStyleBackColor = true;
+            this.temizleBtn.Click += new System.EventHandler(this.temizleBtn_Click);
             // 
             // Urunler
             // 
@@ -123,5 +137,6 @@
         private TextBox urunlerTxtBox;
         private Label urunAdiLbl;
         private Label urunAraLbl;
+        private Button temizleBtn;
     }
 }
