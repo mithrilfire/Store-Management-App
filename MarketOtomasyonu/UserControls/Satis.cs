@@ -55,6 +55,7 @@ namespace MarketOtomasyonu.UserControls
                 BindingSource src = new BindingSource();
                 src.DataSource = satislar;
                 dataGridView2.DataSource = src;
+                dataGridView2.Columns["Veresiye"].Visible = false;
             }
         }
 
@@ -169,41 +170,43 @@ namespace MarketOtomasyonu.UserControls
             //Fis fis = new Fis();
             using (var db = new MarketDBContext())
             {
-                Models.Satis satis = new Models.Satis();
-                Models.Urun urun = new Models.Urun();
-                Models.Stok stok = new Models.Stok();
+                Models.Satis satis;
+                List<Models.Satis> satislar = new List<Models.Satis>();
 
                 foreach (var item in fis)
                 {
+                    satis = new Models.Satis();
+
                     satis.Barkod = item.barkod;
                     satis.Adet = item.urunAdeti;
-                    satis.Tarih = tarihSaat.ToString();
+                    satis.Tarih = tarihSaat;
                     satis.Tutar = item.urunAdeti * db.urunler.First(u => u.Barkod == item.barkod).BirimFiyati;
 
                     db.satislar.Add(satis);
                     db.SaveChanges();
-                
-                    if (veresiyeChckBox.Checked)
+
+                    satislar.Add(satis);
+                }
+
+                if (veresiyeChckBox.Checked)
+                {
+                    Models.Veresiye veresiye;
+
+                    foreach (var item in fis)
                     {
-                        Models.Veresiye veresiye = new Models.Veresiye();
-                        
+                        veresiye = new Models.Veresiye();
+                        satis = satislar.First(s => s.Barkod == item.barkod);
+
                         veresiye.SatisId = satis.SatisId;
                         veresiye.KalanBorc = satis.Tutar;
                         veresiye.MusteriId = musId;
-                        
+
                         db.veresiyeler.Add(veresiye);
                         db.SaveChanges();
                         satis.VeresiyeId = veresiye.VeresiyeId;
                         db.SaveChanges();
-                    }
                     
-                }
-
-                if (stok.Adet <= 10)
-                {
-                    MessageBox.Show("Stok Sayısı Azalıyor!", "Uyarı!", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                 
+                    }
                 }
             }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MarketOtomasyonu.Models
 {
-    internal class Personel
+    public class Personel
     {
         // Birincil Anahtar
         public int PersonelId { get; set; }

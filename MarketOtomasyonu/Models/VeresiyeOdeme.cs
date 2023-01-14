@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarketOtomasyonu.Models
 {
-    internal class VeresiyeOdeme
+    public class VeresiyeOdeme
     {
         // Birincil Anahtar
         public int VeresiyeOdemeId { get; set; }
@@ -17,6 +17,6 @@ namespace MarketOtomasyonu.Models
         public int VeresiyeId { get; set; }
 
         // Navigasyon Nesnesi
-        public Veresiye Veresiye { get; set; }
+        public virtual Veresiye Veresiye { get; set; }
     }
 }
