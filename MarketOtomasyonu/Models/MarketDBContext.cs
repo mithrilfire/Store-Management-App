@@ -33,8 +33,21 @@ namespace MarketOtomasyonu.Models
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Urun>().Property( u => u.UrunId ).ValueGeneratedNever();
             modelBuilder.Entity<Stok>().HasKey( s => new { s.UrunId, s.IrsaliyeId } );
-            modelBuilder.Entity<Stok>().HasOne( s => s.Tedarikci ).WithMany( t => t.Stoks ).HasForeignKey( s => s.TedarikciId );
-            modelBuilder.Entity<Satis>().HasOne<Veresiye>( s => s.Veresiye ).WithOne( v => v.Satis ).HasForeignKey<Veresiye>( s => s.VeresiyeId );
+
+            modelBuilder.Entity<Stok>().HasOne(s => s.Tedarikci)
+                .WithMany(t => t.Stoks)
+                .HasForeignKey(s => s.TedarikciId)
+                .IsRequired();
+
+            modelBuilder.Entity<Satis>().HasOne(s => s.Veresiye)
+                .WithOne(v => v.Satis)
+                .HasForeignKey<Satis>(s => s.VeresiyeId)
+                .IsRequired(false);
+
+            modelBuilder.Entity<TedarikciBorc>().HasOne(tb => tb.Tedarikci)
+                .WithMany(t => t.tedarikciBorcs)
+                .HasForeignKey(tb => tb.TedarikciId)
+                .IsRequired();
         }
     }
 }
