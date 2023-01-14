@@ -20,6 +20,7 @@ namespace MarketOtomasyonu.UserControls
     {
 
         List<Fis> fis;
+        int musId;
         public Satis()
         {
             InitializeComponent();
@@ -63,8 +64,6 @@ namespace MarketOtomasyonu.UserControls
             urunAdetiTxtBox.Text = string.Empty;
             musAdiTxtBox.Text = string.Empty;
             musSoyAdiTxtBox.Text = string.Empty;
-            dataGridView3.Rows.Clear();
-            dataGridView3.Refresh();
         }
 
         private void urunleriEkle_Click(object sender, EventArgs e)
@@ -180,9 +179,24 @@ namespace MarketOtomasyonu.UserControls
                     satis.Adet = item.urunAdeti;
                     satis.Tarih = tarihSaat.ToString();
                     satis.Tutar = item.urunAdeti * db.urunler.First(u => u.Barkod == item.barkod).BirimFiyati;
-                    
+
                     db.satislar.Add(satis);
                     db.SaveChanges();
+                
+                    if (veresiyeChckBox.Checked)
+                    {
+                        Models.Veresiye veresiye = new Models.Veresiye();
+                        
+                        veresiye.SatisId = satis.SatisId;
+                        veresiye.KalanBorc = satis.Tutar;
+                        veresiye.MusteriId = musId;
+                        
+                        db.veresiyeler.Add(veresiye);
+                        db.SaveChanges();
+                        satis.VeresiyeId = veresiye.VeresiyeId;
+                        db.SaveChanges();
+                    }
+                    
                 }
 
                 if (stok.Adet <= 10)
@@ -196,6 +210,11 @@ namespace MarketOtomasyonu.UserControls
             GetFromDB();
             ClearInputs();
             SatisGetFromDB();
+        }
+
+        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            musId = (int)dataGridView3[0, e.RowIndex].Value;
         }
     }
 

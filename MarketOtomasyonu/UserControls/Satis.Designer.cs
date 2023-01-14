@@ -174,6 +174,7 @@
             this.dataGridView3.RowTemplate.Height = 25;
             this.dataGridView3.Size = new System.Drawing.Size(297, 207);
             this.dataGridView3.TabIndex = 14;
+            this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellClick);
             // 
             // musAraLbl
             // 
