@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using Microsoft.EntityFrameworkCore.Proxies;
 
 namespace MarketOtomasyonu.Models
 {
-    internal class MarketDBContext : DbContext
+    public class MarketDBContext : DbContext
     {
         public DbSet<Musteri> musteriler { get; set; }
         public DbSet<Personel> personeller { get; set; }
@@ -22,10 +23,12 @@ namespace MarketOtomasyonu.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Database=MarketDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Database=MarketDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             //optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rubri\source\repos\MarketOtomasyonu\MarketOtomasyonu\Data\MarketDatabase.mdf;Integrated Security=True");
             //optionsBuilder.UseSqlServer(@"Data Source=.\SQLEXPRESS;Database=MarketDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             //optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\rubri\\source\\repos\\MarketOtomasyonu\\MarketOtomasyonu\\Data\\MarketDatabase.mdf;Integrated Security=True");
+
+            optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -33,8 +36,22 @@ namespace MarketOtomasyonu.Models
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Urun>().Property( u => u.UrunId ).ValueGeneratedNever();
             modelBuilder.Entity<Stok>().HasKey( s => new { s.UrunId, s.IrsaliyeId } );
-            modelBuilder.Entity<Stok>().HasOne( s => s.Tedarikci ).WithMany( t => t.Stoks ).HasForeignKey( s => s.TedarikciId );
-            modelBuilder.Entity<Satis>().HasOne<Veresiye>( s => s.Veresiye ).WithOne( v => v.Satis ).HasForeignKey<Veresiye>( s => s.VeresiyeId );
+
+            modelBuilder.Entity<Stok>().HasOne(s => s.Tedarikci)
+                .WithMany(t => t.Stoks)
+                .HasForeignKey(s => s.TedarikciId)
+                .IsRequired();
+
+            modelBuilder.Entity<Satis>().HasOne(s => s.Veresiye)
+                .WithOne(v => v.Satis)
+                .HasForeignKey<Satis>(s => s.VeresiyeId)
+                .IsRequired(false);
+
+            modelBuilder.Entity<TedarikciBorc>().HasOne(tb => tb.Tedarikci)
+                .WithMany(t => t.tedarikciBorcs)
+                .HasForeignKey(tb => tb.TedarikciId)
+                .IsRequired();
+
         }
     }
 }

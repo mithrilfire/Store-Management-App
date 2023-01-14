@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MarketOtomasyonu.Models
 {
-    internal class Musteri
+    public class Musteri
     {
         // Birincil Anahtar
         public int MusteriId { get; set; }

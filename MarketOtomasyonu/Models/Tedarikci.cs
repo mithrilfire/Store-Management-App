@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarketOtomasyonu.Models
 {
-    internal class Tedarikci
+    public class Tedarikci
     {
         // Birincil Anahtar
         public int TedarikciId { get; set; }
