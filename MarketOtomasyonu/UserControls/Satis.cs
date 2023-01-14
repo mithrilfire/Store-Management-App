@@ -5,10 +5,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using System.Globalization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MarketOtomasyonu.UserControls
@@ -22,8 +25,7 @@ namespace MarketOtomasyonu.UserControls
             InitializeComponent();
             fis = new List<Fis>();
             GetFromDB();
-            MusteriGetFromDB();
-            //toplamTutar();
+            SatisGetFromDB();
 
         }
         void GetFromDB()
@@ -43,6 +45,18 @@ namespace MarketOtomasyonu.UserControls
                 dataGridView3.DataSource = src;
             }
         }
+
+        void SatisGetFromDB()
+        {
+            using (var db = new MarketDBContext())
+            {
+                var satislar = db.satislar.ToList();
+                BindingSource src = new BindingSource();
+                src.DataSource = satislar;
+                dataGridView2.DataSource = src;
+            }
+        }
+
         private void ClearInputs()
         {
             barkodTxtBox.Text = string.Empty;
@@ -108,20 +122,6 @@ namespace MarketOtomasyonu.UserControls
                 ClearInputs();
             }
         }
-        private void toplamTutar()
-        {
-            /*using (var db = new MarketDBContext())
-            {
-                Models.Satis satis = new Models.Satis();
-
-                int toplamTutar;
-            
-
-                db.satislar.Add(satis);
-                db.SaveChanges();
-            }*/
-            
-        }
 
         private void musEkleLbl_Click(object sender, EventArgs e)
         {
@@ -163,6 +163,40 @@ namespace MarketOtomasyonu.UserControls
                 }
             }
         }
+
+        private void satBtn_Click(object sender, EventArgs e)
+        {
+            DateTime tarihSaat = DateTime.Now;
+            //Fis fis = new Fis();
+            using (var db = new MarketDBContext())
+            {
+                Models.Satis satis = new Models.Satis();
+                Models.Urun urun = new Models.Urun();
+                Models.Stok stok = new Models.Stok();
+
+                foreach (var item in fis)
+                {
+                    satis.Barkod = item.barkod;
+                    satis.Adet = item.urunAdeti;
+                    satis.Tarih = tarihSaat.ToString();
+                    satis.Tutar = item.urunAdeti * db.urunler.First(u => u.Barkod == item.barkod).BirimFiyati;
+                    
+                    db.satislar.Add(satis);
+                    db.SaveChanges();
+                }
+
+                if (stok.Adet <= 10)
+                {
+                    MessageBox.Show("Stok Sayısı Azalıyor!", "Uyarı!", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                 
+                }
+            }
+
+            GetFromDB();
+            ClearInputs();
+            SatisGetFromDB();
+        }
     }
 
     public class Fis : UserControl
@@ -171,10 +205,5 @@ namespace MarketOtomasyonu.UserControls
         public int barkod { get; set; }
         public int urunAdeti { get; set; }
         public string urunAdi { get; set; }
-
-        
-
-
-
     }
 }

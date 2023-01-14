@@ -30,12 +30,10 @@
         {
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.sNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.satisAdeti = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTutar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.satBtn = new System.Windows.Forms.Button();
+            this.urunleriCikar = new System.Windows.Forms.Button();
+            this.urunleriEkle = new System.Windows.Forms.Button();
             this.veresiyePanel = new System.Windows.Forms.Panel();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.musAraLbl = new System.Windows.Forms.Button();
@@ -54,8 +52,6 @@
             this.urunEkleLbl = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.urunleriEkle = new System.Windows.Forms.Button();
-            this.urunleriCikar = new System.Windows.Forms.Button();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -82,12 +78,6 @@
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.sNo,
-            this.dataGridViewTextBoxColumn1,
-            this.satisAdeti,
-            this.sTarihi,
-            this.sTutar});
             this.dataGridView2.Location = new System.Drawing.Point(11, 11);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -95,38 +85,9 @@
             this.dataGridView2.Size = new System.Drawing.Size(1092, 654);
             this.dataGridView2.TabIndex = 0;
             // 
-            // sNo
-            // 
-            this.sNo.HeaderText = "Satış No";
-            this.sNo.Name = "sNo";
-            this.sNo.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Barkod";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // satisAdeti
-            // 
-            this.satisAdeti.HeaderText = "Satış Adeti";
-            this.satisAdeti.Name = "satisAdeti";
-            this.satisAdeti.ReadOnly = true;
-            // 
-            // sTarihi
-            // 
-            this.sTarihi.HeaderText = "Satış Tarihi";
-            this.sTarihi.Name = "sTarihi";
-            this.sTarihi.ReadOnly = true;
-            // 
-            // sTutar
-            // 
-            this.sTutar.HeaderText = "Satış Tutarı";
-            this.sTutar.Name = "sTutar";
-            this.sTutar.ReadOnly = true;
-            // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.satBtn);
             this.tabPage1.Controls.Add(this.urunleriCikar);
             this.tabPage1.Controls.Add(this.urunleriEkle);
             this.tabPage1.Controls.Add(this.veresiyePanel);
@@ -146,6 +107,44 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Perakende Satış";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // satBtn
+            // 
+            this.satBtn.Location = new System.Drawing.Point(835, 179);
+            this.satBtn.Name = "satBtn";
+            this.satBtn.Size = new System.Drawing.Size(82, 28);
+            this.satBtn.TabIndex = 16;
+            this.satBtn.Text = "Satış";
+            this.satBtn.UseVisualStyleBackColor = true;
+            this.satBtn.Click += new System.EventHandler(this.satBtn_Click);
+            // 
+            // urunleriCikar
+            // 
+            this.urunleriCikar.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.urunleriCikar.BackgroundImage = global::MarketOtomasyonu.Properties.Resources.right_arrow;
+            this.urunleriCikar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.urunleriCikar.FlatAppearance.BorderSize = 0;
+            this.urunleriCikar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.urunleriCikar.Location = new System.Drawing.Point(618, 139);
+            this.urunleriCikar.Name = "urunleriCikar";
+            this.urunleriCikar.Size = new System.Drawing.Size(30, 30);
+            this.urunleriCikar.TabIndex = 15;
+            this.urunleriCikar.UseVisualStyleBackColor = false;
+            this.urunleriCikar.Click += new System.EventHandler(this.urunleriCikar_Click);
+            // 
+            // urunleriEkle
+            // 
+            this.urunleriEkle.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.urunleriEkle.BackgroundImage = global::MarketOtomasyonu.Properties.Resources.left_arrow;
+            this.urunleriEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.urunleriEkle.FlatAppearance.BorderSize = 0;
+            this.urunleriEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.urunleriEkle.Location = new System.Drawing.Point(618, 87);
+            this.urunleriEkle.Name = "urunleriEkle";
+            this.urunleriEkle.Size = new System.Drawing.Size(30, 30);
+            this.urunleriEkle.TabIndex = 14;
+            this.urunleriEkle.UseVisualStyleBackColor = false;
+            this.urunleriEkle.Click += new System.EventHandler(this.urunleriEkle_Click);
             // 
             // veresiyePanel
             // 
@@ -206,7 +205,7 @@
             // musSoyadLbl
             // 
             this.musSoyadLbl.AutoSize = true;
-            this.musSoyadLbl.BackColor = System.Drawing.Color.DarkGray;
+            this.musSoyadLbl.BackColor = System.Drawing.Color.Transparent;
             this.musSoyadLbl.Location = new System.Drawing.Point(64, 61);
             this.musSoyadLbl.Name = "musSoyadLbl";
             this.musSoyadLbl.Size = new System.Drawing.Size(85, 15);
@@ -223,7 +222,7 @@
             // musAdiLbl
             // 
             this.musAdiLbl.AutoSize = true;
-            this.musAdiLbl.BackColor = System.Drawing.Color.DarkGray;
+            this.musAdiLbl.BackColor = System.Drawing.Color.Transparent;
             this.musAdiLbl.Location = new System.Drawing.Point(64, 20);
             this.musAdiLbl.Name = "musAdiLbl";
             this.musAdiLbl.Size = new System.Drawing.Size(68, 15);
@@ -245,7 +244,7 @@
             // 
             this.tBorcViewLbl.AutoSize = true;
             this.tBorcViewLbl.BackColor = System.Drawing.Color.DarkGray;
-            this.tBorcViewLbl.Location = new System.Drawing.Point(826, 154);
+            this.tBorcViewLbl.Location = new System.Drawing.Point(828, 154);
             this.tBorcViewLbl.Name = "tBorcViewLbl";
             this.tBorcViewLbl.Size = new System.Drawing.Size(97, 15);
             this.tBorcViewLbl.TabIndex = 11;
@@ -254,7 +253,7 @@
             // toplamBorcLbl
             // 
             this.toplamBorcLbl.AutoSize = true;
-            this.toplamBorcLbl.BackColor = System.Drawing.Color.DarkGray;
+            this.toplamBorcLbl.BackColor = System.Drawing.Color.Transparent;
             this.toplamBorcLbl.Location = new System.Drawing.Point(739, 154);
             this.toplamBorcLbl.Name = "toplamBorcLbl";
             this.toplamBorcLbl.Size = new System.Drawing.Size(73, 15);
@@ -263,14 +262,14 @@
             // 
             // urunAdetiTxtBox
             // 
-            this.urunAdetiTxtBox.Location = new System.Drawing.Point(824, 111);
+            this.urunAdetiTxtBox.Location = new System.Drawing.Point(826, 111);
             this.urunAdetiTxtBox.Name = "urunAdetiTxtBox";
             this.urunAdetiTxtBox.Size = new System.Drawing.Size(100, 23);
             this.urunAdetiTxtBox.TabIndex = 9;
             // 
             // barkodTxtBox
             // 
-            this.barkodTxtBox.Location = new System.Drawing.Point(824, 73);
+            this.barkodTxtBox.Location = new System.Drawing.Point(826, 73);
             this.barkodTxtBox.Name = "barkodTxtBox";
             this.barkodTxtBox.Size = new System.Drawing.Size(100, 23);
             this.barkodTxtBox.TabIndex = 7;
@@ -278,7 +277,7 @@
             // urunAdetiLbl
             // 
             this.urunAdetiLbl.AutoSize = true;
-            this.urunAdetiLbl.BackColor = System.Drawing.Color.DarkGray;
+            this.urunAdetiLbl.BackColor = System.Drawing.Color.Transparent;
             this.urunAdetiLbl.Location = new System.Drawing.Point(739, 115);
             this.urunAdetiLbl.Name = "urunAdetiLbl";
             this.urunAdetiLbl.Size = new System.Drawing.Size(64, 15);
@@ -288,7 +287,7 @@
             // barkodLbl
             // 
             this.barkodLbl.AutoSize = true;
-            this.barkodLbl.BackColor = System.Drawing.Color.DarkGray;
+            this.barkodLbl.BackColor = System.Drawing.Color.Transparent;
             this.barkodLbl.Location = new System.Drawing.Point(739, 77);
             this.barkodLbl.Name = "barkodLbl";
             this.barkodLbl.Size = new System.Drawing.Size(44, 15);
@@ -298,7 +297,7 @@
             // urunEkleLbl
             // 
             this.urunEkleLbl.AutoSize = true;
-            this.urunEkleLbl.BackColor = System.Drawing.Color.DarkGray;
+            this.urunEkleLbl.BackColor = System.Drawing.Color.Transparent;
             this.urunEkleLbl.Location = new System.Drawing.Point(803, 24);
             this.urunEkleLbl.Name = "urunEkleLbl";
             this.urunEkleLbl.Size = new System.Drawing.Size(57, 15);
@@ -327,34 +326,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1122, 704);
             this.tabControl1.TabIndex = 1;
-            // 
-            // urunleriEkle
-            // 
-            this.urunleriEkle.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.urunleriEkle.BackgroundImage = global::MarketOtomasyonu.Properties.Resources.left_arrow;
-            this.urunleriEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.urunleriEkle.FlatAppearance.BorderSize = 0;
-            this.urunleriEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.urunleriEkle.Location = new System.Drawing.Point(618, 87);
-            this.urunleriEkle.Name = "urunleriEkle";
-            this.urunleriEkle.Size = new System.Drawing.Size(30, 30);
-            this.urunleriEkle.TabIndex = 14;
-            this.urunleriEkle.UseVisualStyleBackColor = false;
-            this.urunleriEkle.Click += new System.EventHandler(this.urunleriEkle_Click);
-            // 
-            // urunleriCikar
-            // 
-            this.urunleriCikar.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.urunleriCikar.BackgroundImage = global::MarketOtomasyonu.Properties.Resources.right_arrow;
-            this.urunleriCikar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.urunleriCikar.FlatAppearance.BorderSize = 0;
-            this.urunleriCikar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.urunleriCikar.Location = new System.Drawing.Point(618, 139);
-            this.urunleriCikar.Name = "urunleriCikar";
-            this.urunleriCikar.Size = new System.Drawing.Size(30, 30);
-            this.urunleriCikar.TabIndex = 15;
-            this.urunleriCikar.UseVisualStyleBackColor = false;
-            this.urunleriCikar.Click += new System.EventHandler(this.urunleriCikar_Click);
             // 
             // Satis
             // 
@@ -398,14 +369,10 @@
         private TextBox musSoyAdiTxtBox;
         private Label musSoyadLbl;
         private Button musEkleLbl;
-        private DataGridViewTextBoxColumn sNo;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn satisAdeti;
-        private DataGridViewTextBoxColumn sTarihi;
-        private DataGridViewTextBoxColumn sTutar;
         private Button musAraLbl;
         private DataGridView dataGridView3;
         private Button urunleriCikar;
         private Button urunleriEkle;
+        private Button satBtn;
     }
 }
