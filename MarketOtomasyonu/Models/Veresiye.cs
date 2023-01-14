@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace MarketOtomasyonu.Models
 {
-    internal class Veresiye
+    public class Veresiye
     {
         // Birincil Anahtar
         public int VeresiyeId { get; set; }
+
         public float KalanBorc { get; set; }
 
         // Yabanci Anahtarlar
@@ -17,8 +18,8 @@ namespace MarketOtomasyonu.Models
         public int MusteriId { get; set; }
         
         // Navigasyon Nesneleri
-        public Satis Satis { get; set; }
-        public Musteri Musteri { get; set; }
-        public List<VeresiyeOdeme> VeresiyeOdemes { get; private set;}
+        public virtual Satis Satis { get; set; }
+        public virtual Musteri Musteri { get; set; }
+        public virtual List<VeresiyeOdeme> VeresiyeOdemes { get; private set;}
     }
 }

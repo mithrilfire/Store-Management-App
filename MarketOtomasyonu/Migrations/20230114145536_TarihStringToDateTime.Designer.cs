@@ -12,15 +12,18 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarketOtomasyonu.Migrations
 {
     [DbContext(typeof(MarketDBContext))]
-    [Migration("20230108104011_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20230114145536_TarihStringToDateTime")]
+    partial class TarihStringToDateTime
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.1")
+                .HasAnnotation("ProductVersion", "7.0.2")
+                .HasAnnotation("Proxies:ChangeTracking", false)
+                .HasAnnotation("Proxies:CheckEquality", false)
+                .HasAnnotation("Proxies:LazyLoading", true)
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -70,6 +73,9 @@ namespace MarketOtomasyonu.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Yonetici")
+                        .HasColumnType("bit");
+
                     b.HasKey("PersonelId");
 
                     b.ToTable("personeller");
@@ -89,9 +95,8 @@ namespace MarketOtomasyonu.Migrations
                     b.Property<int>("Barkod")
                         .HasColumnType("int");
 
-                    b.Property<string>("Tarih")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Tarih")
+                        .HasColumnType("datetime2");
 
                     b.Property<float>("Tutar")
                         .HasColumnType("real");
@@ -100,6 +105,10 @@ namespace MarketOtomasyonu.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("SatisId");
+
+                    b.HasIndex("VeresiyeId")
+                        .IsUnique()
+                        .HasFilter("[VeresiyeId] IS NOT NULL");
 
                     b.ToTable("satislar");
                 });
@@ -220,7 +229,10 @@ namespace MarketOtomasyonu.Migrations
             modelBuilder.Entity("MarketOtomasyonu.Models.Veresiye", b =>
                 {
                     b.Property<int>("VeresiyeId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VeresiyeId"));
 
                     b.Property<float>("KalanBorc")
                         .HasColumnType("real");
@@ -260,6 +272,15 @@ namespace MarketOtomasyonu.Migrations
                     b.HasIndex("VeresiyeId");
 
                     b.ToTable("veresiyeOdemeler");
+                });
+
+            modelBuilder.Entity("MarketOtomasyonu.Models.Satis", b =>
+                {
+                    b.HasOne("MarketOtomasyonu.Models.Veresiye", "Veresiye")
+                        .WithOne("Satis")
+                        .HasForeignKey("MarketOtomasyonu.Models.Satis", "VeresiyeId");
+
+                    b.Navigation("Veresiye");
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Stok", b =>
@@ -303,15 +324,7 @@ namespace MarketOtomasyonu.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MarketOtomasyonu.Models.Satis", "Satis")
-                        .WithOne("Veresiye")
-                        .HasForeignKey("MarketOtomasyonu.Models.Veresiye", "VeresiyeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Musteri");
-
-                    b.Navigation("Satis");
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.VeresiyeOdeme", b =>
@@ -330,12 +343,6 @@ namespace MarketOtomasyonu.Migrations
                     b.Navigation("Veresiyes");
                 });
 
-            modelBuilder.Entity("MarketOtomasyonu.Models.Satis", b =>
-                {
-                    b.Navigation("Veresiye")
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("MarketOtomasyonu.Models.Tedarikci", b =>
                 {
                     b.Navigation("Stoks");
@@ -350,6 +357,9 @@ namespace MarketOtomasyonu.Migrations
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Veresiye", b =>
                 {
+                    b.Navigation("Satis")
+                        .IsRequired();
+
                     b.Navigation("VeresiyeOdemes");
                 });
 #pragma warning restore 612, 618

@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace MarketOtomasyonu.Models
 {
-    internal class Satis
+    public class Satis
     {
         // Birincil Anahtar
         public int SatisId { get; set; }
+
         public int Barkod { get; set; }
         public int Adet { get; set; }
-        public string Tarih { get; set; }
+        public DateTime Tarih { get; set; }
         public float Tutar { get; set; }
         
         // Yabanci Anahtar

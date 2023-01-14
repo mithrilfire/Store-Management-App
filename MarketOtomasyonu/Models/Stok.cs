@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarketOtomasyonu.Models
 {
-    internal class Stok
+    public class Stok
     {
         // Birlesik Anahtar
         public int UrunId { get; set; }
@@ -19,6 +19,6 @@ namespace MarketOtomasyonu.Models
         public int TedarikciId { get; set; }
 
         // Navigasyon Nesnesi
-        public Tedarikci Tedarikci { get; set; }
+        public virtual Tedarikci Tedarikci { get; set; }
     }
 }

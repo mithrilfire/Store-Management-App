@@ -29,5 +29,25 @@ namespace MarketOtomasyonu.UserControls
                 dataGridView1.DataSource = src;
             }
         }
+
+        private void urunListeleBtn_Click(object sender, EventArgs e)
+        {
+            using (var db = new MarketDBContext())
+            {
+                var urun = db.urunler.Where(u => u.Adi == urunlerTxtBox.Text);
+                dataGridView1.DataSource = urun.ToList();
+                if (urunlerTxtBox.Text == "")
+                {
+                    GetFromDB();
+                }
+
+            }
+        }
+
+        private void temizleBtn_Click(object sender, EventArgs e)
+        {
+            urunlerTxtBox.Clear();
+            GetFromDB();
+        }
     }
 }

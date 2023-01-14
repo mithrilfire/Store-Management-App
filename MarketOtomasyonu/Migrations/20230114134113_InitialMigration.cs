@@ -31,6 +31,7 @@ namespace MarketOtomasyonu.Migrations
                 {
                     PersonelId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Yonetici = table.Column<bool>(type: "bit", nullable: false),
                     Adi = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Soyadi = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     KullaniciAdi = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -39,23 +40,6 @@ namespace MarketOtomasyonu.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_personeller", x => x.PersonelId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "satislar",
-                columns: table => new
-                {
-                    SatisId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Barkod = table.Column<int>(type: "int", nullable: false),
-                    Adet = table.Column<int>(type: "int", nullable: false),
-                    Tarih = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Tutar = table.Column<float>(type: "real", nullable: false),
-                    VeresiyeId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_satislar", x => x.SatisId);
                 });
 
             migrationBuilder.CreateTable(
@@ -90,7 +74,8 @@ namespace MarketOtomasyonu.Migrations
                 name: "veresiyeler",
                 columns: table => new
                 {
-                    VeresiyeId = table.Column<int>(type: "int", nullable: false),
+                    VeresiyeId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     KalanBorc = table.Column<float>(type: "real", nullable: false),
                     SatisId = table.Column<int>(type: "int", nullable: false),
                     MusteriId = table.Column<int>(type: "int", nullable: false)
@@ -103,12 +88,6 @@ namespace MarketOtomasyonu.Migrations
                         column: x => x.MusteriId,
                         principalTable: "musteriler",
                         principalColumn: "MusteriId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_veresiyeler_satislar_VeresiyeId",
-                        column: x => x.VeresiyeId,
-                        principalTable: "satislar",
-                        principalColumn: "SatisId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -155,6 +134,28 @@ namespace MarketOtomasyonu.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "satislar",
+                columns: table => new
+                {
+                    SatisId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Barkod = table.Column<int>(type: "int", nullable: false),
+                    Adet = table.Column<int>(type: "int", nullable: false),
+                    Tarih = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Tutar = table.Column<float>(type: "real", nullable: false),
+                    VeresiyeId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_satislar", x => x.SatisId);
+                    table.ForeignKey(
+                        name: "FK_satislar_veresiyeler_VeresiyeId",
+                        column: x => x.VeresiyeId,
+                        principalTable: "veresiyeler",
+                        principalColumn: "VeresiyeId");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "veresiyeOdemeler",
                 columns: table => new
                 {
@@ -197,6 +198,13 @@ namespace MarketOtomasyonu.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_satislar_VeresiyeId",
+                table: "satislar",
+                column: "VeresiyeId",
+                unique: true,
+                filter: "[VeresiyeId] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_stoklar_TedarikciId",
                 table: "stoklar",
                 column: "TedarikciId");
@@ -229,6 +237,9 @@ namespace MarketOtomasyonu.Migrations
                 name: "personeller");
 
             migrationBuilder.DropTable(
+                name: "satislar");
+
+            migrationBuilder.DropTable(
                 name: "stoklar");
 
             migrationBuilder.DropTable(
@@ -251,9 +262,6 @@ namespace MarketOtomasyonu.Migrations
 
             migrationBuilder.DropTable(
                 name: "musteriler");
-
-            migrationBuilder.DropTable(
-                name: "satislar");
         }
     }
 }

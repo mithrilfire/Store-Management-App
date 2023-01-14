@@ -85,12 +85,12 @@ namespace MarketOtomasyonu.UserControls
 
             using (var db = new MarketDBContext())
             {
-                Models.Veresiye musteri = db.veresiyeler.Where(m => m.Musteri.MusteriId == id).First();
-                musAdıBilgiLbl.Text = musteri.Musteri.Adi;
-                musSoyadBilgiLbl.Text = musteri.Musteri.Soyadi;
-                kalanBorcBilgiLbl.Text = musteri.KalanBorc.ToString();
-                musid = musteri.Musteri.MusteriId;
-                verid = musteri.VeresiyeId;
+                Models.Veresiye veresiye = db.veresiyeler.Where(m => m.VeresiyeId == id).First();
+                musAdıBilgiLbl.Text = veresiye.Musteri.Adi;
+                musSoyadBilgiLbl.Text = veresiye.Musteri.Soyadi;
+                kalanBorcBilgiLbl.Text = veresiye.KalanBorc.ToString();
+                musid = veresiye.Musteri.MusteriId;
+                verid = veresiye.VeresiyeId;
             }
         }
 
