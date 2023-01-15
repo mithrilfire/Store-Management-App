@@ -26,23 +26,20 @@ namespace MarketOtomasyonu.UserControls
         {
             using (var db = new MarketDBContext())
             {
-                var tedarikciOdeme = db.tedarikciOdemeler.ToList();
+                var tedarikciOdeme = db.tedarikciOdemeler.Select(t => new {t.TedarikciOdemeId, t.OdemeTarihi, t.Tutar, t.TedarikciBorcId, t.TedarikciBorc.Tedarikci.Adi}).ToList();
                 BindingSource src = new BindingSource();
                 src.DataSource = tedarikciOdeme;
-                tedarikOdemeDataGrid.DataSource = src;
-                tedarikOdemeDataGrid.Columns["TedarikciBorc"].Visible = false;
-                
+                tedarikOdemeDataGrid.DataSource = src;                
             }
         }
         void GetFromDBBorc()
         {
             using (var db = new MarketDBContext())
             {
-                var tedarikciBorc = db.tedarikciBorclar.ToList();
+                var tedarikciBorc = db.tedarikciBorclar.Where(t => t.BorcTutari > 0).Select(t => new {t.TedarikciBorcId, t.IrsaliyeNo, t.BorcTutari, t.TedarikciId, t.Tedarikci.Adi}).ToList();
                 BindingSource src = new BindingSource();
                 src.DataSource = tedarikciBorc;
                 tedarikBorcDataGrid.DataSource = src;
-                tedarikBorcDataGrid.Columns["Tedarikci"].Visible = false;
             }
         }
 
@@ -55,7 +52,7 @@ namespace MarketOtomasyonu.UserControls
                     var tedarikciad = db.tedarikciOdemeler.Where(m => m.TedarikciBorc.Tedarikci.Adi == tedarikAdiTxtbox.Text);
                     tedarikOdemeDataGrid.DataSource = tedarikciad.ToList();
 
-                    var tedarikciadi = db.tedarikciBorclar.Where(m => m.Tedarikci.Adi == tedarikAdiTxtbox.Text);
+                    var tedarikciadi = db.tedarikciBorclar.Where(m => m.Tedarikci.Adi == tedarikAdiTxtbox.Text && m.BorcTutari > 0);
                     tedarikBorcDataGrid.DataSource = tedarikciadi.ToList();
                 }
                 else
@@ -85,24 +82,30 @@ namespace MarketOtomasyonu.UserControls
             using (var db = new MarketDBContext())
             {
                 var tedarikciborclar = db.tedarikciBorclar.Where(b => b.TedarikciBorcId == tedId);
-
                 float miktar = (float)Convert.ToDouble(miktarTxtbox.Text);
+
                 if (tedarikciborclar.Any())
                 {
                     Models.TedarikciBorc tedarikciBorc = tedarikciborclar.First();
                     Models.TedarikciOdeme tedarikciOdeme = new Models.TedarikciOdeme();
+                    if (miktar <= 0 || miktar >= tedarikciBorc.BorcTutari )
+                    {
+                        MessageBox.Show("Hatalı bir değer girdiniz. Lütfen geçerli bir değer giriniz!", "Hata", MessageBoxButtons.OK,MessageBoxIcon.Error); 
+                        return;
+                    }
 
                     tedarikciBorc.BorcTutari -= miktar;
-                    
                     DateTime tarihSaat = DateTime.Now;
                     tedarikciOdeme.Tutar = miktar;
                     tedarikciOdeme.TedarikciBorcId = tedarikciBorc.TedarikciBorcId;
                     tedarikciOdeme.OdemeTarihi = tarihSaat;
                     db.tedarikciOdemeler.Add(tedarikciOdeme);
+                    tedarikciBilgiLbl.Text = "";
+                    irsaliyeNoBilgiLbl.Text = "";
+                    kalanBorcBilgiLbl.Text = "";
+                    miktarTxtbox.Text = "";
 
-                }
-                
-
+                }                
                 db.SaveChanges();
                 GetFromDBBorc();
                 GetFromDBOdeme();

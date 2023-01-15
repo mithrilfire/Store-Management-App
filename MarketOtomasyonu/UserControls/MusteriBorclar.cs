@@ -25,24 +25,21 @@ namespace MarketOtomasyonu.UserControls
         {
             using (var db = new MarketDBContext())
             {
-                var veresiyeodeme = db.veresiyeOdemeler.ToList();
+                var veresiyeodeme = db.veresiyeOdemeler.Select(v =>new { v.VeresiyeOdemeId,v.OdemeTarihi, v.Tutar, v.VeresiyeId, v.Veresiye.Musteri.Adi, v.Veresiye.Musteri.Soyadi }).ToList();
                 BindingSource src = new BindingSource();
                 src.DataSource = veresiyeodeme;
                 musOdemeleriDatagrid.DataSource = src;
-                musOdemeleriDatagrid.Columns["Veresiye"].Visible = false;
-
             }
         }
         void GetFromDBBorc()
         {
             using (var db = new MarketDBContext())
             {
-                var veresiye = db.veresiyeler.ToList();
+                var veresiye = db.veresiyeler.Where(t => t.KalanBorc > 0).Select(v => new {v.VeresiyeId,v.KalanBorc,v.SatisId,v.MusteriId,v.Musteri.Adi,v.Musteri.Soyadi}).ToList();
                 BindingSource src = new BindingSource();
                 src.DataSource = veresiye;
+                var adlar = db.musteriler.Select(a => a.Adi);
                 musBorclariDatagrid.DataSource = src;
-                musBorclariDatagrid.Columns["Satis"].Visible = false;
-                musBorclariDatagrid.Columns["Musteri"].Visible = false;
             }
         }
 
@@ -54,21 +51,21 @@ namespace MarketOtomasyonu.UserControls
                 {
                     var musteriad = db.veresiyeOdemeler.Where(v => v.Veresiye.Musteri.Adi == musAdiTxtbox.Text && v.Veresiye.Musteri.Soyadi == musSoyadTxtbox.Text);
                     musOdemeleriDatagrid.DataSource = musteriad.ToList();
-                    var musteriadi = db.veresiyeler.Where(v => v.Musteri.Adi == musAdiTxtbox.Text && v.Musteri.Soyadi == musSoyadTxtbox.Text);
+                    var musteriadi = db.veresiyeler.Where(v => v.Musteri.Adi == musAdiTxtbox.Text && v.Musteri.Soyadi == musSoyadTxtbox.Text && v.KalanBorc > 0);
                     musBorclariDatagrid.DataSource = musteriadi.ToList();
                 }
                 else if (musAdiTxtbox.Text != "" && musSoyadTxtbox.Text == "")
                 {
                     var musteriad = db.veresiyeOdemeler.Where(v => v.Veresiye.Musteri.Adi == musAdiTxtbox.Text);
                     musOdemeleriDatagrid.DataSource = musteriad.ToList();
-                    var musteriadi = db.veresiyeler.Where(v => v.Musteri.Adi == musAdiTxtbox.Text);
+                    var musteriadi = db.veresiyeler.Where(v => v.Musteri.Adi == musAdiTxtbox.Text && v.KalanBorc > 0);
                     musBorclariDatagrid.DataSource = musteriadi.ToList();
                 }
                 else if (musAdiTxtbox.Text == "" && musSoyadTxtbox.Text != "")
                 {
                     var musteriad = db.veresiyeOdemeler.Where(v => v.Veresiye.Musteri.Soyadi == musSoyadTxtbox.Text);
                     musOdemeleriDatagrid.DataSource = musteriad.ToList();
-                    var musteriadi = db.veresiyeler.Where(v => v.Musteri.Soyadi == musSoyadTxtbox.Text);
+                    var musteriadi = db.veresiyeler.Where(v => v.Musteri.Soyadi == musSoyadTxtbox.Text && v.KalanBorc > 0);
                     musBorclariDatagrid.DataSource = musteriadi.ToList();
                 }
                 else
@@ -99,20 +96,29 @@ namespace MarketOtomasyonu.UserControls
             using (var db = new MarketDBContext())
             {
                 var veresiyeler = db.veresiyeler.Where(v => v.VeresiyeId == verid);
+                float miktar = (float)Convert.ToDouble(miktarTxtbox.Text);
 
                 if (veresiyeler.Any())
                 {
                     Models.Veresiye veresiye = veresiyeler.First();
                     Models.VeresiyeOdeme veresiyeOdeme = new Models.VeresiyeOdeme();
-
-                    float miktar = (float)Convert.ToDouble(miktarTxtbox.Text);
-                    veresiye.KalanBorc -= miktar;
                     
+                    if (miktar <= 0 || miktar >= veresiye.KalanBorc)
+                    {
+                        MessageBox.Show("Hatalı bir değer girdiniz. Lütfen geçerli bir değer giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    veresiye.KalanBorc -= miktar;                    
                     DateTime tarihSaat = DateTime.Now;
                     veresiyeOdeme.Tutar = miktar;
                     veresiyeOdeme.VeresiyeId = veresiye.VeresiyeId;
                     veresiyeOdeme.OdemeTarihi = tarihSaat;
                     db.veresiyeOdemeler.Add(veresiyeOdeme);
+                    musAdıBilgiLbl.Text = "";
+                    musSoyadBilgiLbl.Text = "";
+                    kalanBorcBilgiLbl.Text = "";
+                    miktarTxtbox.Text = "";
                 }
 
                 db.SaveChanges();
