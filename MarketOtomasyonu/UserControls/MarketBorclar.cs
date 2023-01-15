@@ -84,16 +84,28 @@ namespace MarketOtomasyonu.UserControls
         {
             using (var db = new MarketDBContext())
             {
-                var tedarikciborclar = db.tedarikciBorclar.Where(v => v.TedarikciBorcId == tedId);
+                var tedarikciborclar = db.tedarikciBorclar.Where(b => b.TedarikciBorcId == tedId);
 
+                float miktar = (float)Convert.ToDouble(miktarTxtbox.Text);
                 if (tedarikciborclar.Any())
                 {
                     Models.TedarikciBorc tedarikciBorc = tedarikciborclar.First();
-                    float miktar = (float)Convert.ToDouble(miktarTxtbox.Text);
+                    Models.TedarikciOdeme tedarikciOdeme = new Models.TedarikciOdeme();
+
                     tedarikciBorc.BorcTutari -= miktar;
+                    
+                    DateTime tarihSaat = DateTime.Now;
+                    tedarikciOdeme.Tutar = miktar;
+                    tedarikciOdeme.TedarikciBorcId = tedarikciBorc.TedarikciBorcId;
+                    tedarikciOdeme.OdemeTarihi = tarihSaat;
+                    db.tedarikciOdemeler.Add(tedarikciOdeme);
+
                 }
+                
 
                 db.SaveChanges();
+                GetFromDBBorc();
+                GetFromDBOdeme();
             }
         }
     }

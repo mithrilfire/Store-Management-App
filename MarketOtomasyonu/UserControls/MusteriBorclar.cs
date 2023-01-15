@@ -108,6 +108,8 @@ namespace MarketOtomasyonu.UserControls
                 }
 
                 db.SaveChanges();
+                GetFromDBOdeme();
+                GetFromDBBorc();
             }
         }
     }
