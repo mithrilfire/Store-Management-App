@@ -20,5 +20,6 @@ namespace MarketOtomasyonu.Models
 
         // Navigasyon Nesnesi
         public virtual Tedarikci Tedarikci { get; set; }
+        public virtual Urun Urun { get; set; }
     }
 }
