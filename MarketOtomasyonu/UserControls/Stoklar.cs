@@ -124,9 +124,12 @@ namespace MarketOtomasyonu.UserControls
                             }
                         }
                         Models.TedarikciBorc yeniborc = new Models.TedarikciBorc();
+                        DateTime tarihSaat = DateTime.Now;
+                        
                         yeniborc.BorcTutari = toplamBorc;
                         yeniborc.TedarikciId = tedId;
                         yeniborc.IrsaliyeNo = irsaliyeNo;
+                        yeniborc.Tarih = tarihSaat;
 
                         using (var db = new MarketDBContext())
                         {

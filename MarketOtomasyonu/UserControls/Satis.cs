@@ -33,7 +33,7 @@ namespace MarketOtomasyonu.UserControls
         {
                 var list = new BindingList<Fis>(fis);
                 var source = new BindingSource(list, null);
-                dataGridView1.DataSource = fis.Select(Fis => new { Fis.barkod, Fis.urunAdi, Fis.urunAdeti }).ToList();
+                dataGridView1.DataSource = fis.Select(Fis => new { Fis.barkod, Fis.urunAdi, Fis.urunAdeti, Fis.tutar}).ToList();
         }
 
         void MusteriGetFromDB()
@@ -74,12 +74,12 @@ namespace MarketOtomasyonu.UserControls
                 Fis fis = new Fis();
 
                 int ad;
-                
+                Models.Urun urun;
                 if (int.TryParse(barkodTxtBox.Text, out ad))
                 {
                     fis.barkod = ad;
 
-                    Models.Urun urun = db.urunler.
+                    urun = db.urunler.
                     Where(u => u.Barkod == ad).
                     First();
 
@@ -104,6 +104,9 @@ namespace MarketOtomasyonu.UserControls
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
+
+                fis.tutar = fis.urunAdeti * urun.BirimFiyati;
                 this.fis.Add(fis);
 
             }
@@ -258,5 +261,6 @@ namespace MarketOtomasyonu.UserControls
         public int barkod { get; set; }
         public int urunAdeti { get; set; }
         public string urunAdi { get; set; }
+        public float tutar { get; set; }
     }
 }
