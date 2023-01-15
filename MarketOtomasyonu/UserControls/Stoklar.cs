@@ -35,6 +35,7 @@ namespace MarketOtomasyonu.UserControls
                 src.DataSource = stoklar;
                 dataGridView1.DataSource = src;
                 dataGridView1.Columns["Tedarikci"].Visible = false;
+                dataGridView1.Columns["Urun"].Visible = false;
             }
         }
 
@@ -119,13 +120,16 @@ namespace MarketOtomasyonu.UserControls
                                 StokEkle(yenistok);
                                 toplamBorc += yenistok.Adet * yenistok.GirdiBirimFiyati;
                                 irsaliyeNo = yenistok.IrsaliyeId;
-
+                                GetFromDB();
                             }
                         }
                         Models.TedarikciBorc yeniborc = new Models.TedarikciBorc();
+                        DateTime tarihSaat = DateTime.Now;
+                        
                         yeniborc.BorcTutari = toplamBorc;
                         yeniborc.TedarikciId = tedId;
                         yeniborc.IrsaliyeNo = irsaliyeNo;
+                        yeniborc.Tarih = tarihSaat;
 
                         using (var db = new MarketDBContext())
                         {
