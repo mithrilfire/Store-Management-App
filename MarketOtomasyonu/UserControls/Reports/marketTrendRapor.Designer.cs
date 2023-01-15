@@ -33,11 +33,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.gosterBtn = new System.Windows.Forms.Button();
+            this.bitisDtp = new System.Windows.Forms.DateTimePicker();
+            this.baslangicDtp = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cartesianChart1 = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
+            this.trendCch = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
             this.marketTrendBaslikPnl.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,9 +67,9 @@
             // 
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.dateTimePicker2);
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.gosterBtn);
+            this.panel1.Controls.Add(this.bitisDtp);
+            this.panel1.Controls.Add(this.baslangicDtp);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(8, 68);
             this.panel1.Name = "panel1";
@@ -79,47 +79,48 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(528, 24);
+            this.label2.Location = new System.Drawing.Point(534, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 15);
+            this.label2.Size = new System.Drawing.Size(32, 15);
             this.label2.TabIndex = 4;
-            this.label2.Text = "label2";
+            this.label2.Text = "Bitiş:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(286, 24);
+            this.label1.Location = new System.Drawing.Point(264, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.Size = new System.Drawing.Size(60, 15);
             this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
+            this.label1.Text = "Başlangıç:";
             // 
-            // button1
+            // gosterBtn
             // 
-            this.button1.Location = new System.Drawing.Point(760, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Göster";
-            this.button1.UseVisualStyleBackColor = true;
+            this.gosterBtn.Location = new System.Drawing.Point(760, 20);
+            this.gosterBtn.Name = "gosterBtn";
+            this.gosterBtn.Size = new System.Drawing.Size(75, 23);
+            this.gosterBtn.TabIndex = 2;
+            this.gosterBtn.Text = "Göster";
+            this.gosterBtn.UseVisualStyleBackColor = true;
+            this.gosterBtn.Click += new System.EventHandler(this.gosterBtn_Click);
             // 
-            // dateTimePicker2
+            // bitisDtp
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(572, 20);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(158, 23);
-            this.dateTimePicker2.TabIndex = 1;
+            this.bitisDtp.Location = new System.Drawing.Point(572, 20);
+            this.bitisDtp.Name = "bitisDtp";
+            this.bitisDtp.Size = new System.Drawing.Size(158, 23);
+            this.bitisDtp.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // baslangicDtp
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(330, 20);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(158, 23);
-            this.dateTimePicker1.TabIndex = 0;
+            this.baslangicDtp.Location = new System.Drawing.Point(330, 20);
+            this.baslangicDtp.Name = "baslangicDtp";
+            this.baslangicDtp.Size = new System.Drawing.Size(158, 23);
+            this.baslangicDtp.TabIndex = 0;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.cartesianChart1);
+            this.panel2.Controls.Add(this.trendCch);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(8, 130);
             this.panel2.Name = "panel2";
@@ -127,13 +128,13 @@
             this.panel2.Size = new System.Drawing.Size(1120, 556);
             this.panel2.TabIndex = 5;
             // 
-            // cartesianChart1
+            // trendCch
             // 
-            this.cartesianChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cartesianChart1.Location = new System.Drawing.Point(16, 16);
-            this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(1088, 524);
-            this.cartesianChart1.TabIndex = 0;
+            this.trendCch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trendCch.Location = new System.Drawing.Point(16, 16);
+            this.trendCch.Name = "trendCch";
+            this.trendCch.Size = new System.Drawing.Size(1088, 524);
+            this.trendCch.TabIndex = 0;
             // 
             // marketTrendRapor
             // 
@@ -161,10 +162,10 @@
         private Panel panel1;
         private Label label2;
         private Label label1;
-        private Button button1;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker1;
+        private Button gosterBtn;
+        private DateTimePicker bitisDtp;
+        private DateTimePicker baslangicDtp;
         private Panel panel2;
-        private LiveChartsCore.SkiaSharpView.WinForms.CartesianChart cartesianChart1;
+        private LiveChartsCore.SkiaSharpView.WinForms.CartesianChart trendCch;
     }
 }
