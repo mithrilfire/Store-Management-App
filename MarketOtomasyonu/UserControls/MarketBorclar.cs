@@ -108,5 +108,6 @@ namespace MarketOtomasyonu.UserControls
                 GetFromDBOdeme();
             }
         }
+
     }
 }

@@ -103,8 +103,16 @@ namespace MarketOtomasyonu.UserControls
                 if (veresiyeler.Any())
                 {
                     Models.Veresiye veresiye = veresiyeler.First();
+                    Models.VeresiyeOdeme veresiyeOdeme = new Models.VeresiyeOdeme();
+
                     float miktar = (float)Convert.ToDouble(miktarTxtbox.Text);
                     veresiye.KalanBorc -= miktar;
+                    
+                    DateTime tarihSaat = DateTime.Now;
+                    veresiyeOdeme.Tutar = miktar;
+                    veresiyeOdeme.VeresiyeId = veresiye.VeresiyeId;
+                    veresiyeOdeme.OdemeTarihi = tarihSaat;
+                    db.veresiyeOdemeler.Add(veresiyeOdeme);
                 }
 
                 db.SaveChanges();
