@@ -119,7 +119,7 @@ namespace MarketOtomasyonu.UserControls
                                 StokEkle(yenistok);
                                 toplamBorc += yenistok.Adet * yenistok.GirdiBirimFiyati;
                                 irsaliyeNo = yenistok.IrsaliyeId;
-
+                                GetFromDB();
                             }
                         }
                         Models.TedarikciBorc yeniborc = new Models.TedarikciBorc();

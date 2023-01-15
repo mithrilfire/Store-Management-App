@@ -103,11 +103,12 @@ namespace MarketOtomasyonu.UserControls
 
             GetFromDB();
             ClearInputs();
+
         }
 
         private void urunleriCikar_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -115,6 +116,7 @@ namespace MarketOtomasyonu.UserControls
             if (veresiyeChckBox.Checked)
             {
                 veresiyePanel.Enabled = true;
+                MusteriGetFromDB();
             }
             else
             {
@@ -172,16 +174,20 @@ namespace MarketOtomasyonu.UserControls
             {
                 Models.Satis satis;
                 List<Models.Satis> satislar = new List<Models.Satis>();
+                //var stokSort = db.stoklar.OrderBy(s => s.IrsaliyeId);
+                int adet;
+                
 
                 foreach (var item in fis)
                 {
                     satis = new Models.Satis();
+                    var stoklar = db.stoklar.Where(s => s.Adet == item.urunAdeti);
 
                     satis.Barkod = item.barkod;
                     satis.Adet = item.urunAdeti;
                     satis.Tarih = tarihSaat;
                     satis.Tutar = item.urunAdeti * db.urunler.First(u => u.Barkod == item.barkod).BirimFiyati;
-
+                    
                     db.satislar.Add(satis);
                     db.SaveChanges();
 
@@ -208,6 +214,7 @@ namespace MarketOtomasyonu.UserControls
                     
                     }
                 }
+
             }
 
             GetFromDB();
