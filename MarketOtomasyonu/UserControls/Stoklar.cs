@@ -35,6 +35,7 @@ namespace MarketOtomasyonu.UserControls
                 src.DataSource = stoklar;
                 dataGridView1.DataSource = src;
                 dataGridView1.Columns["Tedarikci"].Visible = false;
+                dataGridView1.Columns["Urun"].Visible = false;
             }
         }
 

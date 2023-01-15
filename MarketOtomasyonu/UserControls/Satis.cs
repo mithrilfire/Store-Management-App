@@ -74,7 +74,7 @@ namespace MarketOtomasyonu.UserControls
                 Fis fis = new Fis();
 
                 int ad;
-
+                
                 if (int.TryParse(barkodTxtBox.Text, out ad))
                 {
                     fis.barkod = ad;
@@ -97,8 +97,15 @@ namespace MarketOtomasyonu.UserControls
                 {
                     return;
                 }
-
+                var stoklar = db.stoklar.Where(s => s.Urun.Barkod == fis.barkod && s.Adet > 0);
+                if (!stoklar.Any() || stoklar.Sum(s => s.Adet) < fis.urunAdeti)
+                {
+                    MessageBox.Show("Stoklarda ürün bulunmamaktadır!", "Hata!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 this.fis.Add(fis);
+
             }
 
             GetFromDB();
@@ -181,18 +188,34 @@ namespace MarketOtomasyonu.UserControls
                 foreach (var item in fis)
                 {
                     satis = new Models.Satis();
-                    var stoklar = db.stoklar.Where(s => s.Adet == item.urunAdeti);
+                    var stoklar = db.stoklar.Where(s => s.Urun.Barkod == item.barkod && s.Adet > 0);
 
                     satis.Barkod = item.barkod;
                     satis.Adet = item.urunAdeti;
                     satis.Tarih = tarihSaat;
                     satis.Tutar = item.urunAdeti * db.urunler.First(u => u.Barkod == item.barkod).BirimFiyati;
-                    
+
+                    int toplamAdet = item.urunAdeti;
+                    foreach (var stok in stoklar)
+                    {
+                        if (stok.Adet > toplamAdet)
+                        {
+                            stok.Adet -= toplamAdet;
+                            break;
+                        }
+                        else
+                        {
+                            toplamAdet -= stok.Adet;
+                            stok.Adet = 0;
+                        }
+                    }
+
                     db.satislar.Add(satis);
                     db.SaveChanges();
 
                     satislar.Add(satis);
                 }
+
 
                 if (veresiyeChckBox.Checked)
                 {
@@ -217,6 +240,7 @@ namespace MarketOtomasyonu.UserControls
 
             }
 
+            fis.Clear();
             GetFromDB();
             ClearInputs();
             SatisGetFromDB();
