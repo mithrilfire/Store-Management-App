@@ -179,15 +179,12 @@ namespace MarketOtomasyonu.UserControls
         private void satBtn_Click(object sender, EventArgs e)
         {
             DateTime tarihSaat = DateTime.Now;
-            //Fis fis = new Fis();
             using (var db = new MarketDBContext())
             {
                 Models.Satis satis;
                 List<Models.Satis> satislar = new List<Models.Satis>();
-                //var stokSort = db.stoklar.OrderBy(s => s.IrsaliyeId);
-                int adet;
-                
 
+                List<string> azalan = new List<string>();
                 foreach (var item in fis)
                 {
                     satis = new Models.Satis();
@@ -212,7 +209,10 @@ namespace MarketOtomasyonu.UserControls
                             stok.Adet = 0;
                         }
                     }
-
+                    if (stoklar.Sum(s=> s.Adet) < 11)
+                    {
+                        azalan.Add(item.urunAdi);
+                    }
                     db.satislar.Add(satis);
                     db.SaveChanges();
 
@@ -240,10 +240,20 @@ namespace MarketOtomasyonu.UserControls
                     
                     }
                 }
-
+                string azalanurunler = "";
+                foreach (var azalanurun in azalan)
+                {
+                    azalanurunler += azalanurun + ", ";
+                }
+                if (azalan.Count() > 0) 
+                {
+                    MessageBox.Show($"{azalanurunler} stokları azalıyor!", "Uyarı!",
+                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                } 
+                
             }
-
-            fis.Clear();
+            
+       fis.Clear();
             GetFromDB();
             ClearInputs();
             SatisGetFromDB();
