@@ -36,6 +36,10 @@ namespace MarketOtomasyonu.Forms
                 activePersonel = db.personeller.Where(p => p.PersonelId == personelId).First();
             }
             
+            icerikPnl.Controls.Clear();
+            icerikPnl.Controls.Add(new Anasayfa());
+            anasayfaBtn.BackColor = Color.FromArgb(0x3c, 0x42, 0x78);
+
             personelAdiLbl.Text = $"{activePersonel.Adi} {activePersonel.Soyadi}";
 
             personelBtn.Visible = activePersonel.Yonetici;
