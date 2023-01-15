@@ -52,6 +52,14 @@ namespace MarketOtomasyonu.Models
                 .HasForeignKey(tb => tb.TedarikciId)
                 .IsRequired();
 
+            modelBuilder.Entity<Stok>()
+                .HasOne(s => s.Urun)
+                .WithMany(u => u.Stoks);
+
+            modelBuilder.Entity<Urun>()
+                .HasMany(u => u.Stoks)
+                .WithOne(s => s.Urun)
+                .HasForeignKey( s => s.UrunId );
         }
     }
 }

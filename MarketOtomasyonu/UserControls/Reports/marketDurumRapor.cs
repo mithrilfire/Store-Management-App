@@ -15,6 +15,20 @@ namespace MarketOtomasyonu.UserControls.Reports
         public marketDurumRapor()
         {
             InitializeComponent();
+            DataGridGoster();
         }
+
+        private void DataGridGoster()
+        {
+            List<MarketDurum> list = new List<MarketDurum>();
+            marketKarDat.DataSource = list.Select(l => new {l.Gelir, l.Borc, l.Kar}).ToList();
+        }
+    }
+
+    internal class MarketDurum
+    {
+        public float Gelir;
+        public float Borc;
+        public float Kar;
     }
 }

@@ -13,5 +13,8 @@ namespace MarketOtomasyonu.Models
         public string Adi { get; set; }
         public int Barkod { get; set; }
         public float BirimFiyati { get; set; }
+
+        // Navigasyon Nesnesi
+        public virtual List<Stok> Stoks { get; set; }
     }
 }
