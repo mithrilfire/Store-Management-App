@@ -10,8 +10,10 @@ namespace MarketOtomasyonu.Models
     {
         // Birincil Anahtar
         public int TedarikciBorcId { get; set; }
+
         public int IrsaliyeNo { get; set; }
         public float BorcTutari { get; set; }
+        public DateTime Tarih { get; set; }
 
         // Yabanci Anahtar
         public int TedarikciId { get; set; }
