@@ -36,7 +36,7 @@ namespace MarketOtomasyonu.UserControls
         {
             using (var db = new MarketDBContext())
             {
-                var tedarikciBorc = db.tedarikciBorclar.Where(t => t.BorcTutari > 0).Select(t => new {t.TedarikciBorcId, t.IrsaliyeNo, t.BorcTutari, t.TedarikciId, t.Tedarikci.Adi}).ToList();
+                var tedarikciBorc = db.tedarikciBorclar.Where(t => t.BorcTutari > 0).Select(t => new {t.TedarikciBorcId, t.Tarih, t.IrsaliyeNo, t.BorcTutari, t.TedarikciId, t.Tedarikci.Adi}).ToList();
                 BindingSource src = new BindingSource();
                 src.DataSource = tedarikciBorc;
                 tedarikBorcDataGrid.DataSource = src;
@@ -65,8 +65,11 @@ namespace MarketOtomasyonu.UserControls
 
         private void tedarikBorcDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0 )            
+                return;
+            
             int id = (int)tedarikBorcDataGrid[0, e.RowIndex].Value;
-
+            
             using (var db = new MarketDBContext())
             {
                 Models.TedarikciBorc tedarikciBorc = db.tedarikciBorclar.Where(m => m.TedarikciBorcId == id).First();

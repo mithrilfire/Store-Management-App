@@ -34,6 +34,9 @@ namespace MarketOtomasyonu.UserControls
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
+
             int id = (int)tedarikciDataGrid[0, e.RowIndex].Value;
 
             using (var db = new MarketDBContext())

@@ -32,6 +32,9 @@ namespace MarketOtomasyonu.UserControls
         int musid;
         private void musteridatagrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
+
             int id = (int)musteridatagrid[0, e.RowIndex].Value;
 
             using (var db = new MarketDBContext())
