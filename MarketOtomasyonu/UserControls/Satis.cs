@@ -33,7 +33,7 @@ namespace MarketOtomasyonu.UserControls
         {
                 var list = new BindingList<Fis>(fis);
                 var source = new BindingSource(list, null);
-                dataGridView1.DataSource = fis.Select(Fis => new { Fis.barkod, Fis.urunAdi, Fis.urunAdeti }).ToList();
+                dataGridView1.DataSource = fis.Select(Fis => new { Fis.barkod, Fis.urunAdi, Fis.urunAdeti, Fis.tutar}).ToList();
         }
 
         void MusteriGetFromDB()
@@ -74,12 +74,12 @@ namespace MarketOtomasyonu.UserControls
                 Fis fis = new Fis();
 
                 int ad;
-
+                Models.Urun urun;
                 if (int.TryParse(barkodTxtBox.Text, out ad))
                 {
                     fis.barkod = ad;
 
-                    Models.Urun urun = db.urunler.
+                    urun = db.urunler.
                     Where(u => u.Barkod == ad).
                     First();
 
@@ -97,17 +97,28 @@ namespace MarketOtomasyonu.UserControls
                 {
                     return;
                 }
+                var stoklar = db.stoklar.Where(s => s.Urun.Barkod == fis.barkod && s.Adet > 0);
+                if (!stoklar.Any() || stoklar.Sum(s => s.Adet) < fis.urunAdeti)
+                {
+                    MessageBox.Show("Stoklarda ürün bulunmamaktadır!", "Hata!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
+
+                fis.tutar = fis.urunAdeti * urun.BirimFiyati;
                 this.fis.Add(fis);
+
             }
 
             GetFromDB();
             ClearInputs();
+
         }
 
         private void urunleriCikar_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -115,6 +126,7 @@ namespace MarketOtomasyonu.UserControls
             if (veresiyeChckBox.Checked)
             {
                 veresiyePanel.Enabled = true;
+                MusteriGetFromDB();
             }
             else
             {
@@ -172,21 +184,41 @@ namespace MarketOtomasyonu.UserControls
             {
                 Models.Satis satis;
                 List<Models.Satis> satislar = new List<Models.Satis>();
+                //var stokSort = db.stoklar.OrderBy(s => s.IrsaliyeId);
+                int adet;
+                
 
                 foreach (var item in fis)
                 {
                     satis = new Models.Satis();
+                    var stoklar = db.stoklar.Where(s => s.Urun.Barkod == item.barkod && s.Adet > 0);
 
                     satis.Barkod = item.barkod;
                     satis.Adet = item.urunAdeti;
                     satis.Tarih = tarihSaat;
                     satis.Tutar = item.urunAdeti * db.urunler.First(u => u.Barkod == item.barkod).BirimFiyati;
 
+                    int toplamAdet = item.urunAdeti;
+                    foreach (var stok in stoklar)
+                    {
+                        if (stok.Adet > toplamAdet)
+                        {
+                            stok.Adet -= toplamAdet;
+                            break;
+                        }
+                        else
+                        {
+                            toplamAdet -= stok.Adet;
+                            stok.Adet = 0;
+                        }
+                    }
+
                     db.satislar.Add(satis);
                     db.SaveChanges();
 
                     satislar.Add(satis);
                 }
+
 
                 if (veresiyeChckBox.Checked)
                 {
@@ -208,8 +240,10 @@ namespace MarketOtomasyonu.UserControls
                     
                     }
                 }
+
             }
 
+            fis.Clear();
             GetFromDB();
             ClearInputs();
             SatisGetFromDB();
@@ -227,5 +261,6 @@ namespace MarketOtomasyonu.UserControls
         public int barkod { get; set; }
         public int urunAdeti { get; set; }
         public string urunAdi { get; set; }
+        public float tutar { get; set; }
     }
 }

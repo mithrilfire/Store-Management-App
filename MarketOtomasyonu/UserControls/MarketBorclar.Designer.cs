@@ -152,8 +152,9 @@
             // 
             // tedarikciBilgiLbl
             // 
-            this.tedarikciBilgiLbl.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.tedarikciBilgiLbl.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.tedarikciBilgiLbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tedarikciBilgiLbl.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tedarikciBilgiLbl.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.tedarikciBilgiLbl.Location = new System.Drawing.Point(960, 450);
             this.tedarikciBilgiLbl.Name = "tedarikciBilgiLbl";
@@ -163,7 +164,7 @@
             // 
             // irsaliyeNoBilgiLbl
             // 
-            this.irsaliyeNoBilgiLbl.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.irsaliyeNoBilgiLbl.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.irsaliyeNoBilgiLbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.irsaliyeNoBilgiLbl.ForeColor = System.Drawing.SystemColors.ControlText;
             this.irsaliyeNoBilgiLbl.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -175,7 +176,7 @@
             // 
             // kalanBorcBilgiLbl
             // 
-            this.kalanBorcBilgiLbl.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.kalanBorcBilgiLbl.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.kalanBorcBilgiLbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.kalanBorcBilgiLbl.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.kalanBorcBilgiLbl.Location = new System.Drawing.Point(960, 530);
