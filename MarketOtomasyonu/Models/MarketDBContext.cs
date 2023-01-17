@@ -60,6 +60,12 @@ namespace MarketOtomasyonu.Models
                 .HasMany(u => u.Stoks)
                 .WithOne(s => s.Urun)
                 .HasForeignKey( s => s.UrunId );
+
+            /*modelBuilder.Entity<Musteri>().Ignore(m => m.ToplamOdeme);
+            modelBuilder.Entity<Musteri>().Ignore(m => m.ToplamSatis);
+            modelBuilder.Entity<Musteri>().Ignore(m => m.ToplamKalan);
+
+            modelBuilder.Entity<Veresiye>().Ignore(v => v.ToplamOdeme);*/
         }
     }
 }

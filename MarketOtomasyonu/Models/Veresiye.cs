@@ -16,7 +16,10 @@ namespace MarketOtomasyonu.Models
         // Yabanci Anahtarlar
         public int SatisId { get; set; }
         public int MusteriId { get; set; }
-        
+
+        // Veritabanindan Gizli
+        //public float ToplamOdeme => VeresiyeOdemes.Sum(vo=>vo.Tutar);
+
         // Navigasyon Nesneleri
         public virtual Satis Satis { get; set; }
         public virtual Musteri Musteri { get; set; }

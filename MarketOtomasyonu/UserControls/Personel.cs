@@ -48,6 +48,9 @@ namespace MarketOtomasyonu.UserControls
 
         private void personelDat_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
+
             int id = (int)personelDat[0, e.RowIndex].Value;
 
             idLbl.Text = id.ToString();
