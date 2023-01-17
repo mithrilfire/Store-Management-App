@@ -91,7 +91,7 @@ namespace MarketOtomasyonu.UserControls
                 {
                     Models.TedarikciBorc tedarikciBorc = tedarikciborclar.First();
                     Models.TedarikciOdeme tedarikciOdeme = new Models.TedarikciOdeme();
-                    if (miktar <= 0 || miktar >= tedarikciBorc.BorcTutari )
+                    if (miktar <= 0 || miktar > tedarikciBorc.BorcTutari )
                     {
                         MessageBox.Show("Hatalı bir değer girdiniz. Lütfen geçerli bir değer giriniz!", "Hata", MessageBoxButtons.OK,MessageBoxIcon.Error); 
                         return;

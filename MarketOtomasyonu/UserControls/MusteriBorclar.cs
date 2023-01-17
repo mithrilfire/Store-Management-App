@@ -106,7 +106,7 @@ namespace MarketOtomasyonu.UserControls
                     Models.Veresiye veresiye = veresiyeler.First();
                     Models.VeresiyeOdeme veresiyeOdeme = new Models.VeresiyeOdeme();
                     
-                    if (miktar <= 0 || miktar >= veresiye.KalanBorc)
+                    if (miktar <= 0 || miktar > veresiye.KalanBorc)
                     {
                         MessageBox.Show("Hatalı bir değer girdiniz. Lütfen geçerli bir değer giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
