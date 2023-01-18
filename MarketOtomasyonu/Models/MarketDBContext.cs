@@ -66,6 +66,7 @@ namespace MarketOtomasyonu.Models
             modelBuilder.Entity<Musteri>().Ignore(m => m.ToplamKalan);
 
             modelBuilder.Entity<Veresiye>().Ignore(v => v.ToplamOdeme);*/
+            //modelBuilder.Entity<Veresiye>().Ignore(v => v.Tutar);
         }
     }
 }

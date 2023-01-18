@@ -32,14 +32,14 @@
             this.musteriSatisBaslikPnl = new System.Windows.Forms.Panel();
             this.musteriSatisBaslikLbl = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.musteriBorcDat = new System.Windows.Forms.DataGridView();
             this.urunKarAraPnl = new System.Windows.Forms.Panel();
+            this.musteriBorcBorcLbl = new System.Windows.Forms.Label();
+            this.musteriBorcAdiLbl = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.musteriSatisLbx = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -48,7 +48,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.musteriSatisBaslikPnl.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.musteriBorcDat)).BeginInit();
             this.urunKarAraPnl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +74,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.musteriBorcDat);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(440, 68);
             this.panel2.Name = "panel2";
@@ -82,27 +82,28 @@
             this.panel2.Size = new System.Drawing.Size(688, 618);
             this.panel2.TabIndex = 3;
             // 
-            // dataGridView1
+            // musteriBorcDat
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(656, 586);
-            this.dataGridView1.TabIndex = 0;
+            this.musteriBorcDat.AllowUserToAddRows = false;
+            this.musteriBorcDat.AllowUserToDeleteRows = false;
+            this.musteriBorcDat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.musteriBorcDat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.musteriBorcDat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.musteriBorcDat.Location = new System.Drawing.Point(16, 16);
+            this.musteriBorcDat.Name = "musteriBorcDat";
+            this.musteriBorcDat.ReadOnly = true;
+            this.musteriBorcDat.RowTemplate.Height = 25;
+            this.musteriBorcDat.Size = new System.Drawing.Size(656, 586);
+            this.musteriBorcDat.TabIndex = 0;
             // 
             // urunKarAraPnl
             // 
+            this.urunKarAraPnl.Controls.Add(this.musteriBorcBorcLbl);
+            this.urunKarAraPnl.Controls.Add(this.musteriBorcAdiLbl);
             this.urunKarAraPnl.Controls.Add(this.label9);
-            this.urunKarAraPnl.Controls.Add(this.label7);
             this.urunKarAraPnl.Controls.Add(this.label2);
             this.urunKarAraPnl.Controls.Add(this.label6);
-            this.urunKarAraPnl.Controls.Add(this.listBox1);
-            this.urunKarAraPnl.Controls.Add(this.label5);
+            this.urunKarAraPnl.Controls.Add(this.musteriSatisLbx);
             this.urunKarAraPnl.Controls.Add(this.textBox1);
             this.urunKarAraPnl.Controls.Add(this.label4);
             this.urunKarAraPnl.Controls.Add(this.button1);
@@ -117,6 +118,26 @@
             this.urunKarAraPnl.Size = new System.Drawing.Size(432, 618);
             this.urunKarAraPnl.TabIndex = 7;
             // 
+            // musteriBorcBorcLbl
+            // 
+            this.musteriBorcBorcLbl.Location = new System.Drawing.Point(144, 480);
+            this.musteriBorcBorcLbl.Margin = new System.Windows.Forms.Padding(3, 0, 3, 8);
+            this.musteriBorcBorcLbl.Name = "musteriBorcBorcLbl";
+            this.musteriBorcBorcLbl.Size = new System.Drawing.Size(217, 23);
+            this.musteriBorcBorcLbl.TabIndex = 28;
+            this.musteriBorcBorcLbl.Text = "Müşteri";
+            this.musteriBorcBorcLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // musteriBorcAdiLbl
+            // 
+            this.musteriBorcAdiLbl.Location = new System.Drawing.Point(144, 449);
+            this.musteriBorcAdiLbl.Margin = new System.Windows.Forms.Padding(3, 0, 3, 8);
+            this.musteriBorcAdiLbl.Name = "musteriBorcAdiLbl";
+            this.musteriBorcAdiLbl.Size = new System.Drawing.Size(217, 23);
+            this.musteriBorcAdiLbl.TabIndex = 27;
+            this.musteriBorcAdiLbl.Text = "Müşteri";
+            this.musteriBorcAdiLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -126,16 +147,6 @@
             this.label9.TabIndex = 26;
             this.label9.Text = "Müşteri Seçim";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.Location = new System.Drawing.Point(158, 480);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(203, 23);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "0";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label7.Visible = false;
             // 
             // label2
             // 
@@ -156,11 +167,11 @@
             this.label6.Text = "Borç:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // listBox1
+            // musteriSatisLbx
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Items.AddRange(new object[] {
+            this.musteriSatisLbx.FormattingEnabled = true;
+            this.musteriSatisLbx.ItemHeight = 15;
+            this.musteriSatisLbx.Items.AddRange(new object[] {
             "Çikolata",
             "Elma",
             "Pasta",
@@ -170,21 +181,11 @@
             "Reçel",
             "Armut",
             "Pirinç"});
-            this.listBox1.Location = new System.Drawing.Point(71, 124);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(290, 259);
-            this.listBox1.TabIndex = 15;
-            // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(158, 449);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 0, 3, 8);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(203, 23);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "Müşteri Adı";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Visible = false;
+            this.musteriSatisLbx.Location = new System.Drawing.Point(71, 124);
+            this.musteriSatisLbx.Name = "musteriSatisLbx";
+            this.musteriSatisLbx.Size = new System.Drawing.Size(290, 259);
+            this.musteriSatisLbx.TabIndex = 15;
+            this.musteriSatisLbx.SelectedIndexChanged += new System.EventHandler(this.musteriSatisLbx_SelectedIndexChanged);
             // 
             // textBox1
             // 
@@ -212,6 +213,7 @@
             this.button1.TabIndex = 17;
             this.button1.Text = "Ara";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
@@ -236,6 +238,7 @@
             this.button2.Size = new System.Drawing.Size(23, 23);
             this.button2.TabIndex = 18;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -259,7 +262,7 @@
             this.Size = new System.Drawing.Size(1136, 694);
             this.musteriSatisBaslikPnl.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.musteriBorcDat)).EndInit();
             this.urunKarAraPnl.ResumeLayout(false);
             this.urunKarAraPnl.PerformLayout();
             this.ResumeLayout(false);
@@ -271,19 +274,19 @@
         private Panel musteriSatisBaslikPnl;
         private Label musteriSatisBaslikLbl;
         private Panel panel2;
-        private DataGridView dataGridView1;
+        private DataGridView musteriBorcDat;
         private Panel urunKarAraPnl;
         private Label label9;
-        private Label label7;
         private Label label2;
         private Label label6;
-        private ListBox listBox1;
-        private Label label5;
+        private ListBox musteriSatisLbx;
         private TextBox textBox1;
         private Label label4;
         private Button button1;
         private Label label3;
         private Button button2;
         private Label label1;
+        private Label musteriBorcBorcLbl;
+        private Label musteriBorcAdiLbl;
     }
 }
