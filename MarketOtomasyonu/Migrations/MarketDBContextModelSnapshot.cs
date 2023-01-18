@@ -43,7 +43,7 @@ namespace MarketOtomasyonu.Migrations
 
                     b.HasKey("MusteriId");
 
-                    b.ToTable("musteriler");
+                    b.ToTable("musteriler", (string)null);
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Personel", b =>
@@ -75,7 +75,7 @@ namespace MarketOtomasyonu.Migrations
 
                     b.HasKey("PersonelId");
 
-                    b.ToTable("personeller");
+                    b.ToTable("personeller", (string)null);
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Satis", b =>
@@ -107,7 +107,7 @@ namespace MarketOtomasyonu.Migrations
                         .IsUnique()
                         .HasFilter("[VeresiyeId] IS NOT NULL");
 
-                    b.ToTable("satislar");
+                    b.ToTable("satislar", (string)null);
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Stok", b =>
@@ -131,7 +131,7 @@ namespace MarketOtomasyonu.Migrations
 
                     b.HasIndex("TedarikciId");
 
-                    b.ToTable("stoklar");
+                    b.ToTable("stoklar", (string)null);
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Tedarikci", b =>
@@ -152,7 +152,7 @@ namespace MarketOtomasyonu.Migrations
 
                     b.HasKey("TedarikciId");
 
-                    b.ToTable("tedarikciler");
+                    b.ToTable("tedarikciler", (string)null);
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.TedarikciBorc", b =>
@@ -179,7 +179,7 @@ namespace MarketOtomasyonu.Migrations
 
                     b.HasIndex("TedarikciId");
 
-                    b.ToTable("tedarikciBorclar");
+                    b.ToTable("tedarikciBorclar", (string)null);
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.TedarikciOdeme", b =>
@@ -203,7 +203,7 @@ namespace MarketOtomasyonu.Migrations
 
                     b.HasIndex("TedarikciBorcId");
 
-                    b.ToTable("tedarikciOdemeler");
+                    b.ToTable("tedarikciOdemeler", (string)null);
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Urun", b =>
@@ -223,7 +223,7 @@ namespace MarketOtomasyonu.Migrations
 
                     b.HasKey("UrunId");
 
-                    b.ToTable("urunler");
+                    b.ToTable("urunler", (string)null);
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Veresiye", b =>
@@ -247,7 +247,7 @@ namespace MarketOtomasyonu.Migrations
 
                     b.HasIndex("MusteriId");
 
-                    b.ToTable("veresiyeler");
+                    b.ToTable("veresiyeler", (string)null);
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.VeresiyeOdeme", b =>
@@ -271,7 +271,7 @@ namespace MarketOtomasyonu.Migrations
 
                     b.HasIndex("VeresiyeId");
 
-                    b.ToTable("veresiyeOdemeler");
+                    b.ToTable("veresiyeOdemeler", (string)null);
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Satis", b =>

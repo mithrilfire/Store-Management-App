@@ -19,6 +19,12 @@ namespace MarketOtomasyonu.UserControls.Reports
         {
             InitializeComponent();
             GrafigiTanimla();
+
+            using (var db = new MarketDBContext())
+            {
+                var ilkTarih = db.satislar.OrderBy(s => s.Tarih).First().Tarih.AddDays(-1);
+                baslangicDtp.Value = ilkTarih;
+            }
             
             DateTime baslangic = baslangicDtp.Value;
             DateTime bitis = bitisDtp.Value;

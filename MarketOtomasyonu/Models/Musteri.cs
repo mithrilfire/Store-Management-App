@@ -14,6 +14,11 @@ namespace MarketOtomasyonu.Models
         public string Adi { get; set; }
         public string Soyadi { get; set; }
 
+        // Veritabanindan Gizli
+        /*public float ToplamSatis => Veresiyes.Select(v => v.Satis).Sum(s => s.Tutar);
+        public float ToplamOdeme => Veresiyes.Select(v => v.ToplamOdeme).Sum();
+        public float ToplamKalan => Veresiyes.Sum(v => v.KalanBorc);*/
+
         // Navigasyon Nesnesi
         public virtual List<Veresiye> Veresiyes { get; private set; }
     }
