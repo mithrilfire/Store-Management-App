@@ -55,6 +55,7 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(793, 714);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // stokPanel
             // 
@@ -89,7 +90,7 @@
             // tedarikciLbl
             // 
             this.tedarikciLbl.AutoSize = true;
-            this.tedarikciLbl.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tedarikciLbl.BackColor = System.Drawing.Color.Transparent;
             this.tedarikciLbl.Location = new System.Drawing.Point(132, 371);
             this.tedarikciLbl.Name = "tedarikciLbl";
             this.tedarikciLbl.Size = new System.Drawing.Size(66, 15);
@@ -139,7 +140,7 @@
             // stokAraLbl
             // 
             this.stokAraLbl.AutoSize = true;
-            this.stokAraLbl.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.stokAraLbl.BackColor = System.Drawing.Color.Transparent;
             this.stokAraLbl.Location = new System.Drawing.Point(140, 148);
             this.stokAraLbl.Name = "stokAraLbl";
             this.stokAraLbl.Size = new System.Drawing.Size(51, 15);
@@ -159,7 +160,7 @@
             // urunKoduLbl
             // 
             this.urunKoduLbl.AutoSize = true;
-            this.urunKoduLbl.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.urunKoduLbl.BackColor = System.Drawing.Color.Transparent;
             this.urunKoduLbl.Location = new System.Drawing.Point(48, 201);
             this.urunKoduLbl.Name = "urunKoduLbl";
             this.urunKoduLbl.Size = new System.Drawing.Size(64, 15);

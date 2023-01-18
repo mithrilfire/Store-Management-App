@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using System.Globalization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Collections.Generic;
 
 namespace MarketOtomasyonu.UserControls
 {
@@ -21,6 +22,8 @@ namespace MarketOtomasyonu.UserControls
 
         List<Fis> fis;
         int musId;
+        float toplamtutar = 0;
+        int tempbarkod;
         public Satis()
         {
             InitializeComponent();
@@ -98,15 +101,24 @@ namespace MarketOtomasyonu.UserControls
                     return;
                 }
                 var stoklar = db.stoklar.Where(s => s.Urun.Barkod == fis.barkod && s.Adet > 0);
-                if (!stoklar.Any() || stoklar.Sum(s => s.Adet) < fis.urunAdeti)
+                if (!stoklar.Any())
                 {
                     MessageBox.Show("Stoklarda ürün bulunmamaktadır!", "Hata!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (stoklar.Sum(s => s.Adet) < fis.urunAdeti)
+                {
+                    MessageBox.Show("Stoklarda yeterli ürün bulunmamaktadır!", "Hata!",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
 
                 fis.tutar = fis.urunAdeti * urun.BirimFiyati;
+                toplamtutar += fis.tutar;
+                tBorcViewLbl.Text = toplamtutar.ToString();
+                
                 this.fis.Add(fis);
 
             }
@@ -118,7 +130,11 @@ namespace MarketOtomasyonu.UserControls
 
         private void urunleriCikar_Click(object sender, EventArgs e)
         {
-            
+            foreach (DataGridViewRow item in this.dataGridView1.SelectedRows)
+            {
+                fis.RemoveAt(item.Index);
+                GetFromDB();
+            }
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -132,6 +148,8 @@ namespace MarketOtomasyonu.UserControls
             {
                 veresiyePanel.Enabled = false;
                 ClearInputs();
+                dataGridView3.Rows.Clear();
+                dataGridView3.Columns.Clear();
             }
         }
 
@@ -261,7 +279,22 @@ namespace MarketOtomasyonu.UserControls
 
         private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
             musId = (int)dataGridView3[0, e.RowIndex].Value;
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
         }
     }
 
