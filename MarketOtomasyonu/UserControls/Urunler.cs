@@ -27,6 +27,8 @@ namespace MarketOtomasyonu.UserControls
                 BindingSource src = new BindingSource();
                 src.DataSource = urunler;
                 dataGridView1.DataSource = src;
+
+
             }
         }
 
@@ -48,6 +50,12 @@ namespace MarketOtomasyonu.UserControls
         {
             urunlerTxtBox.Clear();
             GetFromDB();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
         }
     }
 }

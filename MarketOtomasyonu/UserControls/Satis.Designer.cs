@@ -84,6 +84,7 @@
             this.dataGridView2.RowTemplate.Height = 25;
             this.dataGridView2.Size = new System.Drawing.Size(1092, 654);
             this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
             // tabPage1
             // 
@@ -244,7 +245,7 @@
             // tBorcViewLbl
             // 
             this.tBorcViewLbl.AutoSize = true;
-            this.tBorcViewLbl.BackColor = System.Drawing.Color.DarkGray;
+            this.tBorcViewLbl.BackColor = System.Drawing.Color.Transparent;
             this.tBorcViewLbl.Location = new System.Drawing.Point(828, 154);
             this.tBorcViewLbl.Name = "tBorcViewLbl";
             this.tBorcViewLbl.Size = new System.Drawing.Size(97, 15);
@@ -317,6 +318,7 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(591, 654);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // tabControl1
             // 

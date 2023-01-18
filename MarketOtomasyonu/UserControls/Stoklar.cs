@@ -234,9 +234,16 @@ namespace MarketOtomasyonu.UserControls
 
         private void tedarikciDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
             tedId = (int)tedarikciDataGrid[0, e.RowIndex].Value;
                  
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+        }
     }
 }
