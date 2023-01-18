@@ -74,7 +74,6 @@ namespace MarketOtomasyonu.UserControls.Reports
                     return;
                 }
 
-
                 var musteriler = db.musteriler.Where(m=>m.Adi == textBox1.Text || m.Soyadi == textBox1.Text)
                     .Select(m => $"{m.MusteriId}: {m.Adi} {m.Soyadi}");
 

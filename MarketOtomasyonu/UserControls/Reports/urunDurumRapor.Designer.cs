@@ -31,14 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(urunDurumRapor));
             this.label9 = new System.Windows.Forms.Label();
             this.urunKarAraPnl = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.urunDurumLbx = new System.Windows.Forms.ListBox();
+            this.urunDurumTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.urunDurumBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,8 +51,10 @@
             this.urunKarBorc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.urunKarNet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.urunKarGrafikTbp = new System.Windows.Forms.TabPage();
-            this.urunKarPch = new LiveChartsCore.SkiaSharpView.WinForms.PieChart();
             this.urunKarCch = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
+            this.urunKarPch = new LiveChartsCore.SkiaSharpView.WinForms.PieChart();
+            this.urunDurumAdiLbl = new System.Windows.Forms.Label();
+            this.urunDurumStokLbl = new System.Windows.Forms.Label();
             this.urunKarAraPnl.SuspendLayout();
             this.urunKarBaslikPnl.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -76,15 +76,15 @@
             // 
             // urunKarAraPnl
             // 
+            this.urunKarAraPnl.Controls.Add(this.urunDurumStokLbl);
+            this.urunKarAraPnl.Controls.Add(this.urunDurumAdiLbl);
             this.urunKarAraPnl.Controls.Add(this.label9);
-            this.urunKarAraPnl.Controls.Add(this.label7);
             this.urunKarAraPnl.Controls.Add(this.label2);
             this.urunKarAraPnl.Controls.Add(this.label6);
-            this.urunKarAraPnl.Controls.Add(this.listBox1);
-            this.urunKarAraPnl.Controls.Add(this.label5);
-            this.urunKarAraPnl.Controls.Add(this.textBox1);
+            this.urunKarAraPnl.Controls.Add(this.urunDurumLbx);
+            this.urunKarAraPnl.Controls.Add(this.urunDurumTxt);
             this.urunKarAraPnl.Controls.Add(this.label4);
-            this.urunKarAraPnl.Controls.Add(this.button1);
+            this.urunKarAraPnl.Controls.Add(this.urunDurumBtn);
             this.urunKarAraPnl.Controls.Add(this.label3);
             this.urunKarAraPnl.Controls.Add(this.button2);
             this.urunKarAraPnl.Controls.Add(this.label1);
@@ -95,16 +95,6 @@
             this.urunKarAraPnl.Padding = new System.Windows.Forms.Padding(8);
             this.urunKarAraPnl.Size = new System.Drawing.Size(432, 618);
             this.urunKarAraPnl.TabIndex = 6;
-            // 
-            // label7
-            // 
-            this.label7.Location = new System.Drawing.Point(158, 480);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(186, 23);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "0";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label7.Visible = false;
             // 
             // label2
             // 
@@ -125,11 +115,11 @@
             this.label6.Text = "Stok:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // listBox1
+            // urunDurumLbx
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Items.AddRange(new object[] {
+            this.urunDurumLbx.FormattingEnabled = true;
+            this.urunDurumLbx.ItemHeight = 15;
+            this.urunDurumLbx.Items.AddRange(new object[] {
             "Çikolata",
             "Elma",
             "Pasta",
@@ -139,29 +129,19 @@
             "Reçel",
             "Armut",
             "Pirinç"});
-            this.listBox1.Location = new System.Drawing.Point(71, 124);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(290, 259);
-            this.listBox1.TabIndex = 15;
+            this.urunDurumLbx.Location = new System.Drawing.Point(71, 124);
+            this.urunDurumLbx.Name = "urunDurumLbx";
+            this.urunDurumLbx.Size = new System.Drawing.Size(290, 259);
+            this.urunDurumLbx.TabIndex = 15;
+            this.urunDurumLbx.SelectedIndexChanged += new System.EventHandler(this.urunDurumLbx_SelectedIndexChanged);
             // 
-            // label5
+            // urunDurumTxt
             // 
-            this.label5.Location = new System.Drawing.Point(158, 449);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 0, 3, 8);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(186, 23);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "Ürün Adı";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Visible = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(97, 62);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Ürün adı";
-            this.textBox1.Size = new System.Drawing.Size(174, 23);
-            this.textBox1.TabIndex = 16;
+            this.urunDurumTxt.Location = new System.Drawing.Point(97, 62);
+            this.urunDurumTxt.Name = "urunDurumTxt";
+            this.urunDurumTxt.PlaceholderText = "Ürün adı";
+            this.urunDurumTxt.Size = new System.Drawing.Size(174, 23);
+            this.urunDurumTxt.TabIndex = 16;
             // 
             // label4
             // 
@@ -173,14 +153,15 @@
             this.label4.Text = "Ürün:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // button1
+            // urunDurumBtn
             // 
-            this.button1.Location = new System.Drawing.Point(277, 62);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(59, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Ara";
-            this.button1.UseVisualStyleBackColor = true;
+            this.urunDurumBtn.Location = new System.Drawing.Point(277, 62);
+            this.urunDurumBtn.Name = "urunDurumBtn";
+            this.urunDurumBtn.Size = new System.Drawing.Size(59, 23);
+            this.urunDurumBtn.TabIndex = 17;
+            this.urunDurumBtn.Text = "Ara";
+            this.urunDurumBtn.UseVisualStyleBackColor = true;
+            this.urunDurumBtn.Click += new System.EventHandler(this.urunDurumBtn_Click);
             // 
             // label3
             // 
@@ -205,6 +186,7 @@
             this.button2.Size = new System.Drawing.Size(23, 23);
             this.button2.TabIndex = 18;
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -322,6 +304,14 @@
             this.urunKarGrafikTbp.Text = "Grafikler";
             this.urunKarGrafikTbp.UseVisualStyleBackColor = true;
             // 
+            // urunKarCch
+            // 
+            this.urunKarCch.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.urunKarCch.Location = new System.Drawing.Point(8, 186);
+            this.urunKarCch.Name = "urunKarCch";
+            this.urunKarCch.Size = new System.Drawing.Size(648, 380);
+            this.urunKarCch.TabIndex = 0;
+            // 
             // urunKarPch
             // 
             this.urunKarPch.Dock = System.Windows.Forms.DockStyle.Top;
@@ -334,13 +324,25 @@
             this.urunKarPch.TabIndex = 1;
             this.urunKarPch.Total = null;
             // 
-            // urunKarCch
+            // urunDurumAdiLbl
             // 
-            this.urunKarCch.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.urunKarCch.Location = new System.Drawing.Point(8, 186);
-            this.urunKarCch.Name = "urunKarCch";
-            this.urunKarCch.Size = new System.Drawing.Size(648, 380);
-            this.urunKarCch.TabIndex = 0;
+            this.urunDurumAdiLbl.Location = new System.Drawing.Point(144, 449);
+            this.urunDurumAdiLbl.Margin = new System.Windows.Forms.Padding(3, 0, 3, 8);
+            this.urunDurumAdiLbl.Name = "urunDurumAdiLbl";
+            this.urunDurumAdiLbl.Size = new System.Drawing.Size(217, 23);
+            this.urunDurumAdiLbl.TabIndex = 27;
+            this.urunDurumAdiLbl.Text = "Urun";
+            this.urunDurumAdiLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // urunDurumStokLbl
+            // 
+            this.urunDurumStokLbl.Location = new System.Drawing.Point(144, 480);
+            this.urunDurumStokLbl.Margin = new System.Windows.Forms.Padding(3, 0, 3, 8);
+            this.urunDurumStokLbl.Name = "urunDurumStokLbl";
+            this.urunDurumStokLbl.Size = new System.Drawing.Size(217, 23);
+            this.urunDurumStokLbl.TabIndex = 28;
+            this.urunDurumStokLbl.Text = "Stok";
+            this.urunDurumStokLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // urunDurumRapor
             // 
@@ -369,14 +371,12 @@
 
         private Label label9;
         private Panel urunKarAraPnl;
-        private Label label7;
         private Label label2;
         private Label label6;
-        private ListBox listBox1;
-        private Label label5;
-        private TextBox textBox1;
+        private ListBox urunDurumLbx;
+        private TextBox urunDurumTxt;
         private Label label4;
-        private Button button1;
+        private Button urunDurumBtn;
         private Label label3;
         private Button button2;
         private Label label1;
@@ -393,5 +393,7 @@
         private TabPage urunKarGrafikTbp;
         private LiveChartsCore.SkiaSharpView.WinForms.CartesianChart urunKarCch;
         private LiveChartsCore.SkiaSharpView.WinForms.PieChart urunKarPch;
+        private Label urunDurumStokLbl;
+        private Label urunDurumAdiLbl;
     }
 }
