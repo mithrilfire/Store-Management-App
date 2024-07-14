@@ -19,8 +19,6 @@ namespace MarketOtomasyonu.UserControls
         public Raporlar()
         {
             InitializeComponent();
-            yazdirCmb.SelectedIndex = 0;
-
         }
     }
 }

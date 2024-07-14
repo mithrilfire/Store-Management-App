@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.reportTbc = new System.Windows.Forms.TabControl();
-            this.marketDurumTbp = new System.Windows.Forms.TabPage();
+            // this.marketDurumTbp = new System.Windows.Forms.TabPage();
             this.marketDurumRapor1 = new MarketOtomasyonu.UserControls.Reports.marketDurumRapor();
             this.marketSatisTbp = new System.Windows.Forms.TabPage();
             this.marketTrendRapor1 = new MarketOtomasyonu.UserControls.Reports.marketTrendRapor();
@@ -37,45 +37,45 @@
             this.musteriBorcRapor1 = new MarketOtomasyonu.UserControls.Reports.musteriBorcRapor();
             this.musteriSatisTbp = new System.Windows.Forms.TabPage();
             this.musteriSatisRapor1 = new MarketOtomasyonu.UserControls.Reports.musteriSatisRapor();
-            this.urunDurumTbp = new System.Windows.Forms.TabPage();
+            // this.urunDurumTbp = new System.Windows.Forms.TabPage();
             this.urunDurumRapor1 = new MarketOtomasyonu.UserControls.Reports.urunDurumRapor();
-            this.urunSatisTbp = new System.Windows.Forms.TabPage();
+            // this.urunSatisTbp = new System.Windows.Forms.TabPage();
             this.urunSatisRapor1 = new MarketOtomasyonu.UserControls.Reports.urunSatisRapor();
-            this.yazdirBtn = new System.Windows.Forms.Button();
-            this.yazdirCmb = new System.Windows.Forms.ComboBox();
+            // this.yazdirBtn = new System.Windows.Forms.Button();
+            // this.yazdirCmb = new System.Windows.Forms.ComboBox();
             this.reportTbc.SuspendLayout();
-            this.marketDurumTbp.SuspendLayout();
+            // this.marketDurumTbp.SuspendLayout();
             this.marketSatisTbp.SuspendLayout();
             this.musteriBorcTbp.SuspendLayout();
             this.musteriSatisTbp.SuspendLayout();
-            this.urunDurumTbp.SuspendLayout();
-            this.urunSatisTbp.SuspendLayout();
+            // this.urunDurumTbp.SuspendLayout();
+            // this.urunSatisTbp.SuspendLayout();
             this.SuspendLayout();
             // 
             // reportTbc
             // 
-            this.reportTbc.Controls.Add(this.marketDurumTbp);
+            // this.reportTbc.Controls.Add(this.marketDurumTbp);
             this.reportTbc.Controls.Add(this.marketSatisTbp);
             this.reportTbc.Controls.Add(this.musteriBorcTbp);
             this.reportTbc.Controls.Add(this.musteriSatisTbp);
-            this.reportTbc.Controls.Add(this.urunDurumTbp);
-            this.reportTbc.Controls.Add(this.urunSatisTbp);
-            this.reportTbc.Location = new System.Drawing.Point(8, 38);
+            // this.reportTbc.Controls.Add(this.urunDurumTbp);
+            // this.reportTbc.Controls.Add(this.urunSatisTbp);
+            this.reportTbc.Location = new System.Drawing.Point(20, 24);
             this.reportTbc.Margin = new System.Windows.Forms.Padding(0);
             this.reportTbc.Name = "reportTbc";
             this.reportTbc.SelectedIndex = 0;
-            this.reportTbc.Size = new System.Drawing.Size(1144, 722);
+            this.reportTbc.Size = new System.Drawing.Size(1120, 722);
             this.reportTbc.TabIndex = 0;
             // 
             // marketDurumTbp
             // 
-            this.marketDurumTbp.Controls.Add(this.marketDurumRapor1);
-            this.marketDurumTbp.Location = new System.Drawing.Point(4, 24);
-            this.marketDurumTbp.Name = "marketDurumTbp";
-            this.marketDurumTbp.Size = new System.Drawing.Size(1136, 694);
-            this.marketDurumTbp.TabIndex = 0;
-            this.marketDurumTbp.Text = "Market Kar Zarar Durumu";
-            this.marketDurumTbp.UseVisualStyleBackColor = true;
+            // this.marketDurumTbp.Controls.Add(this.marketDurumRapor1);
+            // this.marketDurumTbp.Location = new System.Drawing.Point(4, 24);
+            // this.marketDurumTbp.Name = "marketDurumTbp";
+            // this.marketDurumTbp.Size = new System.Drawing.Size(1136, 694);
+            // this.marketDurumTbp.TabIndex = 0;
+            // this.marketDurumTbp.Text = "Market Kar Zarar Durumu";
+            // this.marketDurumTbp.UseVisualStyleBackColor = true;
             // 
             // marketDurumRapor1
             // 
@@ -149,13 +149,13 @@
             // 
             // urunDurumTbp
             // 
-            this.urunDurumTbp.Controls.Add(this.urunDurumRapor1);
-            this.urunDurumTbp.Location = new System.Drawing.Point(4, 24);
-            this.urunDurumTbp.Name = "urunDurumTbp";
-            this.urunDurumTbp.Size = new System.Drawing.Size(1136, 694);
-            this.urunDurumTbp.TabIndex = 1;
-            this.urunDurumTbp.Text = "Ürün Kar Zarar Durumu";
-            this.urunDurumTbp.UseVisualStyleBackColor = true;
+            // this.urunDurumTbp.Controls.Add(this.urunDurumRapor1);
+            // this.urunDurumTbp.Location = new System.Drawing.Point(4, 24);
+            // this.urunDurumTbp.Name = "urunDurumTbp";
+            // this.urunDurumTbp.Size = new System.Drawing.Size(1136, 694);
+            // this.urunDurumTbp.TabIndex = 1;
+            // this.urunDurumTbp.Text = "Ürün Kar Zarar Durumu";
+            // this.urunDurumTbp.UseVisualStyleBackColor = true;
             // 
             // urunDurumRapor1
             // 
@@ -169,13 +169,13 @@
             // 
             // urunSatisTbp
             // 
-            this.urunSatisTbp.Controls.Add(this.urunSatisRapor1);
-            this.urunSatisTbp.Location = new System.Drawing.Point(4, 24);
-            this.urunSatisTbp.Name = "urunSatisTbp";
-            this.urunSatisTbp.Size = new System.Drawing.Size(1136, 694);
-            this.urunSatisTbp.TabIndex = 5;
-            this.urunSatisTbp.Text = "Ürün Satış Trendi";
-            this.urunSatisTbp.UseVisualStyleBackColor = true;
+            // this.urunSatisTbp.Controls.Add(this.urunSatisRapor1);
+            // this.urunSatisTbp.Location = new System.Drawing.Point(4, 24);
+            // this.urunSatisTbp.Name = "urunSatisTbp";
+            // this.urunSatisTbp.Size = new System.Drawing.Size(1136, 694);
+            // this.urunSatisTbp.TabIndex = 5;
+            // this.urunSatisTbp.Text = "Ürün Satış Trendi";
+            // this.urunSatisTbp.UseVisualStyleBackColor = true;
             // 
             // urunSatisRapor1
             // 
@@ -189,43 +189,43 @@
             // 
             // yazdirBtn
             // 
-            this.yazdirBtn.Location = new System.Drawing.Point(1073, 11);
-            this.yazdirBtn.Name = "yazdirBtn";
-            this.yazdirBtn.Size = new System.Drawing.Size(75, 23);
-            this.yazdirBtn.TabIndex = 3;
-            this.yazdirBtn.Text = "Yazdır";
-            this.yazdirBtn.UseVisualStyleBackColor = true;
+            // this.yazdirBtn.Location = new System.Drawing.Point(1073, 11);
+            // this.yazdirBtn.Name = "yazdirBtn";
+            // this.yazdirBtn.Size = new System.Drawing.Size(75, 23);
+            // this.yazdirBtn.TabIndex = 3;
+            // this.yazdirBtn.Text = "Yazdır";
+            // this.yazdirBtn.UseVisualStyleBackColor = true;
             // 
             // yazdirCmb
             // 
-            this.yazdirCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.yazdirCmb.FormattingEnabled = true;
-            this.yazdirCmb.Items.AddRange(new object[] {
-            "PDF",
-            "WORD",
-            "EXCEL"});
-            this.yazdirCmb.Location = new System.Drawing.Point(946, 12);
-            this.yazdirCmb.Name = "yazdirCmb";
-            this.yazdirCmb.Size = new System.Drawing.Size(121, 23);
-            this.yazdirCmb.TabIndex = 4;
+            // this.yazdirCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            // this.yazdirCmb.FormattingEnabled = true;
+            // this.yazdirCmb.Items.AddRange(new object[] {
+            // "PDF",
+            // "WORD",
+            // "EXCEL"});
+            // this.yazdirCmb.Location = new System.Drawing.Point(946, 12);
+            // this.yazdirCmb.Name = "yazdirCmb";
+            // this.yazdirCmb.Size = new System.Drawing.Size(121, 23);
+            // this.yazdirCmb.TabIndex = 4;
             // 
             // Raporlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.yazdirCmb);
-            this.Controls.Add(this.yazdirBtn);
+            // this.Controls.Add(this.yazdirCmb);
+            // this.Controls.Add(this.yazdirBtn);
             this.Controls.Add(this.reportTbc);
             this.Name = "Raporlar";
             this.Padding = new System.Windows.Forms.Padding(8);
             this.Size = new System.Drawing.Size(1160, 768);
             this.reportTbc.ResumeLayout(false);
-            this.marketDurumTbp.ResumeLayout(false);
+            // this.marketDurumTbp.ResumeLayout(false);
             this.marketSatisTbp.ResumeLayout(false);
             this.musteriBorcTbp.ResumeLayout(false);
             this.musteriSatisTbp.ResumeLayout(false);
-            this.urunDurumTbp.ResumeLayout(false);
-            this.urunSatisTbp.ResumeLayout(false);
+            // this.urunDurumTbp.ResumeLayout(false);
+            // this.urunSatisTbp.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -233,16 +233,16 @@
         #endregion
 
         private TabControl reportTbc;
-        private TabPage marketDurumTbp;
-        private TabPage urunDurumTbp;
-        private Button yazdirBtn;
-        private ComboBox yazdirCmb;
+        // private TabPage marketDurumTbp;
+        // private TabPage urunDurumTbp;
+        // private Button yazdirBtn;
+        // private ComboBox yazdirCmb;
         private Reports.urunDurumRapor urunDurumRapor1;
         private Reports.marketDurumRapor marketDurumRapor1;
         private TabPage marketSatisTbp;
         private TabPage musteriBorcTbp;
         private TabPage musteriSatisTbp;
-        private TabPage urunSatisTbp;
+        // private TabPage urunSatisTbp;
         private Reports.marketTrendRapor marketTrendRapor1;
         private Reports.musteriBorcRapor musteriBorcRapor1;
         private Reports.musteriSatisRapor musteriSatisRapor1;
