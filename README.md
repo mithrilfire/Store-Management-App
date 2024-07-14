@@ -10,7 +10,7 @@
 <h4 align="center">A comprehensive management application for stores.</h4>
 
 <p align="center">
-  <a href="#features">Key Features</a> •
+  <a href="#features">Features</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#download">Download</a> •
   <a href="#tech-stack">Tech Stack</a>
@@ -31,8 +31,8 @@
 <center>
 <table>
 <tr>
-<td><img src="./images/stock-list.png" alt="Stock list screen"></td>
-<td><img src="./images/reports.png" alt="Report screen"></td>
+<td style:"border: none;"><img src="./images/stock-list.png" alt="Stock list screen"></td>
+<td style:"border: none;"><img src="./images/reports.png" alt="Report screen"></td>
 </tr>
 </table>
 </center>
