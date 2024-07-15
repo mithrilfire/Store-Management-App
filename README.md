@@ -31,8 +31,8 @@
 <center>
 <table>
 <tr>
-<td style:"border: none;"><img src="./images/stock-list.png" alt="Stock list screen"></td>
-<td style:"border: none;"><img src="./images/reports.png" alt="Report screen"></td>
+<td style:"border: none!important;"><img src="./images/stock-list.png" alt="Stock list screen"></td>
+<td style:"border: none!important;"><img src="./images/reports.png" alt="Report screen"></td>
 </tr>
 </table>
 </center>
@@ -41,10 +41,10 @@
 
 ```pwsh
 # Clone this repository
-$ git clone 'https://github.com/mithrilfire/market-otomasyonu.git'
+git clone 'https://github.com/mithrilfire/Store-Management-App.git'
 
 # Go into the repository
-$ cd 'market-otomasyonu'
+cd './Store-Management-App/MarketOtomasyonu/'
 
 # Install dependencies before build to update database
 dotnet restore
@@ -80,6 +80,9 @@ An example delivery note:
 1,9,9,Fair Trade Coffee,4.00,6.00,20
 1,10,10,Extra Virgin Olive Oil,6.00,9.00,15
 ```
+
+> [!IMPORTANT]
+> In order to add stocks and products with a delivery note, the supplier must first be added and selected.
 
 ## Download
 *Will be added soon.*
