@@ -85,7 +85,7 @@ An example delivery note:
 > In order to add stocks and products with a delivery note, the supplier must first be added and selected.
 
 ## Download
-*Will be added soon.*
+You can [download](https://github.com/mithrilfire/Store-Management-App/releases/tag/1.0.0) the latest version of Store Management Application for windows.
 
 ## Tech Stack
 - [.Net 7](https://dotnet.microsoft.com/en-us/)
