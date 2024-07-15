@@ -22,10 +22,14 @@ namespace MarketOtomasyonu.UserControls.Reports
 
             using (var db = new MarketDBContext())
             {
-                var ilkTarih = db.satislar.OrderBy(s => s.Tarih).First().Tarih.AddDays(-1);
-                baslangicDtp.Value = ilkTarih;
+                if (db.satislar.Count() != 0)
+                {
+                    var ilkTarih = db.satislar.OrderBy(s => s.Tarih).First().Tarih.AddDays(-1);
+                    baslangicDtp.Value = ilkTarih;
+                }
+               
             }
-            
+
             DateTime baslangic = baslangicDtp.Value;
             DateTime bitis = bitisDtp.Value;
 

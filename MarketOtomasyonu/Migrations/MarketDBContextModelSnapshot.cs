@@ -3,7 +3,6 @@ using System;
 using MarketOtomasyonu.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -16,262 +15,238 @@ namespace MarketOtomasyonu.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.2")
-                .HasAnnotation("Proxies:ChangeTracking", false)
-                .HasAnnotation("Proxies:CheckEquality", false)
-                .HasAnnotation("Proxies:LazyLoading", true)
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
-
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Musteri", b =>
                 {
                     b.Property<int>("MusteriId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MusteriId"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Adi")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Soyadi")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("MusteriId");
 
-                    b.ToTable("musteriler", (string)null);
+                    b.ToTable("musteriler");
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Personel", b =>
                 {
                     b.Property<int>("PersonelId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PersonelId"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Adi")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("KullaniciAdi")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Sifre")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Soyadi")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("Yonetici")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("PersonelId");
 
-                    b.ToTable("personeller", (string)null);
+                    b.ToTable("personeller");
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Satis", b =>
                 {
                     b.Property<int>("SatisId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SatisId"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Adet")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Barkod")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("Tarih")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<float>("Tutar")
-                        .HasColumnType("real");
+                        .HasColumnType("REAL");
 
                     b.Property<int?>("VeresiyeId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("SatisId");
 
                     b.HasIndex("VeresiyeId")
-                        .IsUnique()
-                        .HasFilter("[VeresiyeId] IS NOT NULL");
+                        .IsUnique();
 
-                    b.ToTable("satislar", (string)null);
+                    b.ToTable("satislar");
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Stok", b =>
                 {
                     b.Property<int>("UrunId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("IrsaliyeId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Adet")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<float>("GirdiBirimFiyati")
-                        .HasColumnType("real");
+                        .HasColumnType("REAL");
 
                     b.Property<int>("TedarikciId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("UrunId", "IrsaliyeId");
 
                     b.HasIndex("TedarikciId");
 
-                    b.ToTable("stoklar", (string)null);
+                    b.ToTable("stoklar");
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Tedarikci", b =>
                 {
                     b.Property<int>("TedarikciId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TedarikciId"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Adi")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Adres")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("TedarikciId");
 
-                    b.ToTable("tedarikciler", (string)null);
+                    b.ToTable("tedarikciler");
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.TedarikciBorc", b =>
                 {
                     b.Property<int>("TedarikciBorcId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TedarikciBorcId"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<float>("BorcTutari")
-                        .HasColumnType("real");
+                        .HasColumnType("REAL");
 
                     b.Property<int>("IrsaliyeNo")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("Tarih")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("TedarikciId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("TedarikciBorcId");
 
                     b.HasIndex("TedarikciId");
 
-                    b.ToTable("tedarikciBorclar", (string)null);
+                    b.ToTable("tedarikciBorclar");
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.TedarikciOdeme", b =>
                 {
                     b.Property<int>("TedarikciOdemeId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TedarikciOdemeId"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("OdemeTarihi")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("TedarikciBorcId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<float>("Tutar")
-                        .HasColumnType("real");
+                        .HasColumnType("REAL");
 
                     b.HasKey("TedarikciOdemeId");
 
                     b.HasIndex("TedarikciBorcId");
 
-                    b.ToTable("tedarikciOdemeler", (string)null);
+                    b.ToTable("tedarikciOdemeler");
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Urun", b =>
                 {
                     b.Property<int>("UrunId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Adi")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Barkod")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<float>("BirimFiyati")
-                        .HasColumnType("real");
+                        .HasColumnType("REAL");
 
                     b.HasKey("UrunId");
 
-                    b.ToTable("urunler", (string)null);
+                    b.ToTable("urunler");
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Veresiye", b =>
                 {
                     b.Property<int>("VeresiyeId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VeresiyeId"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<float>("KalanBorc")
-                        .HasColumnType("real");
+                        .HasColumnType("REAL");
 
                     b.Property<int>("MusteriId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("SatisId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("VeresiyeId");
 
                     b.HasIndex("MusteriId");
 
-                    b.ToTable("veresiyeler", (string)null);
+                    b.ToTable("veresiyeler");
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.VeresiyeOdeme", b =>
                 {
                     b.Property<int>("VeresiyeOdemeId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VeresiyeOdemeId"));
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("OdemeTarihi")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<float>("Tutar")
-                        .HasColumnType("real");
+                        .HasColumnType("REAL");
 
                     b.Property<int>("VeresiyeId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("VeresiyeOdemeId");
 
                     b.HasIndex("VeresiyeId");
 
-                    b.ToTable("veresiyeOdemeler", (string)null);
+                    b.ToTable("veresiyeOdemeler");
                 });
 
             modelBuilder.Entity("MarketOtomasyonu.Models.Satis", b =>

@@ -1,9 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 //using Microsoft.EntityFrameworkCore.Proxies;
 
 namespace MarketOtomasyonu.Models
@@ -21,14 +25,18 @@ namespace MarketOtomasyonu.Models
         public DbSet<Veresiye> veresiyeler { get; set; }
         public DbSet<VeresiyeOdeme> veresiyeOdemeler { get; set; }
 
+        public string DbPath { get; }
+
+        public MarketDBContext()
+        {
+            var folder = Environment.SpecialFolder.LocalApplicationData;
+            var path = Environment.GetFolderPath(folder);
+            DbPath = System.IO.Path.Join(path, "marketmanagement.db");
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Database=MarketDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            //optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\rubri\source\repos\MarketOtomasyonu\MarketOtomasyonu\Data\MarketDatabase.mdf;Integrated Security=True");
-            //optionsBuilder.UseSqlServer(@"Data Source=.\SQLEXPRESS;Database=MarketDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            //optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\rubri\\source\\repos\\MarketOtomasyonu\\MarketOtomasyonu\\Data\\MarketDatabase.mdf;Integrated Security=True");
-
-            optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connectionString);
+            optionsBuilder.UseLazyLoadingProxies().UseSqlite($"Data Source={DbPath}");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

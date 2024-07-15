@@ -1,4 +1,5 @@
 ﻿using MarketOtomasyonu.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,9 @@ namespace MarketOtomasyonu.Forms
 
             using (var db = new MarketDBContext())
             {
+                // If there is no database, create a new one and update it using migrations.
+                db.Database.Migrate();
+
                 if (db.personeller.Count() == 0)
                 {
                     db.personeller.Add(new Personel() { Adi="Admin", Soyadi="1", KullaniciAdi="admin", Sifre="admin", Yonetici=true});

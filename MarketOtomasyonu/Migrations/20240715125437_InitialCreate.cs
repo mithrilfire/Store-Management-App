@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MarketOtomasyonu.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,10 +15,10 @@ namespace MarketOtomasyonu.Migrations
                 name: "musteriler",
                 columns: table => new
                 {
-                    MusteriId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Adi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Soyadi = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    MusteriId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Adi = table.Column<string>(type: "TEXT", nullable: false),
+                    Soyadi = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,13 +29,13 @@ namespace MarketOtomasyonu.Migrations
                 name: "personeller",
                 columns: table => new
                 {
-                    PersonelId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Yonetici = table.Column<bool>(type: "bit", nullable: false),
-                    Adi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Soyadi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    KullaniciAdi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Sifre = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    PersonelId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Yonetici = table.Column<bool>(type: "INTEGER", nullable: false),
+                    Adi = table.Column<string>(type: "TEXT", nullable: false),
+                    Soyadi = table.Column<string>(type: "TEXT", nullable: false),
+                    KullaniciAdi = table.Column<string>(type: "TEXT", nullable: false),
+                    Sifre = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,10 +46,10 @@ namespace MarketOtomasyonu.Migrations
                 name: "tedarikciler",
                 columns: table => new
                 {
-                    TedarikciId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Adi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Adres = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    TedarikciId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Adi = table.Column<string>(type: "TEXT", nullable: false),
+                    Adres = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -60,10 +60,10 @@ namespace MarketOtomasyonu.Migrations
                 name: "urunler",
                 columns: table => new
                 {
-                    UrunId = table.Column<int>(type: "int", nullable: false),
-                    Adi = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Barkod = table.Column<int>(type: "int", nullable: false),
-                    BirimFiyati = table.Column<float>(type: "real", nullable: false)
+                    UrunId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Adi = table.Column<string>(type: "TEXT", nullable: false),
+                    Barkod = table.Column<int>(type: "INTEGER", nullable: false),
+                    BirimFiyati = table.Column<float>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,11 +74,11 @@ namespace MarketOtomasyonu.Migrations
                 name: "veresiyeler",
                 columns: table => new
                 {
-                    VeresiyeId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    KalanBorc = table.Column<float>(type: "real", nullable: false),
-                    SatisId = table.Column<int>(type: "int", nullable: false),
-                    MusteriId = table.Column<int>(type: "int", nullable: false)
+                    VeresiyeId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    KalanBorc = table.Column<float>(type: "REAL", nullable: false),
+                    SatisId = table.Column<int>(type: "INTEGER", nullable: false),
+                    MusteriId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -92,35 +92,15 @@ namespace MarketOtomasyonu.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "stoklar",
-                columns: table => new
-                {
-                    UrunId = table.Column<int>(type: "int", nullable: false),
-                    IrsaliyeId = table.Column<int>(type: "int", nullable: false),
-                    GirdiBirimFiyati = table.Column<float>(type: "real", nullable: false),
-                    Adet = table.Column<int>(type: "int", nullable: false),
-                    TedarikciId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_stoklar", x => new { x.UrunId, x.IrsaliyeId });
-                    table.ForeignKey(
-                        name: "FK_stoklar_tedarikciler_TedarikciId",
-                        column: x => x.TedarikciId,
-                        principalTable: "tedarikciler",
-                        principalColumn: "TedarikciId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "tedarikciBorclar",
                 columns: table => new
                 {
-                    TedarikciBorcId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IrsaliyeNo = table.Column<int>(type: "int", nullable: false),
-                    BorcTutari = table.Column<float>(type: "real", nullable: false),
-                    TedarikciId = table.Column<int>(type: "int", nullable: false)
+                    TedarikciBorcId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    IrsaliyeNo = table.Column<int>(type: "INTEGER", nullable: false),
+                    BorcTutari = table.Column<float>(type: "REAL", nullable: false),
+                    Tarih = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    TedarikciId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -134,16 +114,43 @@ namespace MarketOtomasyonu.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "stoklar",
+                columns: table => new
+                {
+                    UrunId = table.Column<int>(type: "INTEGER", nullable: false),
+                    IrsaliyeId = table.Column<int>(type: "INTEGER", nullable: false),
+                    GirdiBirimFiyati = table.Column<float>(type: "REAL", nullable: false),
+                    Adet = table.Column<int>(type: "INTEGER", nullable: false),
+                    TedarikciId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_stoklar", x => new { x.UrunId, x.IrsaliyeId });
+                    table.ForeignKey(
+                        name: "FK_stoklar_tedarikciler_TedarikciId",
+                        column: x => x.TedarikciId,
+                        principalTable: "tedarikciler",
+                        principalColumn: "TedarikciId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_stoklar_urunler_UrunId",
+                        column: x => x.UrunId,
+                        principalTable: "urunler",
+                        principalColumn: "UrunId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "satislar",
                 columns: table => new
                 {
-                    SatisId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Barkod = table.Column<int>(type: "int", nullable: false),
-                    Adet = table.Column<int>(type: "int", nullable: false),
-                    Tarih = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Tutar = table.Column<float>(type: "real", nullable: false),
-                    VeresiyeId = table.Column<int>(type: "int", nullable: true)
+                    SatisId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Barkod = table.Column<int>(type: "INTEGER", nullable: false),
+                    Adet = table.Column<int>(type: "INTEGER", nullable: false),
+                    Tarih = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Tutar = table.Column<float>(type: "REAL", nullable: false),
+                    VeresiyeId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -159,11 +166,11 @@ namespace MarketOtomasyonu.Migrations
                 name: "veresiyeOdemeler",
                 columns: table => new
                 {
-                    VeresiyeOdemeId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    OdemeTarihi = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Tutar = table.Column<float>(type: "real", nullable: false),
-                    VeresiyeId = table.Column<int>(type: "int", nullable: false)
+                    VeresiyeOdemeId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    OdemeTarihi = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Tutar = table.Column<float>(type: "REAL", nullable: false),
+                    VeresiyeId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -180,11 +187,11 @@ namespace MarketOtomasyonu.Migrations
                 name: "tedarikciOdemeler",
                 columns: table => new
                 {
-                    TedarikciOdemeId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    OdemeTarihi = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Tutar = table.Column<float>(type: "real", nullable: false),
-                    TedarikciBorcId = table.Column<int>(type: "int", nullable: false)
+                    TedarikciOdemeId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    OdemeTarihi = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Tutar = table.Column<float>(type: "REAL", nullable: false),
+                    TedarikciBorcId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -201,8 +208,7 @@ namespace MarketOtomasyonu.Migrations
                 name: "IX_satislar_VeresiyeId",
                 table: "satislar",
                 column: "VeresiyeId",
-                unique: true,
-                filter: "[VeresiyeId] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_stoklar_TedarikciId",
@@ -246,10 +252,10 @@ namespace MarketOtomasyonu.Migrations
                 name: "tedarikciOdemeler");
 
             migrationBuilder.DropTable(
-                name: "urunler");
+                name: "veresiyeOdemeler");
 
             migrationBuilder.DropTable(
-                name: "veresiyeOdemeler");
+                name: "urunler");
 
             migrationBuilder.DropTable(
                 name: "tedarikciBorclar");
